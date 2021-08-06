@@ -8,12 +8,8 @@
 </head>
 <body>
 
-<h1>Here are all today's questions relevant to you!:</h1>
+<h1>Use the dropdown bar to select the category of question that you want to see!</h1>
 
-<form method="get" action="listprod.jsp">
-<input type="text" name="productName" size="50">
-<input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
-</form>
 
 <% // Get product name to search for
 String name = request.getParameter("productName");
