@@ -11,10 +11,6 @@ DROP TABLE if exists Ratings;
 DROP TABLE if exists Answers;
 DROP TABLE if exists Categories;
 
-
-
-
-
 DROP TABLE if exists User;
 
 
@@ -27,36 +23,35 @@ CREATE TABLE User (
     UserName VARCHAR(10),
     Password VARCHAR(20) NOT NULL,
     GPA DECIMAL(1,1),
-    UserId CHAR(15) UNIQUE,
-    Year INTEGER,
+    UserId INTEGER UNIQUE IDENTITY,
+    CurrentYear INTEGER,
     PreferredEmail VARCHAR(50),
     CorAnswerTol INTEGER,
     PRIMARY KEY (StudentEmail, UserId)
 );
 
 CREATE TABLE Categories (
-    CategoryId CHAR(10) PRIMARY KEY,
+    CategoryId INTEGER PRIMARY KEY IDENTITY,
+    subjTitle CHAR(20),
     Faculty CHAR(20),
-    SubFaculty CHAR(20),
     Difficulty INTEGER,
-    Name CHAR(10),
     CHECK (Difficulty >= 0 AND Difficulty<= 5)
 );
 
 CREATE TABLE Answers (
-    AnsId CHAR(10),
+    AnsId INTEGER PRIMARY KEY IDENTITY,
     Time DATETIME,
-    Category CHAR(10),
-    QId CHAR(10),
+    Category INTEGER,
+    QId INTEGER,
     Description VARCHAR(250),
     FOREIGN KEY (Category) REFERENCES Categories(CategoryId) ON DELETE SET NULL ON UPDATE SET NULL,
     PRIMARY KEY (AnsId)
 );
 
 CREATE TABLE Ratings (
-    UserId CHAR(15),
-    AnsId CHAR(10),
-    RatingId CHAR(10),
+    UserId INTEGER,
+    AnsId INTEGER,
+    RatingId INTEGER,
     Score INTEGER,
     Time DATETIME,
     CHECK (Score >= 0 AND Score <= 5),
@@ -65,9 +60,9 @@ CREATE TABLE Ratings (
 );
 
 CREATE TABLE Transactions (
-    TransactionId CHAR(15),
+    Transactionid INTEGER IDENTITY,
     Status INTEGER,
-    UserId CHAR(15),
+    UserId INTEGER,
     Times   DATETIME,
     DogeAmo INTEGER,
     EtheAmo INTEGER,
@@ -79,12 +74,13 @@ CREATE TABLE Transactions (
 CREATE TABLE Currency (
     IndexName CHAR(10) PRIMARY KEY NOT NULL,
     MarketRate INTEGER,
-    Time DATETIME
+    coinName CHAR(10),
+    CurTime DATETIME
 );
 
 CREATE TABLE Questions (
-    QId CHAR(10) PRIMARY KEY,
-    UserId CHAR(10),
+    QId INTEGER PRIMARY KEY IDENTITY,
+    UserId INTEGER,
     Description VARCHAR(500),
     Category CHAR(10),
     TimeUntilClose INTEGER,
