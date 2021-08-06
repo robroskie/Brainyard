@@ -63,7 +63,7 @@ CREATE TABLE Transactions (
     Transactionid INTEGER IDENTITY,
     Status INTEGER,
     UserId INTEGER,
-    Times   DATETIME,
+    CurrTimes   DATETIME,
     DogeAmo INTEGER,
     EtheAmo INTEGER,
     BitAmo INTEGER,

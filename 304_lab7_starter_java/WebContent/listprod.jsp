@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>Search for the products you want to buy:</h1>
+<h1>Here are all today's questions relevant to you!:</h1>
 
 <form method="get" action="listprod.jsp">
 <input type="text" name="productName" size="50">
