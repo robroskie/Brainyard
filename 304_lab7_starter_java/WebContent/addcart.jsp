@@ -1,38 +1,37 @@
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.ArrayList" %>
-<%
-// Get the current list of products
-@SuppressWarnings({"unchecked"})
-HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
+  
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Query Results Using JSP</title>
+</head>
 
-if (productList == null)
-{	// No products currently in list.  Create a list.
-	productList = new HashMap<String, ArrayList<Object>>();
+<body>
+
+<% 
+String url = "jdbc:mysql://cosc304.ok.ubc.ca/workson";
+String uid = "rlawrenc";
+String pw = "todo";
+try 
+{	// Load driver class
+	Class.forName("com.mysql.jdbc.Driver");
 }
-
-// Add new product selected
-// Get product information
-String id = request.getParameter("id");
-String name = request.getParameter("name");
-String price = request.getParameter("price");
-Integer quantity = new Integer(1);
-
-// Store product information in an ArrayList
-ArrayList<Object> product = new ArrayList<Object>();
-product.add(id);
-product.add(name);
-product.add(price);
-product.add(quantity);
-
-// Update quantity if add same item to order again
-if (productList.containsKey(id))
-{	product = (ArrayList<Object>) productList.get(id);
-	int curAmount = ((Integer) product.get(3)).intValue();
-	product.set(3, new Integer(curAmount+1));
+catch (java.lang.ClassNotFoundException e) {
+	System.err.println("ClassNotFoundException: " +e);	
 }
-else
-	productList.put(id,product);
-
-session.setAttribute("productList", productList);
+try ( Connection con = DriverManager.getConnection(url, uid, pw);
+      Statement stmt = con.createStatement();) 
+{		
+	ResultSet rst = stmt.executeQuery("SELECT ename,salary FROM emp");		
+	out.println("<table><tr><th>Name</th><th>Salary</th></tr>");
+	while (rst.next())
+	{	out.println("<tr><td>"+rst.getString(1)+"</td>"+"<td>"+rst.getDouble(2)+"</td></tr>");
+	}
+	out.println("</table>");
+}
+catch (SQLException ex) 
+{ 	out.println(ex); 
+}
 %>
-<jsp:forward page="showcart.jsp" />
+</body>
+</html>
