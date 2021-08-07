@@ -20,7 +20,7 @@ CREATE TABLE BUser(
     Password VARCHAR(20) NOT NULL,
     GPA DECIMAL(2,1),
     UserId INTEGER UNIQUE,
-    CurrentYear VARINTEGER,
+    CurrentYear VARCHAR(10),
     PreferredEmail VARCHAR(50),
     CorAnsTot INTEGER,
     PRIMARY KEY (StudentEmail, UserId)
