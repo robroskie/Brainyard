@@ -1,3 +1,5 @@
+CREATE DATABASE SampleDB;
+
 DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS shipment;
 DROP TABLE IF EXISTS productinventory;
