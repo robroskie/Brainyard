@@ -2,7 +2,7 @@ const sql = require('mssql')
 const { PassThrough } = require('stream')
 
 const config = {
-    user: 'sa',
+    user: 'SA',
     password: 'YourStrong@Passw0rd',
     server: 'localhost',
     database: 'tempdb',
@@ -28,4 +28,3 @@ const run = async () => {
 }
 
 run();
-
