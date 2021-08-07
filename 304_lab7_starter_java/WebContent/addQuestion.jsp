@@ -8,7 +8,7 @@
 
 <body>
     <div><p1>Add A Question!</p1></div> 
-    <form action="handleAddQuestion.jsp" method="post">
+    <form action="addQuestionHandler.jsp" method="post">
 
             <label for="category">Question Category</label>
             <select name="category" id="category">
@@ -21,7 +21,7 @@
                 <option value="Computer Science">Computer Science</option>
                 <option value="Economics">Economics</option>
                 <option value="Environmental">Environmental</option>
-                <option value="Psychology">Psychology</option>
+                <option selected="selected" value="Psychology">Psychology</option>
                 <option value="Mathematics">Mathematics</option>
                 <option value="History">History</option>
                 <option value="Physics">Physics</option>
@@ -30,7 +30,7 @@
             </select>
 
             <label for="description">Question Description</label>
-            <input type="text" name="description" /> <br/>
+            <input type="text" name="description" placeholder="testings" /> <br/>
             <input type="submit" value="submit">
   
     </form>
