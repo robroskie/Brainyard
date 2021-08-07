@@ -9,11 +9,9 @@
 <body>
     <div><p1>Add A Question!</p1></div> 
     <form action="handleAddQuestion.jsp" method="post">
-  
-       
-        <fieldset>
-         
-            <select name="Question Category" id="category">
+
+            <label for="category">Question Category</label>
+            <select name="category" id="category">
                 <option value="Anthropology">Anthropology</option>
                 <option value="Applied Science">Applied Science</option>
                 <option value="Art History">Art History</option>
@@ -29,14 +27,12 @@
                 <option value="Physics">Physics</option>
                 <option value="Management">Management</option>
                 <option value="null">null</option>
-              </select>
+            </select>
+
             <label for="description">Question Description</label>
             <input type="text" name="description" /> <br/>
             <input type="submit" value="submit">
-        </fieldset>
+  
     </form>
-
-
-
 </body>
 </html>

@@ -8,6 +8,7 @@
             String description = request.getParameter("description");
 
         %>
-        <p>Hi <%=category%> <%=description%>!</p>
+        <p>Added question from category of:<strong> <%=category%> </strong></p>
+        <p>Question description:<i> <%=description%> </i>.</p>
     </body>
 </html>
