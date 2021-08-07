@@ -5,3 +5,6 @@ EXPOSE 8080
 COPY ./WebContent/WEB-INF/lib/sqljdbc4.jar /usr/local/tomcat/lib/sqljdbc4.jar
 
 CMD ["catalina.sh", "run"]
+
+USER mssql
+ENTRYPOINT /bin/bash ./entrypoint.sh
