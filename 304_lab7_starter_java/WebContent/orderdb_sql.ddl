@@ -1,5 +1,5 @@
 CREATE DATABASE brainYard;
-GO
+GO;
 USE brainYard;
 
 DROP TABLE if exists UserLog;
