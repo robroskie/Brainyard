@@ -15,5 +15,6 @@ INSERT INTO Persons (
     Address,
     City
 )
+
 VALUES 
 (2, "abc", "afghbc", "afghbc", "fghabc");
