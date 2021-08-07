@@ -1,16 +1,4 @@
-CREATE DATABASE SampleDB;
-
-DROP TABLE IF EXISTS review;
-DROP TABLE IF EXISTS shipment;
-DROP TABLE IF EXISTS productinventory;
-DROP TABLE IF EXISTS warehouse;
-DROP TABLE IF EXISTS orderproduct;
-DROP TABLE IF EXISTS incart;
-DROP TABLE IF EXISTS product;
-DROP TABLE IF EXISTS category;
-DROP TABLE IF EXISTS ordersummary;
-DROP TABLE IF EXISTS paymentmethod;
-DROP TABLE IF EXISTS customer;
+CREATE DATABASE SamplDB;
 
 DROP TABLE if exists UserLog;
 DROP TABLE if exists UStatus;
@@ -172,70 +160,69 @@ INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (11,'Mathem
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (12,'History','Arts and Sciences',1);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (13,'Physics','Arts and Sciences', 3);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (14,'Management','Managment',2);
-
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (1, 2, '2011-01-14 12:12', 4, 1, 'The large surface area of a mycelium makes them such effective decomposers')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (2, 1, '2011-01-20 12:12', 4, 1, 'They grow towards dead tissues')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (3, 3, '2011-01-21 12:12', 4, 1, 'They secrete a strong acidic substance that rapidly breaks down proteins')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (4, 8, '2012-04-12 12:12', 4, 2, 'Using a gRNA protein sequence that includes the desired cut peptide sequence')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (5, 9, '2012-04-15 12:12', 4, 2, 'Two proteins bind to dna and cut it')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (6, 1, '2012-04-16 12:12', 5, 3, 'It can bed light at a different polarity')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (7, 8, '2012-04-17 12:12', 5, 3, 'The molecule has a copy or mirror image of itself that has different chemical properties')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (8, 7, '2012-04-19 12:12', 5, 3, 'The molecule has S/R properties that define the trigonometry of it in 3D space')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (9, 5, '2012-04-20 12:12', 5, 3, 'It has the ability to bend light at a different angle')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (10, 3, '2012-04-22 12:12', 5, 3, 'It means it can react to acids more intensely')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (11, 4, '2015-07-12 12:12', 12, 4, 'Hans Janssen')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (12, 5, '2015-07-15 12:12', 12, 4, 'Pasture')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (13, 7, '2015-11-21 12:12', 13, 5, 'density')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (14, 8, '2015-11-26 12:12', 13, 5, 'Purity')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (15, 9, '2015-11-27 12:12', 13, 5, 'Viscosity')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (16, 8, '2015-11-21 12:12', 4, 6, 'Hemoglobin Myoglobin and BS albumin would all be included. Myosin and Galatin would not be included and Vitamin B12 and C would fraction out completely')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (17, 9, '2016-01-04 12:12', 4, 6, 'Hemoglobin BS albumin would all be included. Myosin+Myoglobin+Galatin would not be included and Vitamin B12 and C would fraction out completely')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (18, 4, '2016-01-11 12:12', 3, 8, 'Leonardo Da Vinci')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (19, 8, '2016-01-14 12:12', 3, 8, 'Pablo Picaso')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (20, 10, '2016-02-08 12:12', 3, 8, 'Grant Wood')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (21, 2, '2016-01-15 12:12', 6, 9, 'Neoclassicism as a label is applied to a period of English literature lasting from 1660 the Restoration of Charles II till about 1800')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (22, 1, '2016-02-01 12:12', 6, 9, 'The prefix neo means new while classical refers to a return to the ideologies set in place by Greeks and Romans during the Classic period')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (23, 5, '2016-01-23 12:12', 8, 10, 'Macro looks at the big picture while Micro looks at individuals and the small relationships amongst them')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (24, 9, '2016-01-27 12:12', 8, 10, 'Economics is divided into two categories: microeconomics and macroeconomics. Microeconomics is the study of individuals and business decisions while macroeconomics looks at the decisions of countries and governments')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (25, 4, '2016-01-29 12:12', 8, 10, 'Microeconomics is the study of particular markets and segments of the economy. It looks at issues such as consumer behaviour individual labour markets and the theory of firms.Macro economics is the study of the whole economy. It looks at aggregate variables such as aggregate demand national output and inflation.')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (26, 1, '2016-02-20 12:12', 7, 11, 'Int size = 5;for (int x=0;x<=size;x++){')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (27, 10, '2016-02-22 12:12', 7, 11, 'for (int x=0:x<=size:x++) as we use int x to be a counter of a sort that increments upwards we check the condition. We exit the loop once the constraint is met. Best to set the constraint outside the loop as it will need to be initialized to continually check your constraint')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (28, 2, '2017-01-26 12:12', 6, 12, 'Formalist Criticism designates an approach to understanding narratives that is rooted in close attention to how meaning is conveyed. It begins from the premise that form and content are closely related')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (29, 10, '2017-02-11 12:12', 6, 12, 'The comparison of one thing to another in which there is a literal substitution; her love is a tsunami.')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (30, 1, '2017-02-12 12:12', 4, 13, 'IS the cyclic phosphorylation of ADP to form ATP which is then consumed as an energy source')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (31, 8, '2017-02-27 12:12', 4, 13, 'The process most occurs in plants in photosystem 1')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (32, 9, '2017-02-24 12:12', 4, 14, 'enzyme RuBisCO incorporates carbon dioxide into an organic molecule 3-PGa organic molecule is reduced using electrons supplied by NADPH RuBP molecule that starts the cycle is regenerated so that the cycle can continue')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (33, 1, '2017-02-07 12:12', 10, 15, 'Alzheimers')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (34, 9, '2017-02-20 12:12', 10, 15, 'Parkinsons Disease')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (35, 10, '2017-02-21 12:12', 10, 15, 'Dopamine Deficiency')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (36, 4, '2017-03-01 12:12', 4, 16, 'Taste-buds')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (37, 5, '2017-03-02', 4, 16, 'papillae')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (38, 3, '2017-02-20', 8, 17, 'Due to the possible presence of a third hidden variable unknown to both parties that is causing an unseen force that either positively or negatively influences the data')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (39, 7, '2017-02-28 12:12', 8, 17, 'Behavior is too complex variable and reactive to allow for cause and effect determinations')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (40, 1, '2017-03-04 12:12', 8, 17, 'If two variables are correlated then by definition one cannot cause the other')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (41, 4, '2017-03-06 12:12', 8, 17, 'Correlational studies are not empirical')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (42, 3, '2017-03-14 12:12', 12, 18, 'Philospher; the mind body problem')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (43, 4, '2017-03-15 12:12', 12, 18, 'Was both a physicist and philosopher whos work encompasses both the mind body problem and advances in fluid dynamics')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (44, 10, '2017-04-20 12:12', 4, 19, 'Cerebellum')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (45, 8, '2017-04-22 12:12', 4, 19, 'Cerebellum and Motor Cortex')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (46, 1, '2017-05-12 12:12', 4, 19, 'Cerebellum and Motor Cortex')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (47, 7, '2018-04-19 12:12', 10, 20, 'Through neurological mechanisms underlying observable behavior.')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (48, 2, '2018-05-02 12:12', 10, 20, 'Mental processes such as memory perception and thought.')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (49, 1, '2018-05-24 12:12', 4, 21, 'As the cell is in prophase it has 24')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (50, 5, '2018-05-27 12:12', 4, 21, 'Has 48 as the cell is about to split')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (51, 9, '2018-06-11 12:12', 4, 21, 'The cell is full and expressing normal numbers of 24')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (52, 8, '2018-06-11 12:12', 4, 21, 'The cell is full and expressing normal numbers of 48')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (53, 2, '2019-06-11 12:12', 12, 22, '19th century; 1960s; then 1990s')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (54, 3, '2019-06-18 12:12', 12, 22, 'The strongest and most talked about is the third way from around 1990s onward')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (55, 6, '2019-06-29 12:12', 12, 22, 'First wave – 19th century equal rights under law Second wave – 1960s personal is political reproductive rights Third wave – from mid 1990s – challenging fixed gender categories reclaiming of negative language (e.g. Slut-walk).')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (56, 10, '2020-07-05 12:12', 10, 23, 'Lucid dreaming being aware in the dream')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (57, 5, '2020-07-10 12:12', 10, 23, 'Having full memories of the dreams in a waking state as to cause a confusion with reality')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (58, 4, '2020-07-14 12:12', 10, 23, 'Having an in-between like dream state where you feel awake')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (59, 10, '2020-07-12 12:12', 5, 24, '6CO2 + 6H2O → C6H12O6 + 6O2.')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (60, 9, '2020-07-15', 5, 24, 'six carbon dioxide molecules and six water molecules are converted by light energy captured by chlorophyll into a sugar molecule and six oxygen molecules')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (61, 6, '2020-08-04 12:12', 1, 25, 'The use of paper for hygiene has been recorded in China in the 6th century AD with specifically manufactured toilet paper being mass-produced in the 14th century.Modern commercial toilet paper originated in the 19th century with a patent for roll-based dispensers being made in 1883')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (62, 1, '2020-07-23 12:12', 4, 26, 'Controls the direction of the stemming of buds')
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (63, 8, '2020-07-25 12:12', 4, 26, 'Auxins are a powerful growth hormone produced naturally by plants. They are found in shoot and root tips and promote cell division stem and root growth. They can also drastically affect plant orientation by promoting cell division to one side of the plant in response to sunlight and gravity.')
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (1, 2, '2011-01-14 12:12', 4, 1, 'The large surface area of a mycelium makes them such effective decomposers');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (2, 1, '2011-01-20 12:12', 4, 1, 'They grow towards dead tissues');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (3, 3, '2011-01-21 12:12', 4, 1, 'They secrete a strong acidic substance that rapidly breaks down proteins');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (4, 8, '2012-04-12 12:12', 4, 2, 'Using a gRNA protein sequence that includes the desired cut peptide sequence');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (5, 9, '2012-04-15 12:12', 4, 2, 'Two proteins bind to dna and cut it');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (6, 1, '2012-04-16 12:12', 5, 3, 'It can bed light at a different polarity');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (7, 8, '2012-04-17 12:12', 5, 3, 'The molecule has a copy or mirror image of itself that has different chemical properties');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (8, 7, '2012-04-19 12:12', 5, 3, 'The molecule has S/R properties that define the trigonometry of it in 3D space');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (9, 5, '2012-04-20 12:12', 5, 3, 'It has the ability to bend light at a different angle');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (10, 3, '2012-04-22 12:12', 5, 3, 'It means it can react to acids more intensely');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (11, 4, '2015-07-12 12:12', 12, 4, 'Hans Janssen');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (12, 5, '2015-07-15 12:12', 12, 4, 'Pasture');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (13, 7, '2015-11-21 12:12', 13, 5, 'density');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (14, 8, '2015-11-26 12:12', 13, 5, 'Purity');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (15, 9, '2015-11-27 12:12', 13, 5, 'Viscosity');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (16, 8, '2015-11-21 12:12', 4, 6, 'Hemoglobin Myoglobin and BS albumin would all be included. Myosin and Galatin would not be included and Vitamin B12 and C would fraction out completely');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (17, 9, '2016-01-04 12:12', 4, 6, 'Hemoglobin BS albumin would all be included. Myosin+Myoglobin+Galatin would not be included and Vitamin B12 and C would fraction out completely');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (18, 4, '2016-01-11 12:12', 3, 8, 'Leonardo Da Vinci');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (19, 8, '2016-01-14 12:12', 3, 8, 'Pablo Picaso');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (20, 10, '2016-02-08 12:12', 3, 8, 'Grant Wood');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (21, 2, '2016-01-15 12:12', 6, 9, 'Neoclassicism as a label is applied to a period of English literature lasting from 1660 the Restoration of Charles II till about 1800');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (22, 1, '2016-02-01 12:12', 6, 9, 'The prefix neo means new while classical refers to a return to the ideologies set in place by Greeks and Romans during the Classic period');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (23, 5, '2016-01-23 12:12', 8, 10, 'Macro looks at the big picture while Micro looks at individuals and the small relationships amongst them');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (24, 9, '2016-01-27 12:12', 8, 10, 'Economics is divided into two categories: microeconomics and macroeconomics. Microeconomics is the study of individuals and business decisions while macroeconomics looks at the decisions of countries and governments');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (25, 4, '2016-01-29 12:12', 8, 10, 'Microeconomics is the study of particular markets and segments of the economy. It looks at issues such as consumer behaviour individual labour markets and the theory of firms.Macro economics is the study of the whole economy. It looks at aggregate variables such as aggregate demand national output and inflation.');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (26, 1, '2016-02-20 12:12', 7, 11, 'Int size = 5;for (int x=0;x<=size;x++){');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (27, 10, '2016-02-22 12:12', 7, 11, 'for (int x=0:x<=size:x++) as we use int x to be a counter of a sort that increments upwards we check the condition. We exit the loop once the constraint is met. Best to set the constraint outside the loop as it will need to be initialized to continually check your constraint');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (28, 2, '2017-01-26 12:12', 6, 12, 'Formalist Criticism designates an approach to understanding narratives that is rooted in close attention to how meaning is conveyed. It begins from the premise that form and content are closely related');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (29, 10, '2017-02-11 12:12', 6, 12, 'The comparison of one thing to another in which there is a literal substitution; her love is a tsunami.');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (30, 1, '2017-02-12 12:12', 4, 13, 'IS the cyclic phosphorylation of ADP to form ATP which is then consumed as an energy source');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (31, 8, '2017-02-27 12:12', 4, 13, 'The process most occurs in plants in photosystem 1');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (32, 9, '2017-02-24 12:12', 4, 14, 'enzyme RuBisCO incorporates carbon dioxide into an organic molecule 3-PGa organic molecule is reduced using electrons supplied by NADPH RuBP molecule that starts the cycle is regenerated so that the cycle can continue');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (33, 1, '2017-02-07 12:12', 10, 15, 'Alzheimers');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (34, 9, '2017-02-20 12:12', 10, 15, 'Parkinsons Disease');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (35, 10, '2017-02-21 12:12', 10, 15, 'Dopamine Deficiency');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (36, 4, '2017-03-01 12:12', 4, 16, 'Taste-buds');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (37, 5, '2017-03-02', 4, 16, 'papillae');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (38, 3, '2017-02-20', 8, 17, 'Due to the possible presence of a third hidden variable unknown to both parties that is causing an unseen force that either positively or negatively influences the data');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (39, 7, '2017-02-28 12:12', 8, 17, 'Behavior is too complex variable and reactive to allow for cause and effect determinations');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (40, 1, '2017-03-04 12:12', 8, 17, 'If two variables are correlated then by definition one cannot cause the other');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (41, 4, '2017-03-06 12:12', 8, 17, 'Correlational studies are not empirical');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (42, 3, '2017-03-14 12:12', 12, 18, 'Philospher; the mind body problem');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (43, 4, '2017-03-15 12:12', 12, 18, 'Was both a physicist and philosopher whos work encompasses both the mind body problem and advances in fluid dynamics');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (44, 10, '2017-04-20 12:12', 4, 19, 'Cerebellum');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (45, 8, '2017-04-22 12:12', 4, 19, 'Cerebellum and Motor Cortex');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (46, 1, '2017-05-12 12:12', 4, 19, 'Cerebellum and Motor Cortex');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (47, 7, '2018-04-19 12:12', 10, 20, 'Through neurological mechanisms underlying observable behavior.');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (48, 2, '2018-05-02 12:12', 10, 20, 'Mental processes such as memory perception and thought.');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (49, 1, '2018-05-24 12:12', 4, 21, 'As the cell is in prophase it has 24');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (50, 5, '2018-05-27 12:12', 4, 21, 'Has 48 as the cell is about to split');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (51, 9, '2018-06-11 12:12', 4, 21, 'The cell is full and expressing normal numbers of 24');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (52, 8, '2018-06-11 12:12', 4, 21, 'The cell is full and expressing normal numbers of 48');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (53, 2, '2019-06-11 12:12', 12, 22, '19th century; 1960s; then 1990s');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (54, 3, '2019-06-18 12:12', 12, 22, 'The strongest and most talked about is the third way from around 1990s onward');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (55, 6, '2019-06-29 12:12', 12, 22, 'First wave – 19th century equal rights under law Second wave – 1960s personal is political reproductive rights Third wave – from mid 1990s – challenging fixed gender categories reclaiming of negative language (e.g. Slut-walk).');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (56, 10, '2020-07-05 12:12', 10, 23, 'Lucid dreaming being aware in the dream');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (57, 5, '2020-07-10 12:12', 10, 23, 'Having full memories of the dreams in a waking state as to cause a confusion with reality');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (58, 4, '2020-07-14 12:12', 10, 23, 'Having an in-between like dream state where you feel awake');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (59, 10, '2020-07-12 12:12', 5, 24, '6CO2 + 6H2O → C6H12O6 + 6O2.');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (60, 9, '2020-07-15', 5, 24, 'six carbon dioxide molecules and six water molecules are converted by light energy captured by chlorophyll into a sugar molecule and six oxygen molecules');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (61, 6, '2020-08-04 12:12', 1, 25, 'The use of paper for hygiene has been recorded in China in the 6th century AD with specifically manufactured toilet paper being mass-produced in the 14th century.Modern commercial toilet paper originated in the 19th century with a patent for roll-based dispensers being made in 1883');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (62, 1, '2020-07-23 12:12', 4, 26, 'Controls the direction of the stemming of buds');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (63, 8, '2020-07-25 12:12', 4, 26, 'Auxins are a powerful growth hormone produced naturally by plants. They are found in shoot and root tips and promote cell division stem and root growth. They can also drastically affect plant orientation by promoting cell division to one side of the plant in response to sunlight and gravity.');
 
 
 INSERT Ratings(UserId, AnsId, RatingId, Score, PTime) VALUES (1, 1, 1, 3, '2011-01-15 12:12:12.123');
