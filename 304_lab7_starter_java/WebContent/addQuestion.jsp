@@ -7,31 +7,36 @@
 </head>
 
 <body>
+    <div><p1>Add A Question!</p1></div> 
+    <form action="handleAddQuestion.jsp" method="post">
+  
+       
+        <fieldset>
+         
+            <select name="Question Category" id="category">
+                <option value="Anthropology">Anthropology</option>
+                <option value="Applied Science">Applied Science</option>
+                <option value="Art History">Art History</option>
+                <option value="Biology">Biology</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Creative Writing">Creative Writing</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Economics">Economics</option>
+                <option value="Environmental">Environmental</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="History">History</option>
+                <option value="Physics">Physics</option>
+                <option value="Management">Management</option>
+                <option value="null">null</option>
+              </select>
+            <label for="description">Question Description</label>
+            <input type="text" name="description" /> <br/>
+            <input type="submit" value="submit">
+        </fieldset>
+    </form>
 
-<% 
-String url = "jdbc:mysql://cosc304.ok.ubc.ca/workson";
-String uid = "rlawrenc";
-String pw = "todo";
-try 
-{	// Load driver class
-	Class.forName("com.mysql.jdbc.Driver");
-}
-catch (java.lang.ClassNotFoundException e) {
-	System.err.println("ClassNotFoundException: " +e);	
-}
-try ( Connection con = DriverManager.getConnection(url, uid, pw);
-      Statement stmt = con.createStatement();) 
-{		
-	ResultSet rst = stmt.executeQuery("SELECT ename,salary FROM emp");		
-	out.println("<table><tr><th>Name</th><th>Salary</th></tr>");
-	while (rst.next())
-	{	out.println("<tr><td>"+rst.getString(1)+"</td>"+"<td>"+rst.getDouble(2)+"</td></tr>");
-	}
-	out.println("</table>");
-}
-catch (SQLException ex) 
-{ 	out.println(ex); 
-}
-%>
+
+
 </body>
 </html>
