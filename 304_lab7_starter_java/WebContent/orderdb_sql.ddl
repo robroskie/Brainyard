@@ -1,4 +1,6 @@
-CREATE DATABASE SampleDB;
+CREATE DATABASE brainYard;
+GO
+USE brainYard;
 
 DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS shipment;
