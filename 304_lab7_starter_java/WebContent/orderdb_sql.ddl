@@ -160,6 +160,7 @@ INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (11,'Mathem
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (12,'History','Arts and Sciences',1);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (13,'Physics','Arts and Sciences', 3);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (14,'Management','Managment',2);
+
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (1, 2, '2011-01-14 12:12', 4, 1, 'The large surface area of a mycelium makes them such effective decomposers');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (2, 1, '2011-01-20 12:12', 4, 1, 'They grow towards dead tissues');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (3, 3, '2011-01-21 12:12', 4, 1, 'They secrete a strong acidic substance that rapidly breaks down proteins');
@@ -185,8 +186,8 @@ INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (22, 1, 
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (23, 5, '2016-01-23 12:12', 8, 10, 'Macro looks at the big picture while Micro looks at individuals and the small relationships amongst them');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (24, 9, '2016-01-27 12:12', 8, 10, 'Economics is divided into two categories: microeconomics and macroeconomics. Microeconomics is the study of individuals and business decisions while macroeconomics looks at the decisions of countries and governments');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (25, 4, '2016-01-29 12:12', 8, 10, 'Microeconomics is the study of particular markets and segments of the economy. It looks at issues such as consumer behaviour individual labour markets and the theory of firms.Macro economics is the study of the whole economy. It looks at aggregate variables such as aggregate demand national output and inflation.');
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (26, 1, '2016-02-20 12:12', 7, 11, 'Int size = 5;for (int x=0;x<=size;x++){');
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (27, 10, '2016-02-22 12:12', 7, 11, 'for (int x=0:x<=size:x++) as we use int x to be a counter of a sort that increments upwards we check the condition. We exit the loop once the constraint is met. Best to set the constraint outside the loop as it will need to be initialized to continually check your constraint');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (26, 1, '2016-02-20 12:12', 7, 11, 'Int size = 5 for (int x=0 x<=size x++){');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (27, 10, '2016-02-22 12:12', 7, 11, 'for (int x=0 x<=size x++) as we use int x to be a counter of a sort that increments upwards we check the condition. We exit the loop once the constraint is met. Best to set the constraint outside the loop as it will need to be initialized to continually check your constraint');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (28, 2, '2017-01-26 12:12', 6, 12, 'Formalist Criticism designates an approach to understanding narratives that is rooted in close attention to how meaning is conveyed. It begins from the premise that form and content are closely related');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (29, 10, '2017-02-11 12:12', 6, 12, 'The comparison of one thing to another in which there is a literal substitution; her love is a tsunami.');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (30, 1, '2017-02-12 12:12', 4, 13, 'IS the cyclic phosphorylation of ADP to form ATP which is then consumed as an energy source');
@@ -201,7 +202,7 @@ INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (38, 3, 
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (39, 7, '2017-02-28 12:12', 8, 17, 'Behavior is too complex variable and reactive to allow for cause and effect determinations');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (40, 1, '2017-03-04 12:12', 8, 17, 'If two variables are correlated then by definition one cannot cause the other');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (41, 4, '2017-03-06 12:12', 8, 17, 'Correlational studies are not empirical');
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (42, 3, '2017-03-14 12:12', 12, 18, 'Philospher; the mind body problem');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (42, 3, '2017-03-14 12:12', 12, 18, 'Philospher the mind body problem');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (43, 4, '2017-03-15 12:12', 12, 18, 'Was both a physicist and philosopher whos work encompasses both the mind body problem and advances in fluid dynamics');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (44, 10, '2017-04-20 12:12', 4, 19, 'Cerebellum');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (45, 8, '2017-04-22 12:12', 4, 19, 'Cerebellum and Motor Cortex');
@@ -212,7 +213,7 @@ INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (49, 1, 
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (50, 5, '2018-05-27 12:12', 4, 21, 'Has 48 as the cell is about to split');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (51, 9, '2018-06-11 12:12', 4, 21, 'The cell is full and expressing normal numbers of 24');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (52, 8, '2018-06-11 12:12', 4, 21, 'The cell is full and expressing normal numbers of 48');
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (53, 2, '2019-06-11 12:12', 12, 22, '19th century; 1960s; then 1990s');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (53, 2, '2019-06-11 12:12', 12, 22, '19th century 1960s then 1990s');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (54, 3, '2019-06-18 12:12', 12, 22, 'The strongest and most talked about is the third way from around 1990s onward');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (55, 6, '2019-06-29 12:12', 12, 22, 'First wave – 19th century equal rights under law Second wave – 1960s personal is political reproductive rights Third wave – from mid 1990s – challenging fixed gender categories reclaiming of negative language (e.g. Slut-walk).');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (56, 10, '2020-07-05 12:12', 10, 23, 'Lucid dreaming being aware in the dream');
