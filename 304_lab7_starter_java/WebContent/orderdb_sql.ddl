@@ -1,4 +1,4 @@
-CREATE DATABASE SamplDB;
+CREATE DATABASE SampleDB;
 
 DROP TABLE if exists UserLog;
 DROP TABLE if exists UStatus;
