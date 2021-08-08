@@ -77,14 +77,14 @@
 <body>
 
 
+    <div class="container">
     <div class="hero-image">
         <div class="hero-text">
             <h1 style="font-size:50px">BrainYard</h1>
             <h3>Answers to your questions</h3>
         </div>
     </div>
-
-    <h1>Hello, world!</h1>
+    </div>
 
     <div id="carouselExampleSlidesOnly" class="container carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -111,19 +111,16 @@
             </div>
         </div>
     </div>
-
-    <div class="hero-image">
-        <div class="hero-text">
-            <h1 style="font-size:50px">BrainYard</h1>
-            <h3>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum."</h3>
+    <div class="container" style='background-image: url("./Resources/professionals.png")';>
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1 style="font-size:50px">BrainYard</h1>
+                <h3>"Please start by loading the database."</h3>
+            </div>
         </div>
     </div>
 
-    <div class="container comments-box">
+    <!-- <div class="container comments-box">
         <div class="jumbotron bg-dark my-4">
             <h1 class="display-4 text-white">Threaded Comments - Bootstrap 4</h1>
             <ul class="timeline-comments">
@@ -154,7 +151,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <!-- Modal -->
     <div id="LogButton" class="modal fade" role="dialog">
