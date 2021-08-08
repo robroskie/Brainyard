@@ -7,7 +7,7 @@
 }
 
 .hero-image {
-    background-image: url("professionals.png");
+    background-image: url("./Resources/professionals.png");
     background-color: #cccccc;
     height: 500px;
     background-position: center;
