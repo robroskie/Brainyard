@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>BrainYard: Main Page</title>
+    <title>BrainYard: Correct Questions</title>
 
     <link rel="stylesheet" href="./standard.css">
     <!-- Optional JavaScript -->
@@ -71,10 +71,6 @@
 
     </div>
 </nav>
-
-<head>
-<title>Get Your Answers!!</title>
-</head>
 
 <body>
 <div><p1>Whats your BrainID?</p1></div>
