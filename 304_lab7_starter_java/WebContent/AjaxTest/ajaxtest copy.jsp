@@ -21,7 +21,7 @@
     <script>
         $(document).ready(function(){
             $("button").click(function(){
-                $("#div1").load("../testQuery.jsp");
+                $("#div1").load("../shop.html");
             });
         });
     </script>

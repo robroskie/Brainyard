@@ -58,6 +58,7 @@
                     <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
                     <a class="dropdown-item" href="./testQuery.jsp">testQuery.jsp</a>
                     <a class="dropdown-item" href="./listAllQuestions.jsp">listAllQuestions.jsp</a>
+                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">listAllQuestionsByCategory</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">addQuestion.jsp</a>
                     <a class="dropdown-item" href="./addQuestionHandler.jsp">addQuestionHandler.jsp</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
