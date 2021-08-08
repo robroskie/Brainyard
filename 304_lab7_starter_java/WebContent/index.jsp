@@ -54,7 +54,7 @@
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
-                    <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                 </div>
             </li>
         </ul>
