@@ -8,45 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="../standard.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="standard.css">
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-
-    <script>
-        function showFields(string1) {
-            var xRequest1;
-            if (string1 == "") {
-                document.getElementById("Show_update").innerHTML = "";
-                return;
-            }
-            if (window.XMLHttpRequest) {
-                xRequest1 = new XMLHttpRequest();
-            }
-            else {
-                xRequest1 = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xRequest1.onreadystatechange = function () {
-                if ((xRequest1.readyState == 4) && (xRequest1.status == 200)) {
-                    document.getElementById("Show_update").innerHTML
-                        = xRequest1.responseText;
-                }
-            }
-            // xRequest1.open("get", "empdetails.jsp?q=" + string1, "true");
-            xRequest1.open("get", "../testQuery.jsp" , "true");
-            xRequest1.send();
-        }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -105,16 +74,40 @@
 </nav>
 
 <body>
-    <form>
-        <select name="user_name" onchange="getempdetails(this.value)" >
-        <option value="">Employee Designations</option>
-        <option value="Officer">Officer </option>
-        <option value="Supervisor">Supervisor </option>
-        <option value="Manager">Manager </option>
-        </select>
+    <div style="margin: auto;width:30%;padding-top:50px">
+        <form id="form1" name="form1" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder='Search by rollno...' id="roll_no"><br>
+                <p align="center"><button type="submit" class="btn btn-primary btn-default" id="search">Submit</button>
+                </p><br>
+                <label for="city">Display city name of student:</label>
+                <input type="text" class="form-control" placeholder='City name' id="city_name"><br><br>
+            </div>
         </form>
-        <br />
-        <div id="Show_update">To Update the designation...</div>  
+    </div>
+
+    <div id="demo">
+        <h2>Let AJAX change this text</h2>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    
+    <script>
+        $("#search").click(function () {
+            var roll_no = $('#roll_no').val();
+            city_name.value = city_name;
+            $.ajax({
+                url: "fetch.jsp",
+                type: 'POST',
+                data: { roll_no: roll_no },
+                success: function (data) {
+                    $('#city_name').val(data);
+                    alert(data);
+                    var city_name = data;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
