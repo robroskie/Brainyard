@@ -141,24 +141,23 @@
         int updateQuery = ps.executeUpdate();	
 
         if(updateQuery != 0)
-            out.println("successfully updated"); 
+            out.println("Successfully updated your question!"); 
 
 
         ps2.setString(1,category);
         int rs2 = ps2.executeUpdate();
         
-        out.println("rs2 is: " + rs2);
     }
 
     catch (SQLException ex) { 
-        	out.println(ex); 
+        	//out.println(ex); 
     }
 
     %>
 
         <!-- Print added question -->
         <p>Added question from category of:<strong> <%=category%> </strong></p>
-        <p>Question description:<i> <%=description%> </i>.</p>
+        <p>With question description:<i> <%=description%> </i>.</p>
 
     </body>
 </html>

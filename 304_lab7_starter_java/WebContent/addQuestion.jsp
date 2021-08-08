@@ -104,12 +104,12 @@
             </select>
 
             <label for="description">Question Description</label>
-            <input type="text" name="description" placeholder="testings"/> <br/>
+            <input type="text" name="description" required> 
  
-
+            <div>
             <label for="userid">UserId</label>
-            <input type="text" name="userid"/> <br/>
-
+            <input type="text" name="userid" required> 
+            </div>
             <input type="submit" value="submit">
   
     </form>
