@@ -2,26 +2,29 @@
 <html lang="en">
 
 <head>
+    <title>Dynamic AJAX Pull Test</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Main Page!</title>
-
-    <link rel="stylesheet" href="standard.css">
+    <link rel="stylesheet" href="../standard.css">
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="querydb.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#bless").load("../testQuery.jsp");
+            });
+        });
+    </script>
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -81,6 +84,7 @@
 
 <body>
     <div style="margin: auto;width:30%;padding-top:50px">
+        
         <form id="form1" name="form1" method="post">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder='Search by rollno...' id="roll_no"><br>
@@ -90,11 +94,16 @@
                 <input type="text" class="form-control" placeholder='City name' id="city_name"><br><br>
             </div>
         </form>
-    </div>
+        
+        <p id="demo"></p>
+        
+        <form> 
+            First Name: <input type="text" id="txt1" onkeyup="document.getElementById('demo').innerHTML = returnname(this.value)">
+            <button id = triggerquery>Trigger Query</button>
+            <table id = bless></table>
+        </form>
 
-    <div id="demo">
-        <h2>Let AJAX change this text</h2>
-        <button type="button" onclick="loadDoc()">Change Content</button>
+
     </div>
 
     
@@ -102,9 +111,10 @@
         $("#search").click(function () {
             var roll_no = $('#roll_no').val();
             city_name.value = city_name;
+            
             $.ajax({
                 url: "fetch.jsp",
-                type: 'POST',
+                type: 'GET',
                 data: { roll_no: roll_no },
                 success: function (data) {
                     $('#city_name').val(data);
@@ -114,6 +124,7 @@
             });
         });
     </script>
+
 </body>
 
 </html>
