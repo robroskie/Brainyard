@@ -24,36 +24,57 @@
 </head>
 
 <body>
+    <div class="container pt-3">
+    <% 
 
-<% 
-String arg1 = request.getParameter("arg1");
-out.println(arg1);
+    String category = request.getParameter("arg1");
+    
+    String SQL = "SELECT * FROM Questions WHERE Category = ? ORDER BY TimeUntilClose ASC";
+    
+    if(category == null) {
+        SQL = "SELECT * FROM Questions ORDER BY TimeUntilClose ASC";
+    } else if (category.equals("0")) {
+        SQL = "SELECT * FROM Questions ORDER BY TimeUntilClose ASC";
+        category = null;
+    }
+    
 
+    String url="jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+    String uid="SA"; 
+    String pw="YourStrong@Passw0rd"; 
 
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-try 
-{	// Load driver class
-	Class.forName("com.mysql.jdbc.Driver");
-}
-catch (java.lang.ClassNotFoundException e) {
-	System.err.println("ClassNotFoundException: " +e);	
-}
-try ( Connection con = DriverManager.getConnection(url, uid, pw);
-      Statement stmt = con.createStatement();) 
-{		
-	ResultSet rst = stmt.executeQuery("SELECT * FROM Categories");		
-	out.println("<table>");
-	while (rst.next())
-	{	
-        out.println("<tr><td>"+rst.getString("subjTitle") + "</td></tr>");
-	}
-    out.println("</table>");
-}
-catch (SQLException ex) 
-{ 	out.println(ex); 
-}
-%>
+    try {
+        // Load driver class 
+        Class.forName("com.mysql.jdbc.Driver"); 
+    } catch (java.lang.ClassNotFoundException e) { 
+        System.err.println("ClassNotFoundException: " +e);
+    }
+    
+     
+
+    try ( 
+        Connection con = DriverManager.getConnection(url, uid, pw); 
+        PreparedStatement ps = con.prepareStatement(SQL);
+    )
+
+        {	
+            if(category != null) {
+                ps.setString(1,category);
+            }
+            
+            ResultSet rst = ps.executeQuery();
+                //ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC"); 
+
+            out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>TimeUntilClose</th><th>postTime</th></tr></thead><tbody>");
+            
+            while (rst.next()) {
+                out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
+            }
+            
+            out.println("</tbody></table>");
+            
+        } catch (SQLException ex) { out.println(ex); }
+    %>
+    </div>
 </body>
 </html>
