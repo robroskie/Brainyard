@@ -1,6 +1,14 @@
-<!doctype html>
-<html lang="en">
-
+//List all questions for a selected category
+<%@ page import="java.sql.*,java.net.URLEncoder" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Date" %>
+<!DOCTYPE html>
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,20 +16,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Query Results using JSP</title>
+    <title>List all answers!</title>
 
     <link rel="stylesheet" href="standard.css">
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,7 +38,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="./loaddata.jsp">Load Data</a>
+                <a class="nav-link" href="loaddata.jsp">Load Data</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -51,11 +48,12 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
-                    <a class="dropdown-item" href="./testQuery.jsp">testQuery.jsp</a>
-                    <a class="dropdown-item" href="./listAllQuestions.jsp">listAllQuestions.jsp</a>
-                    <a class="dropdown-item" href="./addQuestion.jsp">addQuestion.jsp</a>
-                    <a class="dropdown-item" href="./addQuestionHandler.jsp">addQuestionHandler.jsp</a>
-                    <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
+                    <a class="dropdown-item" href="./testQuery.jsp">JSP Test Page</a>
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">list orders</a>
+                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">listAllQuestionsByCategory</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">add cart</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">show cart</a>
+
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
@@ -78,21 +76,44 @@
     </div>
 </nav>
 
-<head>
-<title>Get Your Answers!!</title>
-</head>
+
 
 <body>
-<div><p1>Whats your BrainID?</p1></div>
+    
+<% 
+String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+String uid = "SA";
+String pw = "YourStrong@Passw0rd";
 
-<form action="CorAnswerHandler.jsp" method="post">
+int userId=Integer.parseInt(request.getParameter("BrainID"));
 
-    <label for="BrainID">BrainID</label>
-    <input type="text" name="BrainID" placeholder="BrainID" /> <br/>
-    <input type="submit" value="submit">
+try 
+{	// Load driver class
+	Class.forName("com.mysql.jdbc.Driver");
+}
+catch (java.lang.ClassNotFoundException e) {
+	System.err.println("ClassNotFoundException: " +e);	
+}
 
+String sql="SELECT * FROM CorAnswersWHERE userId=?;";
 
+try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);) 
+{	
+   
+    
+    ps.setInt(1,userId);
 
-</form>
+	ResultSet rst=ps.executeQuery();
+
+	out.println("<table><tr><th>Question ID</th><th>BrainID</th><th>Description</th><th>Average Rating</th></tr>");
+        while (rst.next())
+        {	out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getDouble(4)+"</td></tr>");
+        }
+        out.println("</table>");
+}
+catch (SQLException ex) 
+{ 	out.println(ex); 
+}
+%>
 </body>
 </html>
