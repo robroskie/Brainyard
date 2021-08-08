@@ -30,7 +30,12 @@
             </select>
 
             <label for="description">Question Description</label>
-            <input type="text" name="description" placeholder="testings" /> <br/>
+            <input type="text" name="description" placeholder="testings"/> <br/>
+ 
+
+            <label for="userid">UserId</label>
+            <input type="text" name="userid"/> <br/>
+
             <input type="submit" value="submit">
   
     </form>
