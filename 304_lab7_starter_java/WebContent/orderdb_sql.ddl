@@ -1,6 +1,6 @@
-CREATE DATABASE brainYard;
-GO;
-USE brainYard;
+-- CREATE DATABASE brainYard;
+-- GO;
+-- USE brainYard;
 
 DROP TABLE if exists UserLog;
 DROP TABLE if exists UStatus;
@@ -80,12 +80,13 @@ CREATE TABLE Currency (
 );
 
 CREATE TABLE Questions(
-    QId INTEGER PRIMARY KEY,
+    QId INTEGER NOT NULL IDENTITY,
     UserId INTEGER,
     Description NVARCHAR(2500),
     Category INTEGER,
     TimeUntilClose DATETIME,
     postTime DATETIME,
+    PRIMARY KEY (QId),
     FOREIGN KEY (Category) REFERENCES Categories(CategoryId),
     FOREIGN KEY (UserId) REFERENCES BUser(UserId)
 );
@@ -163,6 +164,8 @@ INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (12,'Histor
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (13,'Physics','Arts and Sciences', 3);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (14,'Management','Managment',2);
 
+
+
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (1, 2, '2011-01-14 12:12', 4, 1, 'The large surface area of a mycelium makes them such effective decomposers');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (2, 1, '2011-01-20 12:12', 4, 1, 'They grow towards dead tissues');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (3, 3, '2011-01-21 12:12', 4, 1, 'They secrete a strong acidic substance that rapidly breaks down proteins');
@@ -188,10 +191,10 @@ INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (22, 1, 
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (23, 5, '2016-01-23 12:12', 8, 10, 'Macro looks at the big picture while Micro looks at individuals and the small relationships amongst them');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (24, 9, '2016-01-27 12:12', 8, 10, 'Economics is divided into two categories: microeconomics and macroeconomics. Microeconomics is the study of individuals and business decisions while macroeconomics looks at the decisions of countries and governments');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (25, 4, '2016-01-29 12:12', 8, 10, 'Microeconomics is the study of particular markets and segments of the economy. It looks at issues such as consumer behaviour individual labour markets and the theory of firms.Macro economics is the study of the whole economy. It looks at aggregate variables such as aggregate demand national output and inflation.');
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (26, 1, '2016-02-20 12:12', 7, 11, 'Int size = 5 for (int x=0 x<=size x++){');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (26, 1, '2016-02-20 12:12', 7, 11, 'Int size = 5 for (int x=0 x<=size x++)');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (27, 10, '2016-02-22 12:12', 7, 11, 'for (int x=0 x<=size x++) as we use int x to be a counter of a sort that increments upwards we check the condition. We exit the loop once the constraint is met. Best to set the constraint outside the loop as it will need to be initialized to continually check your constraint');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (28, 2, '2017-01-26 12:12', 6, 12, 'Formalist Criticism designates an approach to understanding narratives that is rooted in close attention to how meaning is conveyed. It begins from the premise that form and content are closely related');
-INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (29, 10, '2017-02-11 12:12', 6, 12, 'The comparison of one thing to another in which there is a literal substitution; her love is a tsunami.');
+INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (29, 10, '2017-02-11 12:12', 6, 12, 'The comparison of one thing to another in which there is a literal substitution her love is a tsunami.');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (30, 1, '2017-02-12 12:12', 4, 13, 'IS the cyclic phosphorylation of ADP to form ATP which is then consumed as an energy source');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (31, 8, '2017-02-27 12:12', 4, 13, 'The process most occurs in plants in photosystem 1');
 INSERT Answers(AnsId, userId, PTime, Category, QId, Description) VALUES (32, 9, '2017-02-24 12:12', 4, 14, 'enzyme RuBisCO incorporates carbon dioxide into an organic molecule 3-PGa organic molecule is reduced using electrons supplied by NADPH RuBP molecule that starts the cycle is regenerated so that the cycle can continue');
@@ -410,33 +413,33 @@ INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('BTC',41023.46
 INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('ETH',2816.46,'Ethereum','2021-08-05 16:08:05');
 INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('DOGE',000.20,'Dogecoin','2021-08-05 16:09:55');
 
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (9, 'What does it mean for a molecule to have chirality?', 5, '2012-04-21 12:12:12', '2012-05-21 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'Who invented the first microscope?', 12, '2015-07-08 12:12:12', '2015-08-08 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (5, 'The measure of how greatly a substance slows the velocity of light is referred to as (blank)?', 13, '2015-11-19 12:12:12', '2016-01-19 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'If a particular gel chromatography column is said to have a size exclusion range of 2000 - 100000 Daltons indicate after the name of the compound whether it would be fractionated completely included or completely excluded from the column? (2 marks)(Hemoglobin� 65000)(Myoglobin� 17000)(Myosin� 180000)(Galatin� 150000)(BS Albumin� 66430)(Vitamin B12 1350)(Vitamin C� 1760)', 4, '2015-11-20 12:12:12', '2016-01-20 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (7, 'Consider a population governed by the discrete distribution p(x) where p(x) = _ for x = 1 and p(x) = 1 _ _ for x = 0 where _ _ [0 1]. Three independent observations are {0 1 0}. Find the likelihood function', 11, '2016-01-09 12:12:12', '2016-02-09 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (6, 'Which painter is often associated with Francoise Gilot?', 3, '2016-01-09 12:12:12', '2016-02-09 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (6, 'What are the features of neoclassical poetry?�', 6, '2016-01-09 12:12:12', '2016-02-09 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (2, 'What is the difference between micro and marco economics?', 8, '2016-01-22 12:12:12', '2016-02-22 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (4, 'How do you write a for loop in java??', 7, '2016-01-23 12:12:12', '2016-02-23 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (6, 'What is Formalist Criticism and how can it be used?', 6, '2017-01-23 12:12:12', '2017-02-23 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (5, 'What is cyclic phosphorylation?', 4, '2017-01-24 12:12:12', '2017-02-24 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'List the 3 phases of the Calvin Cycle', 4, '2017-02-01 12:12:12', '2017-03-01 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'The actor Michael J. Fox suffers from Parkinsons disease and John Nash subject of the movie A Beautiful Mind was a paranoid schizophrenic. The brains of both people can be characterized as having?', 10, '2017-02-02 12:12:12', '2017-03-02 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (10, 'What are the small visible bumps on the tongue called?', 4, '2017-02-15 12:12:12', '2017-03-15 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (5, 'Why can�t you claim a cause and effect relationship with correlational studies?', 8, '2017-02-16 12:12:12', '2017-03-16 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (10, 'Helmholtz was a(n) __________ who studied ________?', 12, '2017-02-17 12:12:12', '2017-03-17 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (3, 'What is the brain region that is associated with movement?', 4, '2017-05-07 12:12:12', '2017-05-17 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (6, 'How does cognitive psychology address the critiques of behaviorism through applying scientific methods to the study of what?', 10, '2018-04-14 12:12:12', '2018-05-14 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (7, 'A cell in prophase II of meiosis contains 12 chromosomes. How many chromosomes would be present in a cell from the same organism if it were in prophase of mitosis?', 4, '2018-05-22 12:12:12', '2018-06-22 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'What were the three waves of the feminist movement?', 12, '2019-06-01 12:12:12', '2019-07-01 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (2, 'What is dream consciousness characterized by?', 10, '2020-06-29 12:12:12', '2020-07-29 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'What is the chemical formula for photosynthesis', 5, '2020-06-30 12:12:12', '2020-07-30 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (2, 'When was the earliest known use of toilet paper and how do we come to know the use of it today?', 1, '2020-07-05 12:12:12', '2020-08-05 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (4, 'How does Auxin play a role in plant growth and development?', 4, '2020-08-06 12:12:12', '2020-08-06 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'What adaptations make fungi such effective decomposers?', 4, '2011-01-12 12:12:12', '2011-02-12 12:12:12');
 
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 8, 'What adaptations make fungi such effective decomposers?', 4, '2011-01-12 12:12:12', '2011-02-12 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (2, 1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (3, 9, 'What does it mean for a molecule to have chirality?', 5, '2012-04-21 12:12:12', '2012-05-21 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (4, 8, 'Who invented the first microscope?', 12, '2015-07-08 12:12:12', '2015-08-08 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (5, 5, 'The measure of how greatly a substance slows the velocity of light is referred to as (blank)?', 13, '2015-11-19 12:12:12', '2016-01-19 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (6, 1, 'If a particular gel chromatography column is said to have a size exclusion range of 2000 - 100000 Daltons indicate after the name of the compound whether it would be fractionated completely included or completely excluded from the column? (2 marks)(Hemoglobin� 65000)(Myoglobin� 17000)(Myosin� 180000)(Galatin� 150000)(BS Albumin� 66430)(Vitamin B12 1350)(Vitamin C� 1760)', 4, '2015-11-20 12:12:12', '2016-01-20 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (7, 7, 'Consider a population governed by the discrete distribution p(x) where p(x) = _ for x = 1 and p(x) = 1 _ _ for x = 0 where _ _ [0 1]. Three independent observations are {0 1 0}. Find the likelihood function', 11, '2016-01-09 12:12:12', '2016-02-09 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 6, 'Which painter is often associated with Francoise Gilot?', 3, '2016-01-09 12:12:12', '2016-02-09 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (9, 6, 'What are the features of neoclassical poetry?�', 6, '2016-01-09 12:12:12', '2016-02-09 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (10, 2, 'What is the difference between micro and marco economics?', 8, '2016-01-22 12:12:12', '2016-02-22 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (11, 4, 'How do you write a for loop in java??', 7, '2016-01-23 12:12:12', '2016-02-23 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (12, 6, 'What is Formalist Criticism and how can it be used?', 6, '2017-01-23 12:12:12', '2017-02-23 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (13, 5, 'What is cyclic phosphorylation?', 4, '2017-01-24 12:12:12', '2017-02-24 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (14, 8, 'List the 3 phases of the Calvin Cycle', 4, '2017-02-01 12:12:12', '2017-03-01 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (15, 8, 'The actor Michael J. Fox suffers from Parkinsons disease and John Nash subject of the movie A Beautiful Mind was a paranoid schizophrenic. The brains of both people can be characterized as having?', 10, '2017-02-02 12:12:12', '2017-03-02 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (16, 10, 'What are the small visible bumps on the tongue called?', 4, '2017-02-15 12:12:12', '2017-03-15 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (17, 5, 'Why can�t you claim a cause and effect relationship with correlational studies?', 8, '2017-02-16 12:12:12', '2017-03-16 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (18, 10, 'Helmholtz was a(n) __________ who studied ________?', 12, '2017-02-17 12:12:12', '2017-03-17 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (19, 3, 'What is the brain region that is associated with movement?', 4, '2017-05-07 12:12:12', '2017-05-17 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (20, 6, 'How does cognitive psychology address the critiques of behaviorism through applying scientific methods to the study of what?', 10, '2018-04-14 12:12:12', '2018-05-14 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (21, 7, 'A cell in prophase II of meiosis contains 12 chromosomes. How many chromosomes would be present in a cell from the same organism if it were in prophase of mitosis?', 4, '2018-05-22 12:12:12', '2018-06-22 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (22, 8, 'What were the three waves of the feminist movement?', 12, '2019-06-01 12:12:12', '2019-07-01 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (23, 2, 'What is dream consciousness characterized by?', 10, '2020-06-29 12:12:12', '2020-07-29 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (24, 1, 'What is the chemical formula for photosynthesis', 5, '2020-06-30 12:12:12', '2020-07-30 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (25, 2, 'When was the earliest known use of toilet paper and how do we come to know the use of it today?', 1, '2020-07-05 12:12:12', '2020-08-05 12:12:12');
-INSERT Questions(QId, UserId, Description, Category, TimeUntilClose, postTime) VALUES (26, 4, 'How does Auxin play a role in plant growth and development?', 4, '2020-08-06 12:12:12', '2020-08-06 12:12:12');
 
 
 INSERT PayMethod(UserId, DogeAd, BitAd, EthAd) VALUES (1,'1111','2222','3333');
