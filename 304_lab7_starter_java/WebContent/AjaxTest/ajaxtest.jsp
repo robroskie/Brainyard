@@ -1,3 +1,10 @@
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.File" %>
+<%@ include file="jdbc.jsp" %>
+
+<%
+String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"; %>
+
 <!doctype html>
 <html lang="en">
 
@@ -20,7 +27,7 @@
 
     <script>
         $(document).ready(function(){
-            $("button").click(function(){
+            $("triggerquery").click(function(){
                 $("#div1").load("../testQuery.jsp");
             });
         });
@@ -83,19 +90,23 @@
 </nav>
 
 <body>
-    <div style="margin: auto;width:30%;padding-top:50px">
+    
+    <div style="margin: auto;width:30%;padding-top:100px">
         
         <p id="demo"></p>
         
-        <form> 
+        <div id="div1">
+            <p>Click button to load new content inside DIV box</p>
+        </div>
+        <button id = triggerquery>Trigger Query</button>
+        <form style = "margin: auto;"> 
             First Name: <input type="text" id="txt1" onkeyup="document.getElementById('demo').innerHTML = returnname(this.value)">
-            <button id = triggerquery>Trigger Query</button>
-            <table id = bless></table>
+           
         </form>
 
-        <div id="div1"><p>Let jQuery AJAX Change This Text</p></div>
-
     </div>
+    
+    
 </body>
 
 </html>
