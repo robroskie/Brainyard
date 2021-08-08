@@ -46,10 +46,11 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
-                    <a class="dropdown-item" href="./testQuery.jsp">JSP Test Page</a>
-                    <a class="dropdown-item" href="./listAllQuestions.jsp">list orders</a>
-                    <a class="dropdown-item" href="./addQuestion.jsp">add cart</a>
-                    <a class="dropdown-item" href="./correctAnswers.jsp">show cart</a>
+                    <a class="dropdown-item" href="./testQuery.jsp">testQuery.jsp</a>
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">listAllQuestions.jsp</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">addQuestion.jsp</a>
+                    <a class="dropdown-item" href="./addQuestionHandler.jsp">addQuestionHandler.jsp</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
 
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
@@ -137,19 +138,8 @@
         int rs2 = ps2.executeUpdate();
         
         out.println("rs2 is: " + rs2);
-        
-        //rs2.next();
-        
-        //int categoryNum = rs2.getInt(1);
-        //out.println(categoryNum);
-
-
-
-
-
-        
-
     }
+
     catch (SQLException ex) { 
         	out.println(ex); 
     }
