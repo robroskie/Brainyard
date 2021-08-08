@@ -138,19 +138,8 @@
         int rs2 = ps2.executeUpdate();
         
         out.println("rs2 is: " + rs2);
-        
-        //rs2.next();
-        
-        //int categoryNum = rs2.getInt(1);
-        //out.println(categoryNum);
-
-
-
-
-
-        
-
     }
+
     catch (SQLException ex) { 
         	out.println(ex); 
     }
