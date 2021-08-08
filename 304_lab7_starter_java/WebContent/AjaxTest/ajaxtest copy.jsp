@@ -29,7 +29,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a href="../HelloWorld.jsp" class="navbar-left"><img src="../Resources/Brain_Yard_logo.png" width="150 px"></a>
+    <a href="HelloWorld.jsp" class="navbar-left"><img src="../Resources/Brain_Yard_logo.png" width="150 px"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,6 +85,16 @@
 <body>
     <div style="margin: auto;width:30%;padding-top:50px">
         
+        <form id="form1" name="form1" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder='Search by rollno...' id="roll_no"><br>
+                <p align="center"><button type="submit" class="btn btn-primary btn-default" id="search">Submit</button>
+                </p><br>
+                <label for="city">Display city name of student:</label>
+                <input type="text" class="form-control" placeholder='City name' id="city_name"><br><br>
+            </div>
+        </form>
+        
         <p id="demo"></p>
         
         <form> 
@@ -96,6 +106,26 @@
         <div id="div1"><p>Let jQuery AJAX Change This Text</p></div>
 
     </div>
+
+    
+    <script>
+        $("#search").click(function () {
+            var roll_no = $('#roll_no').val();
+            city_name.value = city_name;
+            
+            $.ajax({
+                url: "fetch.jsp",
+                type: 'GET',
+                data: { roll_no: roll_no },
+                success: function (data) {
+                    $('#city_name').val(data);
+                    alert(data);
+                    var city_name = data;
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
