@@ -83,10 +83,11 @@
     </div>
 </nav>
 
-<h1>Use the dropdown bar to select the category of question that you want to see!</h1>
 
 
 
+<div class="container pt-3">
+    <h3>Questions that have been posted</h3>
 <% 
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
@@ -107,16 +108,19 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
       Statement stmt = con.createStatement();) 
 {		
 	ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC");		
-	out.println("<table><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>TimeUntilClose</th><th>postTime</th></tr>");
-	while (rst.next())
-	{	out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
-	}
-	out.println("</table>");
+    
+    out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>TimeUntilClose</th><th>postTime</th></tr></thead><tbody>");
+
+    while (rst.next()) {
+        out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
+    }
+    
+    out.println("</tbody></table>");
 }
 catch (SQLException ex) 
 { 	out.println(ex); 
 }
 %>
-
+</div>
 </body>
 </html>

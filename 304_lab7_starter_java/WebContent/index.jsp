@@ -47,13 +47,13 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    Queries
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./testQuery.jsp">testQuery.jsp</a>
-                    <a class="dropdown-item" href="./listAllQuestions.jsp">listAllQuestions.jsp</a>
-                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">listAllQuestionsByCategory</a>
-                    <a class="dropdown-item" href="./addQuestion.jsp">addQuestion.jsp</a>
+                    <!-- <a class="dropdown-item" href="./testQuery.jsp">Database Connection Test</a> -->
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
+                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./addQuestionHandler.jsp">addQuestionHandler.jsp</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
                 </div>
