@@ -22,30 +22,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
     <script>
-        function showFields(string1) {
-            var xRequest1;
-            if (string1 == "") {
-                document.getElementById("Show_update").innerHTML = "";
-                return;
-            }
-            if (window.XMLHttpRequest) {
-                xRequest1 = new XMLHttpRequest();
-            }
-            else {
-                xRequest1 = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xRequest1.onreadystatechange = function () {
-                if ((xRequest1.readyState == 4) && (xRequest1.status == 200)) {
-                    document.getElementById("Show_update").innerHTML
-                        = xRequest1.responseText;
+        function showHint(str) {
+                if (str.length == 0) {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                } else {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "./gethint.php?q=" + str, true);
+                    xmlhttp.send();
                 }
             }
-            // xRequest1.open("get", "empdetails.jsp?q=" + string1, "true");
-            xRequest1.open("get", "../testQuery.jsp" , "true");
-            xRequest1.send();
-        }
     </script>
 </head>
 
@@ -105,16 +97,12 @@
 </nav>
 
 <body>
-    <form>
-        <select name="user_name" onchange="getempdetails(this.value)" >
-        <option value="">Employee Designations</option>
-        <option value="Officer">Officer </option>
-        <option value="Supervisor">Supervisor </option>
-        <option value="Manager">Manager </option>
-        </select>
-        </form>
-        <br />
-        <div id="Show_update">To Update the designation...</div>  
+    <p><b>Start typing a name in the input field below:</b></p>
+    <form action="">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+    </form>
+    <p>Suggestions: <span id="txtHint"></span></p>
 </body>
 
 </html>
