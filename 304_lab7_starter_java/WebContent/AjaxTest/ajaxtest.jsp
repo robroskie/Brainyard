@@ -8,36 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../standard.css">
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="querydb.js"></script>
+
     <script>
-        function showHint(str) {
-                if (str.length == 0) {
-                    document.getElementById("txtHint").innerHTML = "";
-                    return;
-                } else {
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
-                        }
-                    };
-                    xmlhttp.open("GET", "./gethint.php?q=" + str, true);
-                    xmlhttp.send();
-                }
-            }
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#bless").load("../testQuery.jsp");
+            });
+        });
     </script>
 </head>
 
@@ -97,12 +83,48 @@
 </nav>
 
 <body>
-    <p><b>Start typing a name in the input field below:</b></p>
-    <form action="">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
-    </form>
-    <p>Suggestions: <span id="txtHint"></span></p>
+    <div style="margin: auto;width:30%;padding-top:50px">
+        
+        <form id="form1" name="form1" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder='Search by rollno...' id="roll_no"><br>
+                <p align="center"><button type="submit" class="btn btn-primary btn-default" id="search">Submit</button>
+                </p><br>
+                <label for="city">Display city name of student:</label>
+                <input type="text" class="form-control" placeholder='City name' id="city_name"><br><br>
+            </div>
+        </form>
+        
+        <p id="demo"></p>
+        
+        <form> 
+            First Name: <input type="text" id="txt1" onkeyup="document.getElementById('demo').innerHTML = returnname(this.value)">
+            <button id = triggerquery>Trigger Query</button>
+            <table id = bless></table>
+        </form>
+
+
+    </div>
+
+    
+    <script>
+        $("#search").click(function () {
+            var roll_no = $('#roll_no').val();
+            city_name.value = city_name;
+            
+            $.ajax({
+                url: "fetch.jsp",
+                type: 'GET',
+                data: { roll_no: roll_no },
+                success: function (data) {
+                    $('#city_name').val(data);
+                    alert(data);
+                    var city_name = data;
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
