@@ -2,11 +2,13 @@
 <%@ page import="java.sql.*,java.net.URLEncoder" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
-<%@ page import="java.sql.*"%>
-
-<!doctype html>
-<html lang="en">
-
+<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Date" %>
+<!DOCTYPE html>
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -76,18 +78,13 @@
 
 
 <body>
-<h1>Enter your BrainID</h1>
-<ul> 
-    <li><p><b>BrainID</b>
-        <%=request.getParameter("BrainID")%>
-    </p></li>
-</ul>
     
 <% 
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
 
+int userId=Integer.parseInt(request.getParameter("BrainID"));
 
 try 
 {	// Load driver class
@@ -96,12 +93,14 @@ try
 catch (java.lang.ClassNotFoundException e) {
 	System.err.println("ClassNotFoundException: " +e);	
 }
-try ( Connection con = DriverManager.getConnection(url, uid, pw);
-      Statement stmt = con.createStatement();) 
+
+String sql="SELECT Description, PTime FROM Answers WHERE userId=?";
+
+try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);) 
 {	
-    String sql="SELECT Description, PTime FROM Answers WHERE userId=?";
+   
     PreparedStatement ps=con.prepareStatement(sql);
-    ps.getInt(1,request.getParameter("BrainID"));
+    ps.setInt(1,userId);
 
 	ResultSet rst=ps.executeQuery();
 
