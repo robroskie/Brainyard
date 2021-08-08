@@ -34,17 +34,17 @@ try{
     con = DriverManager.getConnection(url, uid, pw);
     smt = connection.createStatement();
     
-    String sql ="select StudentEmail from BUsers where UserId="+roll_no;
-    out.println(sql)
+    String sql ="SELECT StudentEmail FROM BUser WHERE UserId = "+roll_no;
     <!-- String sql = -->
     
     resultSet = statement.executeQuery(sql);
-
-    int i=0;
-    while(resultSet.next()){
-        String StudentEmail=resultSet.getString("StudentEmail");
-        i++;
-        out.println(StudentEmail);
+    
+    out.println("<table>");
+        while (resultSet.next())
+        {	
+            out.println("<tr><td>"+rst.getString("subjTitle") + "</td></tr>");
+        }
+        out.println("</table>");
 }
 
 connection.close();
