@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Main Page!</title>
 
     <link rel="stylesheet" href="standard.css">
@@ -27,11 +26,11 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item active">
-                <a class="nav-link" href="login-page.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./index.jsp">Home <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="loaddata.jsp">Load Data</a>
+                <a class="nav-link" href="./loaddata.jsp">Load Data</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -42,7 +41,9 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
                     <a class="dropdown-item" href="./testQuery.jsp">JSP Test Page</a>
-                    <a class="dropdown-item" href="./AjaxTest/AJAXwithJSP.jsp">AJAX with JSP</a>
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">list orders</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">add cart</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">show cart</a>
 
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
