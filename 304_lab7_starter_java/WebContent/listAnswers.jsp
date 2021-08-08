@@ -79,7 +79,7 @@
 
 
 <body>
-    
+    <div class='container pt-3'>    
 <% 
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
@@ -105,15 +105,16 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatem
 
 	ResultSet rst=ps.executeQuery();
 
-	out.println("<table><tr><th>Answer ID</th><th>QuestionID</th><th>Description</th><th>Average Rating</th></tr>");
+        out.println("<table class='table'><thead><tr><th>Answer ID</th><th>QuestionID</th><th>Description</th><th>Average Rating</th></tr></thead><tbody>");
         while (rst.next())
         {	out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getDouble(4)+"</td></tr>");
         }
-        out.println("</table>");
+        out.println("</tbody></table>");
 }
 catch (SQLException ex) 
 { 	out.println(ex); 
 }
 %>
+</div>
 </body>
 </html>

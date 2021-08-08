@@ -5,7 +5,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="./standard.css">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -56,20 +54,18 @@
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
+                    <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                 </div>
             </li>
         </ul>
-
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
             data-target="#LogButton">Login
             to the site</button>
-
     </div>
 </nav>
 
@@ -77,11 +73,20 @@
 
 <body style="background-color: white;">
 
-    <div class="container" style="height: 40px; width: 100%;">
+    <div class="container-fluid" style="height: 40px; width: 100%;">
         <h4 style="text-align: center; padding-top: 5px;"> Real questions. Real people. </h4>
     </div>
 
-    <div class="container-fluid pb-2">
+    <!-- <div class="container-fluid pb-2" style="padding-top: 10 px;">
+        <div class="hero-image" style='background-image: url("./Resources/Brain Yard.svg")'>
+            <div class="hero-text">
+                <h1 style="font-size:50px">BrainYard</h1>
+                <h3>"Please start by loading the database."</h3>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container-fluid pb-2" style="height: 800px;">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -92,26 +97,26 @@
             <div class="carousel-inner">
                 <!-- <h1 style="position:absolute; z-index: 20; color: black; top: 25%;">Centered</h1> -->
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://wallpapercave.com/wp/GDlH1CJ.jpg" alt="First slide"
-                        style="height: 700px; object-fit: cover;">
-                    <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
+                    <img class="d-block w-100" src="./Resources/1.svg" alt="First slide"
+                        style="height: 800px; object-fit:cover; object-position: bottom;">
+                    <!-- <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
                         <h1 style="font-size:50px">BrainYard</h1>
                         <h3>Please start by loading the database.</h3>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="https://images8.alphacoders.com/380/thumb-1920-380977.jpg"
-                        alt="Second slide" style="height: 700px; object-fit: cover;">
-                    <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
+                    <img class="d-block w-100" src="./Resources/2.svg"
+                        alt="Second slide" style="height: 800px; object-fit: cover; object-position: bottom;">
+                    <!-- <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
                         <h1 style="font-size:50px">Collaborate</h1>
                         <h3>Work together with a community of students</h3>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100"
-                        src="./Resources/Brain_Yard_Logo.png" alt="Third slide"
-                        style="height: 700px; object-fit: cover;">
+                        src="./Resources/3.svg" alt="Third slide"
+                        style="height: 800px; object-fit: cover; object-position: bottom;">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -126,17 +131,10 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="padding-top: 10 px;">
-        <div class="hero-image" style='background-image: url("./Resources/Brain Yard.svg")'>
-            <div class="hero-text">
-                <h1 style="font-size:50px">BrainYard</h1>
-                <h3>"Please start by loading the database."</h3>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="container-fluid" style="padding-top: 10px;"></div>
-        <div class="row" style="padding: 10px; background-color: #000000; height: 400px;">
+        <div class="row" style="padding: 10px; background-color: #000000; height: 370px;">
             
             <div class="col" style="top:20px;">
                 <img class="pl-3" src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2020_21/3359781/200521-college-student-laptop-stock-cs-419p.jpg" alt="A student studies" style="width: 80%;">
@@ -153,13 +151,14 @@
             <img src="https://images.journeys.ca/images/products/1_412829_ZM.JPG" alt="" style="width: 60%;">
             </div>
         </div>
-        <div class="row" style="padding:10px; background-color: #000000;">
+        <div class="row" style="padding:10px; background-color: #000000; height: 100px;">
             <div class ="col">
-                <div class="hero-text">
-                    <h1 style="font-size:50px; color: antiquewhite;">BrainYard</h1>
+                <div class="hero-text" style="align-content:center;">
+                    <h1 style="font-size:50px; color: white;">BrainYard</h1>
                 </div>
             </div>
         </div>
+    
     </div>
 
     <!-- <div class="container comments-box">
