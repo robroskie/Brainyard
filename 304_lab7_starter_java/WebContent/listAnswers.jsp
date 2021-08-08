@@ -99,14 +99,14 @@ String sql="SELECT Description, PTime FROM Answers WHERE userId=?";
 try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);) 
 {	
    
-    PreparedStatement ps=con.prepareStatement(sql);
+    
     ps.setInt(1,userId);
 
 	ResultSet rst=ps.executeQuery();
 
 	out.println("<table><tr><th>Descripotion</th><th>PTime</th></tr>");
 	while (rst.next())
-	{	out.println("<tr><td>"+rst.getString(1)+"</td>"+"<td>"+rst.getDATE(2)+"</td></tr>");
+	{	out.println("<tr><td>"+rst.getString(1)+"</td>"+"<td>"+rst.getDate(2)+"</td></tr>");
 	}
 	out.println("</table>");
 }
