@@ -104,6 +104,7 @@ CREATE TABLE PayMethod (
 
 
 
+
 CREATE TABLE GraveYard (
     YardId INTEGER PRIMARY KEY,
     AnsId INTEGER,
@@ -134,6 +135,13 @@ CREATE TABLE UserLog(
   PRIMARY KEY (StudentEmail, LogId),
   FOREIGN KEY (StudentEmail, UserId) REFERENCES BUser(StudentEmail, UserId)
 
+);
+
+CREATE TABLE CorAnswers(
+    Qid INTEGER,
+    userId INTEGER,
+    Description NVARCHAR(2500),
+    Avgscore DECIMAL(4,3)
 );
 
 INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('joegaspari@ubc.com', 'Biochemistry', 2, 'UBC', 'jgaspari', 'hello1', 4.0, 1, 'Comp', 'joegaspari6@gmail.com', null);
@@ -460,3 +468,31 @@ INSERT UStatus(StatId, Name, DogX, BitX, EthX) VALUES(2,'Bronze', 20, 00.0001, 0
 INSERT UStatus(StatId, Name, DogX, BitX, EthX) VALUES(3,'Silver', 35, 00.0001, 00.0250);
 INSERT UStatus(StatId, Name, DogX, BitX, EthX) VALUES(4,'Gold', 35, 00.0010, 00.0015);
 INSERT UStatus(StatId, Name, DogX, BitX, EthX) VALUES(5,'Platinum', 35, 00.0010, 00.0250);
+
+
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(1,2,'The large surface area of a mycelium makes them such effective decomposers', 4.5);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(2,8,'Using a gRNA protein sequence that includes the desired cut peptide sequence', 4.5);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(3,7,'The molecule has S/R properties that define the trigonometry of it in 3D space', 4.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(4,4,'Hans Janssen', 4.33);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(5,9,'Viscosity', 4.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(6,8,'Hemoglobin Myoglobin and BS albumin would all be included. Myosin and Galatin would not be included and Vitamin B12 and C would fraction out completely', 4.67);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(8,8,'Pablo Picaso', 3.8);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(9,1,'The prefix neo means new while classical refers to a return to the ideologies set in place by Greeks and Romans during the Classic period', 3.67);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(10,4,'Microeconomics is the study of particular markets and segments of the economy. It looks at issues such as consumer behaviour individual labour markets and the theory of firms.Macro economics is the study of the whole economy. It looks at aggregate variables such as aggregate demand national output and inflation.', 4.2);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(11,10,'for (int x=0:x<=size:x++) as we use int x to be a counter of a sort that increments upwards we check the condition. We exit the loop once the constraint is met. Best to set the constraint outside the loop as it will need to be initialized to continually check your constraint', 4.33);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(12,2,'Formalist Criticism designates an approach to understanding narratives that is rooted in close attention to how meaning is conveyed. It begins from the premise that form and content are closely related', 5.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(13,1,'IS the cyclic phosphorylation of ADP to form ATP which is then consumed as an energy source	', 3.75);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(14,9,'enzyme RuBisCO incorporates carbon dioxide into an organic molecule 3-PGa organic molecule is reduced using electrons supplied by NADPH RuBP molecule that starts the cycle is regenerated so that the cycle can continue', 2.75);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(15,10,'Dopamine Deficiency', 4.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(16,5,'Papillae', 5.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(17,3,'Due to the possible presence of a third hidden variable unknown to both parties that is causing an unseen force that either positively or negatively influences the data', 4.25);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(18,4,'Was both a physicist and philosopher whos work encompasses both the mind body problem and advances in fluid dynamics', 5.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(19,8,'Cerebellum and Motor Cortex	', 4.67);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(20,2,'Mental processes such as memory perception and thought.	', 5.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(21,1,'As the cell is in prophase it has 24', 4.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(22,6,'First wave – 19th century equal rights under law Second wave – 1960s personal is political reproductive rights Third wave – from mid 1990s – challenging fixed gender categories reclaiming of negative language (e.g. Slut-walk).', 4.5);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(23,10,'Lucid dreaming being aware in the dream', 3.67);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(24,10,'6CO2 + 6H2O → C6H12O6 + 6O2.', 5.0);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(25,6,'The use of paper for hygiene has been recorded in China in the 6th century AD with specifically manufactured toilet paper being mass-produced in the 14th century.Modern commercial toilet paper originated in the 19th century with a patent for roll-based dispensers being made in 1883', 4.5);
+INSERT INTO CorAnswers(Qid, userId, Description, Avgscore) VALUES(26,8,'Auxins are a powerful growth hormone produced naturally by plants. They are found in shoot and root tips and promote cell division stem and root growth. They can also drastically affect plant orientation by promoting cell division to one side of the plant in response to sunlight and gravity.', 4.5);
+
