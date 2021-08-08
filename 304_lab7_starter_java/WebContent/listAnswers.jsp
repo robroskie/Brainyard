@@ -104,7 +104,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatem
 
 	ResultSet rst=ps.executeQuery();
 
-	out.println("<table><tr><th>Descripotion</th><th>PTime</th></tr>");
+	out.println("<table><tr><th>Description</th><th>PTime</th></tr>");
 	while (rst.next())
 	{	out.println("<tr><td>"+rst.getString(1)+"</td>"+"<td>"+rst.getDate(2)+"</td></tr>");
 	}
