@@ -28,7 +28,6 @@
     <% 
 
     String category = request.getParameter("arg1");
-    out.println("Category ID Selected: " + category);
     String SQL = "SELECT * FROM Questions WHERE Category = ? ORDER BY TimeUntilClose ASC";
     
     if(category == null) {
