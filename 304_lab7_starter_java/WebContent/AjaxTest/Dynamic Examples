@@ -1,4 +1,0 @@
-<button type="button"
-        onclick="document.getElementById('demo').innerHTML = returnname('avi')">
-        Click me to display Date and Time.</button>
-        

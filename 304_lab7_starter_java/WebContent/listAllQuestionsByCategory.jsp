@@ -30,10 +30,8 @@
                     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                     crossorigin="anonymous"></script>
                 <script>
-                    function changeContent(name) {
-                        $('#content').load('./UniversalQuery.jsp?arg1=' + name);
-
-                        
+                    function changeContent(arg1) {
+                        $('#content').load('./UniversalQuery.jsp?arg1=' + arg1);
                     }
                 </script>
             </head>
@@ -96,50 +94,85 @@
 
 
             <div class="container pt-3">
-                <h1>Use the dropdown bar to select the category of question that you want to see!</h1>
+                <h4>Use the dropdown bar to select the category of question that you want to see!</h4>
             </div>
 
 
             <div class="container pt-3">
                 <select id ="ddl" name="ddl" onmousedown="this.value='';" onchange="changeContent(this.value);">
-                        <option value='Biology'>Biology</option>
+                        <option value=0 selected>All</option>
+                        <option value='1'>Anthropology</option>
+                        <option value='2'>Applied Science</option>
+                        <option value='3'>Art History</option>
+                        <option value='4'>Biology</option>
+                        <option value='5'>Chemistry</option>
+                        <option value='6'>Creative Writing</option>
+                        <option value='7'>Computer Science</option>
+                        <option value='8'>Economics</option>
+                        <option value='9'>Environmental Sciences</option>
+                        <option value='10'>Psychology</option>
+                        <option value='11'>Mathematics</option>
+                        <option value='12'>History</option>
+                        <option value='13'>Physics</option>
+                        <option value='14'>Management</option>
                         <option value='Herpology'>Herpology</option>
-                        <option value='TheBest'>The Best</option>
+                        
                     </select>
             </div>
 
             <div class="container pt-3" id="content">
-                <p>This is a test</p>
+                
+                    <% 
+                
+                    String category = null;
+                    
+                    String SQL = "SELECT * FROM Questions WHERE Category = ? ORDER BY TimeUntilClose ASC";
+                    
+                    if(category == null) {
+                        out.println("Showing all categories");
+                        SQL = "SELECT * FROM Questions ORDER BY TimeUntilClose ASC";
+                    } else {
+                        out.println("Category ID: " + category);
+                    }
+                    
+                
+                    String url="jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+                    String uid="SA"; 
+                    String pw="YourStrong@Passw0rd"; 
+                    
+                    try {
+                        // Load driver class 
+                        Class.forName("com.mysql.jdbc.Driver"); 
+                    } catch (java.lang.ClassNotFoundException e) { 
+                        System.err.println("ClassNotFoundException: " +e);
+                    }
+                    
+                     
+                
+                    try ( 
+                        Connection con = DriverManager.getConnection(url, uid, pw); 
+                        PreparedStatement ps = con.prepareStatement(SQL);
+                    )
+                
+                        {	
+                            if(category != null) {
+                                ps.setString(1,category);
+                            }
+                            
+                            ResultSet rst = ps.executeQuery();
+                                //ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC"); 
+                
+                            out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>TimeUntilClose</th><th>postTime</th></tr></thead><tbody>");
+                            
+                            while (rst.next()) {
+                                out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
+                            }
+                            
+                            out.println("</tbody></table>");
+                            
+                        } catch (SQLException ex) { out.println(ex); }
+                    %>
             </div>
 
-            <div class="container pt-3">
-
-                <% 
-                String url="jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-                String uid="SA"; 
-                String pw="YourStrong@Passw0rd"; 
-
-                try {
-                    // Load driver class 
-                    Class.forName("com.mysql.jdbc.Driver"); 
-                }
-                catch (java.lang.ClassNotFoundException e) { 
-                    System.err.println("ClassNotFoundException: " +e);
-                }
-                try ( Connection con = DriverManager.getConnection(url, uid, pw); Statement stmt = con.createStatement();)
-                {		
-                    ResultSet rst = stmt.executeQuery(" SELECT * FROM Questions ORDER BY TimeUntilClose ASC"); out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>TimeUntilClose</th><th>postTime</th></tr></thead><tbody>");
-                    while (rst.next())
-                {
-                    out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
-                }
-                    out.println("</tbody></table>");
-                }
-
-                catch (SQLException ex) {
-                    out.println(ex);
-                }
-                %>
-</div>
 </body>
 </html>
