@@ -57,7 +57,7 @@
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
-                    <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                 </div>
             </li>
         </ul>
@@ -76,37 +76,38 @@
 </nav>
     
 <body>
-    <div><p1>Add A Question!</p1></div> 
-    <form action="addQuestionHandler.jsp" method="post">
+    <div class="container">
+        <p1>Add A Question!</p1>
+        <form action="addQuestionHandler.jsp" method="post">
 
-            <label for="category">Question Category</label>
-            <select name="category" id="category">
-                <option value="Anthropology">Anthropology</option>
-                <option value="Applied Science">Applied Science</option>
-                <option value="Art History">Art History</option>
-                <option value="Biology">Biology</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Creative Writing">Creative Writing</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Economics">Economics</option>
-                <option value="Environmental">Environmental</option>
-                <option selected="selected" value="Psychology">Psychology</option>
-                <option value="Mathematics">Mathematics</option>
-                <option value="History">History</option>
-                <option value="Physics">Physics</option>
-                <option value="Management">Management</option>
-                <option value="null">null</option>
-            </select>
+                <label for="category">Question Category</label>
+                <select name="category" id="category">
+                    <option value="Anthropology">Anthropology</option>
+                    <option value="Applied Science">Applied Science</option>
+                    <option value="Art History">Art History</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Creative Writing">Creative Writing</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Environmental">Environmental</option>
+                    <option selected="selected" value="Psychology">Psychology</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="History">History</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Management">Management</option>
+                    <option value="null">null</option>
+                </select>
 
-            <label for="description">Question Description</label>
-            <input type="text" name="description" required> 
- 
-            <div>
-            <label for="userid">UserId</label>
-            <input type="text" name="userid" required> 
-            </div>
-            <input type="submit" value="submit">
-  
-    </form>
+                <label for="description">Question Description</label>
+                <input type="text" name="description" required> 
+    
+                <div>
+                <label for="userid">UserId</label>
+                <input type="text" name="userid" required> 
+                </div>
+                <input type="submit" value="submit">
+        </form>
+    </div> 
 </body>
 </html>

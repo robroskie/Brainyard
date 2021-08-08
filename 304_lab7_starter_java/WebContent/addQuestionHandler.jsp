@@ -56,15 +56,10 @@
                     Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
-                    <a class="dropdown-item" href="./testQuery.jsp">testQuery.jsp</a>
-                    <a class="dropdown-item" href="./listAllQuestions.jsp">listAllQuestions.jsp</a>
-                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">listAllQuestionsByCategory</a>
-                    <a class="dropdown-item" href="./addQuestion.jsp">Add A Question!</a>
-                    <a class="dropdown-item" href="./addQuestionHandler.jsp">addQuestionHandler.jsp</a>
-                    <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
+                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                 </div>
             </li>
             <li class="nav-item">

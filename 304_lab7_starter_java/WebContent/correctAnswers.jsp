@@ -73,16 +73,15 @@
 </nav>
 
 <body>
-<div><p1>Whats your BrainID?</p1></div>
+    <div class="container">
+    
+    <p1>Whats your BrainID?</p1>
 
-<form action="CorAnswerHandler.jsp" method="post">
-
-    <label for="BrainID">BrainID</label>
-    <input type="text" name="BrainID" placeholder="BrainID" /> <br/>
-    <input type="submit" value="submit">
-
-
-
-</form>
+    <form action="CorAnswerHandler.jsp" method="post">
+        <label for="BrainID">BrainID</label>
+        <input type="text" name="BrainID" placeholder="BrainID" /> <br/>
+        <input type="submit" value="submit">
+    </form>
+</div>
 </body>
 </html>
