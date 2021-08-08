@@ -13,9 +13,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Query Results using JSP</title>
+    <title>BrainYard: Load Data</title>
 
-    <link rel="stylesheet" href="standard.css">
+    <link rel="stylesheet" href="./standard.css">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
@@ -31,7 +31,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a href="HelloWorld.jsp" class="navbar-left"><img src=".\Resources/Brain_Yard_logo.png" width="150 px"></a>
+    <a href="index.jsp" class="navbar-left"><img src="./Resources/Brain_Yard_logo.png" width="150 px"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,22 +52,15 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    Queries
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
-                    <a class="dropdown-item" href="./testQuery.jsp">testQuery.jsp</a>
-                    <a class="dropdown-item" href="./listAllQuestions.jsp">listAllQuestions.jsp</a>
-                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">listAllQuestionsByCategory</a>
-                    <a class="dropdown-item" href="./addQuestion.jsp">addQuestion.jsp</a>
-                    <a class="dropdown-item" href="./addQuestionHandler.jsp">addQuestionHandler.jsp</a>
+                    <!-- <a class="dropdown-item" href="./testQuery.jsp">Database Connection Test</a> -->
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
+                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
 
