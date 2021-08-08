@@ -95,7 +95,7 @@ catch (java.lang.ClassNotFoundException e) {
 	System.err.println("ClassNotFoundException: " +e);	
 }
 
-String sql="SELECT * FROM CorAnswersWHERE userId=?;";
+String sql="SELECT * FROM CorAnswers WHERE userId=?";
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);) 
 {	
