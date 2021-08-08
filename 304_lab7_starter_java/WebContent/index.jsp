@@ -26,11 +26,11 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item active">
-                <a class="nav-link" href="login-page.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./index.jsp">Home <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="loaddata.jsp">Load Data</a>
+                <a class="nav-link" href="./loaddata.jsp">Load Data</a>
             </li>
 
             <li class="nav-item dropdown">
