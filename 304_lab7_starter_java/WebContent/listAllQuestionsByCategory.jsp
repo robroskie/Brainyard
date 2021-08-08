@@ -27,6 +27,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
+        <script>
+            function changeContent(arg1) {
+                $('#content').load('./UniversalQuery.jsp?arg1=' + arg1);
+            }
+        </script>
     </head>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -85,7 +90,7 @@
 
     <div class="container pt-3">
         <select id ="ddl" name="ddl" onmousedown="this.value='';" onchange="changeContent(this.value);">
-                <option value=0 selected>All</option>
+                <option value='0' selected>All</option>
                 <option value='1'>Anthropology</option>
                 <option value='2'>Applied Science</option>
                 <option value='3'>Art History</option>
