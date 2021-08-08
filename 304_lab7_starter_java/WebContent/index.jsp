@@ -40,11 +40,11 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
-                    <a class="dropdown-item" href="./testQuery.jsp">JSP Test Page</a>
-                    <a class="dropdown-item" href="./listAllQuestions.jsp">list orders</a>
-                    <a class="dropdown-item" href="./addQuestion.jsp">add cart</a>
-                    <a class="dropdown-item" href="./correctAnswers.jsp">show cart</a>
-
+                    <a class="dropdown-item" href="./testQuery.jsp">testQuery.jsp</a>
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">listAllQuestions.jsp</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">addQuestion.jsp</a>
+                    <a class="dropdown-item" href="./addQuestionHandler.jsp">addQuestionHandler.jsp</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">correctAnswers.jsp</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
