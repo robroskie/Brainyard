@@ -8,7 +8,7 @@
 <body>
 
 <% 
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+String url = "jdbc:sqlserver://db:1433;DatabaseName=brainYard;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
 try 
