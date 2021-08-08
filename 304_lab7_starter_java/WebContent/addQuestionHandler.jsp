@@ -24,11 +24,11 @@
     
 
     // Parse values
-    <% 
+    
         String category = request.getParameter("category");
         String description = request.getParameter("description");
         int userid = Integer.parseInt(request.getParameter("userid"));
-    %>
+    
 
 
 
