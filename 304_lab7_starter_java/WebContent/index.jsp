@@ -40,9 +40,10 @@
                     Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="ajaxtest.jsp">Ajax Test</a>
-                    <a class="dropdown-item" href="./AjaxTest/TestPage.jsp">JSP Test Page</a>
+                    <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
+                    <a class="dropdown-item" href="./testQuery.jsp">JSP Test Page</a>
                     <a class="dropdown-item" href="./AjaxTest/AJAXwithJSP.jsp">AJAX with JSP</a>
+
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
