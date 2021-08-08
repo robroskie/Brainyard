@@ -94,7 +94,7 @@ catch (java.lang.ClassNotFoundException e) {
 	System.err.println("ClassNotFoundException: " +e);	
 }
 
-String sql="SELECT Description, PTime FROM Answers WHERE userId=?";
+String sql="SELECT Answers.AnsId AS AnswerID, QID AS QuestionID, Description, AVG(Score) AS Rating FROM Answers,Ratings WHERE Answers.AnsId=Ratings.AnsId AND Answers.userId=? GROUP BY Answers.Ansid, QId, Description ORDER BY Rating DESC";
 
 try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);) 
 {	
@@ -104,11 +104,11 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatem
 
 	ResultSet rst=ps.executeQuery();
 
-	out.println("<table><tr><th>Description</th><th>PTime</th></tr>");
-	while (rst.next())
-	{	out.println("<tr><td>"+rst.getString(1)+"</td>"+"<td>"+rst.getDate(2)+"</td></tr>");
-	}
-	out.println("</table>");
+	out.println("<table><tr><th>Answer ID</th><th>QuestionID</th><th>Description</th><th>Average Rating</th></tr>");
+        while (rst.next())
+        {	out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getDouble(4)+"</td></tr>");
+        }
+        out.println("</table>");
 }
 catch (SQLException ex) 
 { 	out.println(ex); 
