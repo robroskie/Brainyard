@@ -94,7 +94,7 @@
 
 
         
-    <!-- Add a question -->
+    <!-- Connection Information -->
     <%
     String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
     String uid = "SA";
@@ -102,11 +102,10 @@
     
 
     // Parse values
-    
-        String category = request.getParameter("category");
-        String description = request.getParameter("description");
-        int userid = Integer.parseInt(request.getParameter("userid"));
-    
+    String category = request.getParameter("category");
+    String description = request.getParameter("description");
+    int userid = Integer.parseInt(request.getParameter("userid"));
+
 
 
 
@@ -122,7 +121,7 @@
     String SQL2 = "SELECT CategoryId FROM Categories WHERE subjTitle=?";
 
 
-//INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
+    //INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
 
     try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);  PreparedStatement ps2 = con.prepareStatement(SQL2);) {
         //Get integer value from category string
