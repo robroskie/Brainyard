@@ -134,7 +134,7 @@
     
 
     <div class="container-fluid" style="padding-top: 10px;"></div>
-        <div class="row" style="padding: 10px; background-color: #000000; height: 370px;">
+        <!-- <div class="row" style="padding: 10px; background-color: #000000; height: 370px;">
             
             <div class="col" style="top:20px;">
                 <img class="pl-3" src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2020_21/3359781/200521-college-student-laptop-stock-cs-419p.jpg" alt="A student studies" style="width: 80%;">
@@ -150,11 +150,13 @@
             <div class="col">
             <img src="https://images.journeys.ca/images/products/1_412829_ZM.JPG" alt="" style="width: 60%;">
             </div>
-        </div>
-        <div class="row" style="padding:10px; background-color: #000000; height: 100px;">
+        </div> -->
+        <div class="row" style="padding:10px; background-color: #b8e7de; height: 300px;">
             <div class ="col">
                 <div class="hero-text" style="align-content:center;">
-                    <h1 style="font-size:50px; color: white;">BrainYard</h1>
+                    <h1 style="font-size:50px; color: #3b8c80;">BrainYard</h1>
+                    <p style="color: black;"> Want to know more about us? Visit our GitHub Page. </p>
+                    <p style="color: black;"> Want to know more about us? Visit our GitHub Page. </p>
                 </div>
             </div>
         </div>
