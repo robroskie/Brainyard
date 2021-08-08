@@ -105,7 +105,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatem
 
 	ResultSet rst=ps.executeQuery();
 
-	out.println("<table><tr><th>Question ID</th><th>BrainID</th><th>Description</th><th>Average Rating</th></tr>");
+	out.println("<table class='table'><tr><th>Question ID</th><th>BrainID</th><th>Description</th><th>Average Rating</th></tr>");
         while (rst.next())
         {	out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getDouble(4)+"</td></tr>");
         }
