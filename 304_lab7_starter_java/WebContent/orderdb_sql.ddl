@@ -13,6 +13,7 @@ DROP TABLE if exists Ratings;
 DROP TABLE if exists Answers;
 DROP TABLE if exists Categories;
 DROP TABLE if exists BUser;
+DROP TABLE if exists CorAnswers;
 
 CREATE TABLE BUser(
     StudentEmail VARCHAR(50),

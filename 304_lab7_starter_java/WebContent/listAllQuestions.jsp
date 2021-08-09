@@ -27,11 +27,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
+        <script>
+            jQuery(document).ready(function ($) {
+                $('[data-href]').click(function () {
+                    window.location = $(this).data("href");
+                });
+            });
+        </script>
     </head>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     
-        <a href="index.jsp" class="navbar-left"><img src="./Resources/Brain_Yard_logo.png" width="150 px"></a>
+        <a href="index.jsp" class="navbar-left"><img src="./Resources/BrainYardLogo.png" width="50 px" style="border-radius: 90%;"></a>
     
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,6 +67,7 @@
                         <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                         <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                         <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
+                        <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                     </div>
                 </li>
             </ul>
@@ -81,7 +89,7 @@
 
 
 <div class="container pt-3">
-    <h3>Questions that have been posted</h3>
+    <h3><a href="https://www.google.com">Questions that have been posted</a></h3>
 <% 
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
@@ -106,7 +114,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
     out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>TimeUntilClose</th><th>postTime</th></tr></thead><tbody>");
 
     while (rst.next()) {
-        out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
+        out.println("<tr data-href='./addQuestion.jsp'><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
     }
     
     out.println("</tbody></table>");

@@ -1,4 +1,3 @@
-//List all questions for a selected category
 <%@ page import="java.sql.*,java.net.URLEncoder" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
@@ -23,7 +22,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a href="HelloWorld.jsp" class="navbar-left"><img src=".\Resources/Brain_Yard_logo.png" width="150 px"></a>
+    <a href="index.jsp" class="navbar-left"><img src="./Resources/BrainYardLogo.png" width="50 px" style="border-radius: 90%;"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,15 +46,11 @@
                     Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="./AjaxTest/ajaxtest.jsp">Ajax Test</a>
-                    <a class="dropdown-item" href="./testQuery.jsp">JSP Test Page</a>
-                    <a class="dropdown-item" href="./listAllQuestions.jsp">list orders</a>
-                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">listAllQuestionsByCategory</a>
-                    <a class="dropdown-item" href="./addQuestion.jsp">add cart</a>
-                    <a class="dropdown-item" href="./correctAnswers.jsp">show cart</a>
-
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
+                    <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
+                    <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
+                    <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
+                    <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -79,7 +74,7 @@
 
 
 <body>
-    
+    <div class='container pt-3'>    
 <% 
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
@@ -105,15 +100,16 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatem
 
 	ResultSet rst=ps.executeQuery();
 
-	out.println("<table><tr><th>Answer ID</th><th>QuestionID</th><th>Description</th><th>Average Rating</th></tr>");
+        out.println("<table class='table'><thead><tr><th>Answer ID</th><th>QuestionID</th><th>Description</th><th>Average Rating</th></tr></thead><tbody>");
         while (rst.next())
         {	out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getDouble(4)+"</td></tr>");
         }
-        out.println("</table>");
+        out.println("</tbody></table>");
 }
 catch (SQLException ex) 
 { 	out.println(ex); 
 }
 %>
+</div>
 </body>
 </html>
