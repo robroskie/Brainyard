@@ -31,7 +31,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a href="index.jsp" class="navbar-left"><img src="./Resources/Brain_Yard_logo.png" width="150 px"></a>
+    <a href="index.jsp" class="navbar-left"><img src="./Resources/BrainYardLogo.png" width="50 px" style="border-radius: 90%;"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,11 +55,11 @@
                     Queries
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="./testQuery.jsp">Database Connection Test</a> -->
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
+                    <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                 </div>
             </li>
         </ul>

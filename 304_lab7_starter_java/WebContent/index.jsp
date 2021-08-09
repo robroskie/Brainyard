@@ -25,7 +25,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <a href="index.jsp" class="navbar-left"><img src="./Resources/Brain_Yard_logo.png" width="150 px"></a>
+    <a href="index.jsp" class="navbar-left"><img src="./Resources/BrainYardLogo.png" width="50 px" style="border-radius: 90%;"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,131 +71,79 @@
 
 
 
-<body style="background-color: white;">
+<body> 
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
 
-    <div class="container-fluid" style="height: 40px; width: 100%;">
-        <h4 style="text-align: center; padding-top: 5px;"> Real questions. Real people. </h4>
-    </div>
+        <div class="carousel-inner">
+            <!-- <h1 style="position:absolute; z-index: 20; color: black; top: 25%;">Centered</h1> -->
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="./Resources/1.svg" alt="First slide"
+                    style="height: 800px; object-fit:cover; object-position: bottom;">
+                <!-- <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
+                    <h1 style="font-size:50px">BrainYard</h1>
+                    <h3>Please start by loading the database.</h3>
+                </div> -->
+            </div>
 
-    <!-- <div class="container-fluid pb-2" style="padding-top: 10 px;">
-        <div class="hero-image" style='background-image: url("./Resources/Brain Yard.svg")'>
-            <div class="hero-text">
-                <h1 style="font-size:50px">BrainYard</h1>
-                <h3>"Please start by loading the database."</h3>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="./Resources/2.svg"
+                    alt="Second slide" style="height: 800px; object-fit: cover; object-position: bottom;">
+                <!-- <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
+                    <h1 style="font-size:50px">Collaborate</h1>
+                    <h3>Work together with a community of students</h3>
+                </div> -->
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100"
+                    src="./Resources/3.svg" alt="Third slide"
+                    style="height: 800px; object-fit: cover; object-position: bottom;">
             </div>
         </div>
-    </div> -->
-
-    <div class="container-fluid pb-2" style="height: 800px;">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-
-            <div class="carousel-inner">
-                <!-- <h1 style="position:absolute; z-index: 20; color: black; top: 25%;">Centered</h1> -->
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="./Resources/1.svg" alt="First slide"
-                        style="height: 800px; object-fit:cover; object-position: bottom;">
-                    <!-- <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
-                        <h1 style="font-size:50px">BrainYard</h1>
-                        <h3>Please start by loading the database.</h3>
-                    </div> -->
-                </div>
-
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="./Resources/2.svg"
-                        alt="Second slide" style="height: 800px; object-fit: cover; object-position: bottom;">
-                    <!-- <div class="hero-text" style="z-index: 20; color: white; text-shadow: 1px 1px 4px #000000;">
-                        <h1 style="font-size:50px">Collaborate</h1>
-                        <h3>Work together with a community of students</h3>
-                    </div> -->
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100"
-                        src="./Resources/3.svg" alt="Third slide"
-                        style="height: 800px; object-fit: cover; object-position: bottom;">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-
-        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-
     
 
-    <div class="container-fluid" style="padding-top: 10px;"></div>
-        <!-- <div class="row" style="padding: 10px; background-color: #000000; height: 370px;">
-            
-            <div class="col" style="top:20px;">
-                <img class="pl-3" src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2020_21/3359781/200521-college-student-laptop-stock-cs-419p.jpg" alt="A student studies" style="width: 80%;">
-            </div>
-            
-            <div class="col-4" style="top:30px;">
-                <img src="https://www.icpas.org/images/default-source/insight/icpas-laptop-scholarship-800.jpg?sfvrsn=da560e1d_0" alt="another laptop" style="width: 80%;">
-            </div>
-            
-            <div class="col-2" style="top:40px; right: 60px;">
-                <img src="./Resources/Student.png" alt="" style="width: 100%;">
-            </div>
-            <div class="col">
-            <img src="https://images.journeys.ca/images/products/1_412829_ZM.JPG" alt="" style="width: 60%;">
-            </div>
-        </div> -->
-        <div class="row" style="padding:10px; background-color: #b8e7de; height: 300px;">
+    <div class="container-fluid pt-2">
+        <div class="row" style="padding:10px; background-color: #b8e7de; height: 600px;">
             <div class ="col">
                 <div class="hero-text" style="align-content:center;">
                     <h1 style="font-size:50px; color: #3b8c80;">BrainYard</h1>
                     <p style="color: black;"> Want to know more about us? Visit our GitHub Page. </p>
-                    <p style="color: black;"> Want to know more about us? Visit our GitHub Page. </p>
+                    <a style="color: black;" href="https://github.com/joegaspari/BrainYard"> https://github.com/joegaspari/BrainYard </a>
                 </div>
             </div>
         </div>
-    
     </div>
-
-    <!-- <div class="container comments-box">
-        <div class="jumbotron bg-dark my-4">
-            <h1 class="display-4 text-white">Threaded Comments - Bootstrap 4</h1>
-            <ul class="timeline-comments">
-
-                <li class="timeline-comment">
-                    <div class="timeline-comment-wrapper">
-                        <div class="card">
-                            <div class="card-header d-flex align-items-center">
-                                <a href="#" class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="assets/images/avatar.jpg" alt="avatar" />
-                                    <h5>zshare</h5>
-                                </a>
-                                <div class="comment-date" data-toggle="tooltip" title="Feb 5, 2018 8:21 pm"
-                                    data-placement="top" data-original-title="Feb 5, 2018 8:21 pm">Sep 19, 2018</div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
-                                    sapiente, nam ipsam veritatis reiciendis dolore soluta magni sit pariatur veniam
-                                    laborum perferendis, molestias amet excepturi voluptatem iure porro reprehenderit
-                                    doloribus.</p>
-                            </div>
-                            <div class="card-footer bg-white p-2">
-                                <button type="button" class="btn btn-secondary btn-sm">Reply</button>
-                                <small class="text-muted ml-2">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+    <div class="container-fluid pt-2" style="width: 100%;">
+        <div class="row justify-content-center" style=" height: 300px;">
+            <div class ="col" style=" background-size: contain; background-position: center; background-repeat: no-repeat; background-color:beige; border-right: 5px solid white;">
+                <div class="hero-text">
+                    <h1 style="font-size:50px; color: #3b8c80;">Questions about the team?</h1>
+                    <p style="color: black;"> Reach out to us via Canvas. </p>
+                </div>
+            </div>
+            <div class ="col" style="background-color: aquamarine; border-left: 5px solid white;">
+                <div class="hero-text">
+                    <h1 style="font-size:50px; color: #3b8c80;">Exchange Brainyard Points for Bitcoin.</h1>
+                    <p style="color: black;"> Coming soon. </p>
+                </div>
+            </div>
         </div>
-    </div> -->
-
+        
+    </div>
+    
     <!-- Modal -->
     <div id="LogButton" class="modal fade" role="dialog">
         <div class="modal-dialog">
