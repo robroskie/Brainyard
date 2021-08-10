@@ -82,14 +82,8 @@
 
 
 
-
-
-
     <body>
 
-
-
-        
     <!-- Connection Information -->
     <%
     String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
@@ -101,9 +95,6 @@
     String category = request.getParameter("category");
     String description = request.getParameter("description");
     int userid = Integer.parseInt(request.getParameter("userid"));
-
-
-
 
     try 
     {	// Load driver class
