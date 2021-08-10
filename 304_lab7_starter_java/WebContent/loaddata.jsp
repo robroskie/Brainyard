@@ -84,6 +84,14 @@
 <body>
 
 <%
+// Load driver class
+try {	
+        Class.forName("com.mysql.cj.jdbc.Driver");
+    }
+catch (java.lang.ClassNotFoundException e) {
+        System.err.println("ClassNotFoundException: " +e);	
+    }
+
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
@@ -132,13 +140,7 @@ catch (Exception e)
 
 <!-- THE PURPOSE OF THE CODE BELOW IS TO CORRECTLY UPDATE THE TIMEUNTILCLOSE ROW -->
 <% 
-    try 
-    {	// Load driver class
-        Class.forName("com.mysql.jdbc.Driver");
-    }
-    catch (java.lang.ClassNotFoundException e) {
-        System.err.println("ClassNotFoundException: " +e);	
-    }
+
 
    
     String SQL5 = "UPDATE Questions SET TimeUntilClose = DATEADD(day, 14, postTime)";
