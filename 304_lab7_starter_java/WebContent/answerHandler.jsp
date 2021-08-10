@@ -75,15 +75,13 @@
     <div class="container">
     <div><p1>Whats your BrainID?</p1></div>
 
-<form action="listAnswers.jsp" method="post">
+<form action="listAnswers.jsp" method="post" required>
 
     <label for="BrainID">BrainID</label>
-    <input type="text" name="BrainID" placeholder="BrainID" /> <br/>
+    <input type="text" id="BrainID" name="BrainID" required> 
+    <div>
     <input type="submit" value="submit">
 
-
-
 </form>
-</div>
 </body>
 </html>

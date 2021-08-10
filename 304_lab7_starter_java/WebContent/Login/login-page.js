@@ -4,6 +4,7 @@ const loginErrorMsg = document.getElementById("login-error-msg");
 
 // When the login button is clicked, the following code is executed
 loginButton.addEventListener("click", (e) => {
+
     // Prevent the default submission of the form
     e.preventDefault();
     // Get the values input by the user in the form fields
@@ -15,7 +16,9 @@ loginButton.addEventListener("click", (e) => {
         alert("You have successfully logged in.");
         location.reload();
     } else {
+ 
         // Otherwise, make the login error message show (change its oppacity)
         loginErrorMsg.style.opacity = 1;
+   
     }
 })
