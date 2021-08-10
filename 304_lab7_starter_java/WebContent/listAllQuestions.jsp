@@ -109,12 +109,14 @@ catch (java.lang.ClassNotFoundException e) {
 try ( Connection con = DriverManager.getConnection(url, uid, pw);
       Statement stmt = con.createStatement();) 
 {		
-	ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC");		
+	// ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC");		
+    ResultSet rst = stmt.executeQuery("SELECT QId, UserId, Description, Category, TimeUntilClose, postTime, CONCAT(DaysRemaining,   ' Day(s),   \n    ', HoursRemaining, ', Hour(s) ', MinutesRemaining, ', Minute(s) ', SecondsRemaining, ', Second(s)') FROM Questions ORDER BY TimeUntilClose ASC");	
     
-    out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>TimeUntilClose</th><th>postTime</th></tr></thead><tbody>");
+    out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>Closing Date</th><th>Time Posted</th><th>Time Remaining Remaining</th></tr></thead><tbody>");
 
     while (rst.next()) {
-        out.println("<tr data-href='./addQuestion.jsp'><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td></tr>");
+        // out.println("<tr data-href='./addQuestion.jsp'><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td><td>"+rst.getInt(7)+"</td><td>"+rst.getInt(8)+"</td><td>"+rst.getInt(9)+"</td><td>"+rst.getInt(10)+"</td></tr>");
+        out.println("<tr data-href='./addQuestion.jsp'><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td><td>"+rst.getString(7)+"</td></tr>");
     }
     
     out.println("</tbody></table>");

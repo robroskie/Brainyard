@@ -2,6 +2,10 @@
 <%@ page import="java.util.Scanner" %>
 <%@ page import="java.io.File" %>
 <%@ include file="jdbc.jsp" %>
+<%@ page import="java.sql.ResultSet" %>
+
+
+
 
 <!doctype html>
 <html lang="en">
@@ -116,6 +120,7 @@ try
     scanner.close();
     
     out.print("<br><br><h1>Database loaded.</h1>");
+    con.close();
 }
 
 catch (Exception e)
@@ -123,5 +128,56 @@ catch (Exception e)
     out.print(e);
 }  
 %>
+
+
+<!-- THE PURPOSE OF THE CODE BELOW IS TO CORRECTLY UPDATE THE TIMEUNTILCLOSE ROW -->
+<% 
+    try 
+    {	// Load driver class
+        Class.forName("com.mysql.jdbc.Driver");
+    }
+    catch (java.lang.ClassNotFoundException e) {
+        System.err.println("ClassNotFoundException: " +e);	
+    }
+
+   
+    String SQL5 = "UPDATE Questions SET TimeUntilClose = DATEADD(day, 14, postTime)";
+    String SQL6 = "ALTER TABLE Questions ADD DaysRemaining AS CASE WHEN GETDATE() < TimeUntilClose THEN DATEDIFF(second, GETDATE(), TimeUntilClose) / 86400 WHEN GETDATE() > TimeUntilClose THEN 0 END";
+    String SQL7 = "ALTER TABLE Questions ADD HoursRemaining AS CASE WHEN GETDATE() < TimeUntilClose THEN DATEDIFF(second, GETDATE(), TimeUntilClose) % 3600 % 24 WHEN GETDATE() > TimeUntilClose THEN 0 END";
+    String SQL8 = "ALTER TABLE Questions ADD MinutesRemaining AS CASE WHEN GETDATE() < TimeUntilClose THEN DATEDIFF(second, GETDATE(), TimeUntilClose) / 60 % 60 WHEN GETDATE() > TimeUntilClose THEN 0 END";
+    String SQL9 = "ALTER TABLE Questions ADD SecondsRemaining AS CASE WHEN GETDATE() < TimeUntilClose THEN DATEDIFF(second, GETDATE(), TimeUntilClose) % 60 WHEN GETDATE() > TimeUntilClose THEN 0 END";
+
+   
+
+    try(
+        Connection con2 = DriverManager.getConnection(url, uid, pw);   
+        Statement stmt = con2.createStatement();    
+        Statement stmt2 = con2.createStatement();
+        Statement stmt3 = con2.createStatement();
+        Statement stmt4 = con2.createStatement();
+        Statement stmt5 = con2.createStatement(); ){
+    
+
+        long millis=System.currentTimeMillis();  
+        java.sql.Date date=new java.sql.Date(millis); 
+
+        stmt.executeUpdate(SQL5);
+
+        stmt2.executeUpdate(SQL6);
+        stmt3.executeUpdate(SQL7);
+        stmt4.executeUpdate(SQL8);
+        stmt5.executeUpdate(SQL9);
+ 
+        
+    }
+
+    catch (SQLException ex) { 
+        	out.println(ex); 
+    }
+
+ %> 
+
+
+
 </body>
 </html> 
