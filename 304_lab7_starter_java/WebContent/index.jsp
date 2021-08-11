@@ -55,7 +55,7 @@
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
-                    <!-- <a class="dropdown-item" href="./Login/login.jsp">Login!</a> -->
+                    <a class="dropdown-item" href="./Login/login.jsp">Login!</a>
                 </div>
             </li>
         </ul>

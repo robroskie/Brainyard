@@ -27,7 +27,7 @@ CREATE TABLE BUser(
     CurrentYear VARCHAR(10),
     PreferredEmail VARCHAR(50),
     CorAnsTot INTEGER,
-    profilepic VARBINARY(MAX),
+    profilepic VARCHAR(15),
     PRIMARY KEY (StudentEmail, UserId)
 );
 
@@ -156,7 +156,6 @@ INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, 
 INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('williamchen@ubc.ca', 'Biology', 1, 'UBC', 'CHEN242', '12345CHEN', 2.0, 8, 'Comp', 'will.Chen@gmail.com', null, 'Avatars/8.png');
 INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('jacobharding@sfu.com', 'Chemisty', 3, 'Simon-Fraser-University', 'JakeRakes', 'rakesincash', 4.0, 9, '2', 'jake.harding@yahoo.ca', null, 'Avatars/9.png');
 INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('junekang@tru.ca', 'Data-Science', 5, 'Trinity-Western-University', 'KINGKang', 'Jun-21', 3.2, 10, '3', 'jkang@hotmail.com', null, 'Avatars/10.png');
-
 
 
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (1,'Anthropology','Arts and Science',2);
