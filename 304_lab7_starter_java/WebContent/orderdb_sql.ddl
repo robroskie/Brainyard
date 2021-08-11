@@ -27,6 +27,7 @@ CREATE TABLE BUser(
     CurrentYear VARCHAR(10),
     PreferredEmail VARCHAR(50),
     CorAnsTot INTEGER,
+    profilepic VARBINARY(MAX),
     PRIMARY KEY (StudentEmail, UserId)
 );
 
@@ -145,16 +146,16 @@ CREATE TABLE CorAnswers(
     Avgscore DECIMAL(4,3)
 );
 
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('joegaspari@ubc.com', 'Biochemistry', 2, 'UBC', 'jgaspari', 'hello1', 4.0, 1, 'Comp', 'joegaspari6@gmail.com', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('kevindowel@sfu.com', 'English', 1, 'Simon-Fraser-University', 'bookGod', '2smart4u', 3.4, 2, '3', 'kDowel@hotmail.com', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('alexking@capilanou.ca', 'Art-History', 1, 'Capilano-University', 'ArtPOP', '12345', 2.4, 3, '2', 'artpopqueen@gmail.com', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('ninasorini@tru.ca', 'Economics', 4, 'Trinity-Western University', 'ninaS1234', 'ninas12345', 4.0, 4, '4', 'ninasorini6@yahoo.ca', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('lucascollings@ubc.ca', 'Math', 2, 'UBC', 'LCollings', 'mathisfun12', 2.5, 5, '4', 'lcollings@hotmail.com', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('trevorMcdown@ucalgary.ca', 'Cultural-Studies', 3, 'University-of-Calgary', 'Mcdownknows', 'hay1234', 3.5, 6, '1', null, null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('giuliano@tru.ca', 'Computer-Science', 5, 'Trinity-Western-University', 'GaryIuliano1', 'irapsag123', 3.4, 7, '4', 'giuliano45@hotmail.com', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('williamchen@ubc.ca', 'Biology', 1, 'UBC', 'CHEN242', '12345CHEN', 2.0, 8, 'Comp', 'will.Chen@gmail.com', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('jacobharding@sfu.com', 'Chemisty', 3, 'Simon-Fraser-University', 'JakeRakes', 'rakesincash', 4.0, 9, '2', 'jake.harding@yahoo.ca', null);
-INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot) VALUES ('junekang@tru.ca', 'Data-Science', 5, 'Trinity-Western-University', 'KINGKang', 'Jun-21', 3.2, 10, '3', 'jkang@hotmail.com', null);
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('joegaspari@ubc.com', 'Biochemistry', 2, 'UBC', 'jgaspari', 'hello1', 4.0, 1, 'Comp', 'joegaspari6@gmail.com', null, 'Avatars/1.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('kevindowel@sfu.com', 'English', 1, 'Simon-Fraser-University', 'bookGod', '2smart4u', 3.4, 2, '3', 'kDowel@hotmail.com', null, 'Avatars/2.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('alexking@capilanou.ca', 'Art-History', 1, 'Capilano-University', 'ArtPOP', '12345', 2.4, 3, '2', 'artpopqueen@gmail.com', null, 'Avatars/3.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('ninasorini@tru.ca', 'Economics', 4, 'Trinity-Western University', 'ninaS1234', 'ninas12345', 4.0, 4, '4', 'ninasorini6@yahoo.ca', null, 'Avatars/4.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('lucascollings@ubc.ca', 'Math', 2, 'UBC', 'LCollings', 'mathisfun12', 2.5, 5, '4', 'lcollings@hotmail.com', null, 'Avatars/5.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('trevorMcdown@ucalgary.ca', 'Cultural-Studies', 3, 'University-of-Calgary', 'Mcdownknows', 'hay1234', 3.5, 6, '1', null, null, 'Avatars/6.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('giuliano@tru.ca', 'Computer-Science', 5, 'Trinity-Western-University', 'GaryIuliano1', 'irapsag123', 3.4, 7, '4', 'giuliano45@hotmail.com', null, 'Avatars/7.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('williamchen@ubc.ca', 'Biology', 1, 'UBC', 'CHEN242', '12345CHEN', 2.0, 8, 'Comp', 'will.Chen@gmail.com', null, 'Avatars/8.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('jacobharding@sfu.com', 'Chemisty', 3, 'Simon-Fraser-University', 'JakeRakes', 'rakesincash', 4.0, 9, '2', 'jake.harding@yahoo.ca', null, 'Avatars/9.png');
+INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('junekang@tru.ca', 'Data-Science', 5, 'Trinity-Western-University', 'KINGKang', 'Jun-21', 3.2, 10, '3', 'jkang@hotmail.com', null, 'Avatars/10.png');
 
 
 

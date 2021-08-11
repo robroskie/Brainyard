@@ -59,14 +59,9 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton">Login
-            to the site</button>
+        <a href="index.jsp" class="navbar-right"><img src="./Avatars/1.png" width="50 px" style="border-radius: 90%;"></a>
+           
+        
     </div>
 </nav>
 

@@ -43,7 +43,7 @@
              System.err.println("ClassNotFoundException: " +e);	
         }
         
-        String sql="SELECT University, UserName, Password, UserId FROM BUser WHERE UserName=? AND Password=?";
+        String sql="SELECT University, UserName, Password, UserId, profilepic FROM BUser WHERE UserName=? AND Password=?";
     
 		try(Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);)
 		{
@@ -56,6 +56,7 @@
             String retUsName=rst.getString(2);
             String retPasswor=rst.getString(3);
             int userId=rst.getInt(4);
+			
             
             if(username.equals(retUsName) && password.equals(retPasswor))
                 retStr=retUsName;
@@ -65,6 +66,7 @@
 			    session.setAttribute("authenticatedUser",username);
                 session.setAttribute("userId",userId);
                 session.setAttribute("University", University);
+
 		        }else{
 			    session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
                 }

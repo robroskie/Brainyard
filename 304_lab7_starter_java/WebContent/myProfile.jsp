@@ -140,10 +140,10 @@
     <div class="container mt-5 d-flex justify-content-center">
         <div class="card p-3">
             <div class="d-flex align-items-center">
-                <div class="image"> <img src="Avatar/1.jpg" class="rounded" width="155"> </div>
+                <div class="image"> <img src=Avatar/9.png> class="rounded" width="155"> </div>
                 <div class="ml-3 w-100">
-                    <h4 class="mb-0 mt-0"><%= session.getAttribute("userId")%></h4> <span>Current Rank</span>
-                    <h4 class="mb-0 mt-0"><%= session.getAttribute("University")%></h4> <span>Current Rank</span>
+                    <h4 class="mb-0 mt-0"><%= session.getAttribute("userId", userID)%></h4> <span>Current Rank</span>
+                    <h4 class="mb-0 mt-0"><%= session.getAttribute("University", University)%></h4> <span>Current Rank</span>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
                         <div class="d-flex flex-column"> <span class="articles">Questions</span> <span class="number1"> <%= session.getAttribute("numQuestions") %> </span> </div>
                         <div class="d-flex flex-column"> <span class="followers">Answers</span> <span class="number2"><%= session.getAttribute("numAns") %></span> </div>
