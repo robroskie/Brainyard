@@ -2,6 +2,7 @@
 <%@ include file="jdbc.jsp" %>
 <%
 	String authenticatedUser = null;
+    Integer userId=null;
 	session = request.getSession(true);
 
 	try
@@ -42,7 +43,7 @@
              System.err.println("ClassNotFoundException: " +e);	
         }
         
-        String sql="SELECT UserName, Password FROM BUser WHERE UserName=? AND Password=?";
+        String sql="SELECT UserName, Password, UserId FROM BUser WHERE UserName=? AND Password=?";
     
 		try(Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);)
 		{
@@ -53,13 +54,14 @@
             rst.next();
             String retUsName=rst.getString(1);
             String retPasswor=rst.getString(2);
-
+            userId=rst.getInt(3);
             if(username.equals(retUsName) && password.equals(retPasswor))
                 retStr=retUsName;
             
 			if(retStr != null){	
                 session.removeAttribute("loginMessage");
 			    session.setAttribute("authenticatedUser",username);
+                session.setAttribute("userId",userId);
 		        }else{
 			    session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
                 }
