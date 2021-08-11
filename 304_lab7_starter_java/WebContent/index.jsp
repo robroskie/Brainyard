@@ -55,18 +55,22 @@
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
-                    <a class="dropdown-item" href="./login.jsp">Login!</a>
+                    <!-- <a class="dropdown-item" href="./Login/login.jsp">Login!</a> -->
                 </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+
+
+      
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+ 
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton">Login
-            to the site</button>
+        <form action="./Login/login.jsp" method="post">
+        <button type="submit" class="btn btn-info btn-md little-margin-left" data-toggle="modal" >Login to the site</button>
+        </form>
     </div>
 </nav>
 
