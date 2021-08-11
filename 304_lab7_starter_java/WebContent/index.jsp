@@ -86,6 +86,8 @@
                 </div> -->
             </div>
 
+
+
             <div class="carousel-item">
                 <img class="d-block w-100" src="./Resources/2.svg"
                     alt="Second slide" style="height: 800px; object-fit: cover; object-position: bottom;">
