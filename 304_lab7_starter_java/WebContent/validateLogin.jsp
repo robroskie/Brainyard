@@ -2,7 +2,7 @@
 <%@ include file="jdbc.jsp" %>
 <%
 	String authenticatedUser = null;
-    Integer userId=null;
+    ;
 	session = request.getSession(true);
 
 	try
@@ -54,7 +54,7 @@
             rst.next();
             String retUsName=rst.getString(1);
             String retPasswor=rst.getString(2);
-            userId=rst.getInt(3);
+            int userId=rst.getInt(3);
             if(username.equals(retUsName) && password.equals(retPasswor))
                 retStr=retUsName;
             
