@@ -54,15 +54,15 @@
             String retUsName=rst.getString(1);
             String retPasswor=rst.getString(2);
 
-            if(username.equals(retUsName) && password.equals(retPasswor)){
+            if(username.equals(retUsName) && password.equals(retPasswor))
                 retStr=retUsName;
             
 			if(retStr != null){	
                 session.removeAttribute("loginMessage");
 			    session.setAttribute("authenticatedUser",username);
-		    }else{
-			session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
-             }
+		        }else{
+			    session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
+                }
 		
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
 					
