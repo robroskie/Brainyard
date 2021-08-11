@@ -80,7 +80,7 @@
 
 <%
 
-    int userId = 2;
+    int userId = 3;
 
     //  <!-- Connection Information -->
     String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
@@ -97,28 +97,34 @@
 
     //Get total number of questions by userid
     String SQL = "SELECT UserId, COUNT(Qid) FROM Questions WHERE UserId=? GROUP BY UserId";
-    //String SQL2 = "SELECT CategoryId FROM Categories WHERE subjTitle=?";
 
+    //Get total number of answers by userid
+    String SQL1 = "SELECT userId, COUNT(AnsId) FROM Answers WHERE userId=? GROUP BY userId";
 
 
     
 
-    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);) {
+    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL); PreparedStatement ps1 = con.prepareStatement(SQL1);) {
         //Get integer value from category string
 
         ps.setInt(1, userId);
-
-        
         ResultSet rs = ps.executeQuery();	
-
         rs.next();
         String numQuestions = rs.getString(2);
         session.setAttribute("numQuestions", numQuestions);
-        
+        ps.close();
+
+        ps1.setInt(1, userId);
+        ResultSet rs1 = ps1.executeQuery();	
+        rs1.next();
+        String numAns = rs1.getString(2);
+        session.setAttribute("numAns", numAns);   
+
+  
     }
 
     catch (SQLException ex) { 
-        	//out.println(ex); 
+        	out.println(ex); 
     }
 
 
@@ -136,7 +142,7 @@
                     <h4 class="mb-0 mt-0">Alex Morrision</h4> <span>Current Rank</span>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
                         <div class="d-flex flex-column"> <span class="articles">Questions</span> <span class="number1"> <%= session.getAttribute("numQuestions") %> </span> </div>
-                        <div class="d-flex flex-column"> <span class="followers">Answers</span> <span class="number2">50</span> </div>
+                        <div class="d-flex flex-column"> <span class="followers">Answers</span> <span class="number2"><%= session.getAttribute("numAns") %></span> </div>
                         <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
                     </div>
                     <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
@@ -150,7 +156,7 @@
                 <div class="ml-3 w-100">
                     <h4 class="mb-0 mt-0" id="balheader">Your Balances</h4>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                         <div class="d-flex flex-column">  <span class="articles" id="coins">Bitcoin <img src="Resources/bitcoin.jpg" align="right" width="22" height="22"></span>"<html> 2 <span class="number1">1 </span>  </div>
+                         <div class="d-flex flex-column">  <span class="articles" id="coins">Bitcoin <img src="Resources/bitcoin.jpg" align="right" width="22" height="22"></span><html>  <span class="number1">1 </span>  </div>
                         <div class="d-flex flex-column"> <span class="followers" id="coins">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">2</span> </div>
                         <div class="d-flex flex-column"> <span class="rating" id="coins">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">3</span> </div>
                     </div>
