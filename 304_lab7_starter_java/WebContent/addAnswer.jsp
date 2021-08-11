@@ -46,9 +46,6 @@
                 <a class="nav-link" href="./index.jsp">Home <span class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="./loaddata.jsp">Load Data</a>
-            </li>
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -80,82 +77,23 @@
     </div>
 </nav>
 
-<% int selectedQId = Integer.parseInt(request.getParameter("selectedQid")); 
-out.println(selectedQId);
-//request.setParameter("tempQid", selectedQId); %>
+<% 
+    int tempQid = Integer.parseInt(request.getParameter("selectedQid"));
+    session.setAttribute("selectedQid", tempQid); 
+%>
 
 <body>
 
     <div class="container">
-        <p1>Add A Question!</p1>
+        <p1>Add An Answer!</p1>
         <form action="addQuestionHandler.jsp" method="post">
 
-
-                <label for="description">Answer Description</label>
+                <label for="description">Description</label>
                 <input type="text" name="description" required> 
-
                 <input type="submit" value="submit">
+
         </form>
     </div> 
-
-    <!-- Connection Information -->
-    <%
-    String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-    String uid = "SA";
-    String pw = "YourStrong@Passw0rd";
-    
-
- 
-
-    out.println(selectedQId);
-
-
-
-    // try 
-    // {	// Load driver class
-    //     Class.forName("com.mysql.jdbc.Driver");
-    // }
-    // catch (java.lang.ClassNotFoundException e) {
-    //     System.err.println("ClassNotFoundException: " +e);	
-    // }
-
-    // String SQL = "INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (?,?,?,?,?)";
-    // String SQL2 = "SELECT CategoryId FROM Categories WHERE subjTitle=?";
-
-
-    // //INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
-
-    // try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);  PreparedStatement ps2 = con.prepareStatement(SQL2);) {
-    //     //Get integer value from category string
-
-        
-    //     long millis=System.currentTimeMillis();  
-    //     java.sql.Date date=new java.sql.Date(millis); 
-
-    //     ps.setInt(1, userid);;
-    //     ps.setString(2, description);
-        
-    //     //This value needs to be category mapped from the string value to corresponding int value	
-    //     ps.setInt(3, 6);
-    //     ps.setDate(4, date);	
-    //     ps.setDate(5, date);	
-    //     int updateQuery = ps.executeUpdate();	
-
-    //     if(updateQuery != 0)
-    //         out.println("Successfully updated your question!"); 
-
-
-    //     ps2.setString(1,category);
-    //     int rs2 = ps2.executeUpdate();
-        
-    // }
-
-    // catch (SQLException ex) { 
-    //     	//out.println(ex); 
-    // }
-
-    %>
-
 
 
     </body>
