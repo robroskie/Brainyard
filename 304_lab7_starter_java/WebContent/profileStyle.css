@@ -1,0 +1,54 @@
+body {
+  background-color: #b3e5fc;
+  border-radius: 10px;
+}
+
+.card {
+  border: 2px solid purple;
+  width: 400px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.stats {
+  background: #f2f5f8 !important;
+  color: #000 !important;
+}
+
+.articles {
+  font-size: 12px;
+  color: #a1aab9;
+}
+
+.number1 {
+  font-weight: 500;
+}
+
+.followers {
+  font-size: 12px;
+  color: #a1aab9;
+}
+
+.number2 {
+  font-weight: 500;
+}
+
+.rating {
+  font-size: 12px;
+  color: #a1aab9;
+}
+
+.number3 {
+  font-weight: 500;
+}
+
+#balheader {
+  border-bottom: 2px solid #a1aab9;
+  text-align: center;
+  color: rgb(45, 106, 134);
+}
+
+#coins {
+  padding-left: 2px;
+}
