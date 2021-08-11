@@ -44,7 +44,7 @@
         
         String sql="SELECT UserName, Password FROM BUser WHERE UserName=? AND Password=?";
     
-		try(onnection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);)
+		try(Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps=con.prepareStatement(sql);)
 		{
 			ps.setString(1,username);
             ps.setString(2,password);
