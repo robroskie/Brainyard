@@ -65,7 +65,7 @@
                         <!-- <a class="dropdown-item" href="./testQuery.jsp">Database Connection Test</a> -->
                         <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                         <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
-                        <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
+                        <!-- <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a> -->
                         <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                         <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                         <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
@@ -79,10 +79,7 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
     
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-                data-target="#LogButton">Login
-                to the site</button>
+
     
         </div>
     </nav>
@@ -112,12 +109,15 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
       Statement stmt = con.createStatement();) 
 {		
 	// ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC");		
-    ResultSet rst = stmt.executeQuery("SELECT QId, UserId, Description, Category, TimeUntilClose, postTime, CONCAT(DaysRemaining,   ' Day(s),   \n    ', HoursRemaining, ', Hour(s) ', MinutesRemaining, ', Minute(s) ', SecondsRemaining, ', Second(s)') FROM Questions ORDER BY TimeUntilClose ASC");	
+    ResultSet rst = stmt.executeQuery("SELECT QId, UserId, Description, Category, TimeUntilClose, postTime, CONCAT(DaysRemaining,   ' Day(s),   <br>    ', HoursRemaining, ' Hour(s) <br>', MinutesRemaining, ' Minute(s) <br> ', SecondsRemaining, ' Second(s)') FROM Questions ORDER BY TimeUntilClose ASC");	
     
     out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>Closing Date</th><th>Time Posted</th><th>Time Remaining</th></tr></thead><tbody>");
 
     while (rst.next()) {
-        out.println("<tr data-href='./addQuestion.jsp'><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td><td>"+rst.getString(7)+"</td></tr>");
+        //int tempQid=rst.getInt(1);
+    
+        out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td><td>"+rst.getString(7)+"<form action=\"./addAnswer.jsp\" method=\"post\"><td><button type=\"submit\" name=\"selectedQid\" value=\""+rst.getInt(1)+"\"><small>Answer me!</small></td></form> </tr>");
+
     }
     
     out.println("</tbody></table>");
@@ -129,3 +129,5 @@ catch (SQLException ex)
 </div>
 </body>
 </html>
+
+
