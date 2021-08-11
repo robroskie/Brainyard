@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Screen!!!</title>
+<link rel="stylesheet" href="loginStyles.css">
+<title>Welcome to Brainyard</title>
 </head>
 <body>
 

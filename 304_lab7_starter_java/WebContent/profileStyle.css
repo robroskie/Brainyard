@@ -49,6 +49,11 @@ body {
   color: rgb(45, 106, 134);
 }
 
-#coins {
-  padding-left: 2px;
+.coins {
+  padding-left: 3px;
+}
+
+#bitcoinimg {
+  object-fit: cover;
+  border-radius: 50%;
 }

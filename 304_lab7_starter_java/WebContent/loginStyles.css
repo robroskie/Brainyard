@@ -1,0 +1,10 @@
+body {
+  font-family: Roboto, sans-serif;
+  color: #515a6e;
+  background-color: #b3e5fc;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}

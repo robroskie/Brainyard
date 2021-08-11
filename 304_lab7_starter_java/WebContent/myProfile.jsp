@@ -80,7 +80,7 @@
 
 <%
 
-    int userId = 3;
+    
 
     //  <!-- Connection Information -->
     String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
@@ -106,7 +106,8 @@
 
     try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL); PreparedStatement ps1 = con.prepareStatement(SQL1);) {
         //Get integer value from category string
-
+        int userId = (int)session.getAttribute("userId");
+        
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();	
         rs.next();
@@ -156,9 +157,9 @@
                 <div class="ml-3 w-100">
                     <h4 class="mb-0 mt-0" id="balheader">Your Balances</h4>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                         <div class="d-flex flex-column">  <span class="articles" id="coins">Bitcoin <img src="Resources/bitcoin.jpg" align="right" width="22" height="22"></span><html>  <span class="number1">1 </span>  </div>
-                        <div class="d-flex flex-column"> <span class="followers" id="coins">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">2</span> </div>
-                        <div class="d-flex flex-column"> <span class="rating" id="coins">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">3</span> </div>
+                         <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">1 </span>  </div>
+                        <div class="d-flex flex-column"> <span class="followers coins" id="eth">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">2</span> </div>
+                        <div class="d-flex flex-column"> <span class="rating coins" id="dogecoin">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">3</span> </div>
                     </div>
                  
             </div>
