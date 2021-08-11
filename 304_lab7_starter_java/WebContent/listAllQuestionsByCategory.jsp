@@ -77,8 +77,7 @@
     
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-                data-target="#LogButton">Login
-                to the site</button>
+                data-target="#LogButton">Login to the site</button>
     
         </div>
     </nav>
