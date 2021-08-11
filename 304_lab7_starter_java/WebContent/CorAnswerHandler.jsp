@@ -63,6 +63,7 @@
                         <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                         <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                         <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
+                        <a class="dropdown-item" href="./login.jsp">Login</a>
                     </div>
                 </li>
             </ul>

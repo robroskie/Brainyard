@@ -62,6 +62,7 @@
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                     <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
+                    <a class="dropdown-item" href="./login.jsp">Login</a>
                 </div>
             </li>
         </ul>
