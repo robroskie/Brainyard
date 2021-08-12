@@ -1,9 +1,7 @@
-  
-<%@ page import="java.sql.*" %>
 
 <!doctype html>
 <html lang="en">
-
+        
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,6 +15,8 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
+    <link rel="stylesheet" href="profileStyle.css">
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -59,20 +59,16 @@
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
+                    <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
+                    <a class="dropdown-item" href="./login.jsp">Login</a>
                 </div>
             </li>
-        </ul>
-
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-
-        <!-- Trigger the modal with a button -->
+         </ul>
+        <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
+        
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton">Login
-            to the site</button>
-
+            data-target="#LogButton">"<%=String.valueOf(session.getAttribute("authenticatedUser"))%>"</button>
+        
     </div>
 </nav>
     
