@@ -56,7 +56,8 @@
             String retUsName=rst.getString(2);
             String retPasswor=rst.getString(3);
             int userId=rst.getInt(4);
-			
+			String profilePic=rst.getString(5);
+
             
             if(username.equals(retUsName) && password.equals(retPasswor))
                 retStr=retUsName;
@@ -66,6 +67,7 @@
 			    session.setAttribute("authenticatedUser",username);
                 session.setAttribute("userId",userId);
                 session.setAttribute("University", University);
+				session.setAttribute("profilePic", profilePic);
 
 		        }else{
 			    session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
