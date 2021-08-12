@@ -1,4 +1,3 @@
-  
 <%@ page import="java.sql.*" %>
 
 <!doctype html>
@@ -81,7 +80,11 @@
 </nav>
 
 <%
-
+    // HttpSession session = request.getSession(); 
+    // session.setAttribute("user", user);
+    if(session.getAttribute("authenticatedUser") != null){
+       
+    
     
 
     //  <!-- Connection Information -->
@@ -129,10 +132,10 @@
     catch (SQLException ex) { 
         	out.println(ex); 
     }
-
-
-    
-
+    }
+    else{
+        out.println("Error, you are not logged in");
+    }
 %>
 
 <body>
@@ -148,7 +151,7 @@
                         <div class="d-flex flex-column"> <span class="followers">Answers</span> <span class="number2"><%= session.getAttribute("numAns") %></span> </div>
                         <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
                     </div>
-                    <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
+                    <div class="button mt-2 d-flex flex-row align-items-center"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span>&#191;</span>Ask a question?</button></form>  </div>
                 </div>
             </div>
         </div>

@@ -105,7 +105,7 @@
     
                 <div>
                 <label for="userid">UserId</label>
-                <input type="text" name="userid" required> 
+                <input type="text" name="userid" value="<%=String.valueOf(session.getAttribute("userId"))%>"> 
                 </div>
                 <input type="submit" value="submit">
         </form>

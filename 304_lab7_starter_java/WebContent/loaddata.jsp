@@ -150,8 +150,8 @@ catch (Exception e)
     String SQL7 = "ALTER TABLE Questions ADD HoursRemaining AS CASE WHEN GETDATE() < TimeUntilClose THEN DATEDIFF(second, GETDATE(), TimeUntilClose) % 3600 % 24 WHEN GETDATE() > TimeUntilClose THEN 0 END";
     String SQL8 = "ALTER TABLE Questions ADD MinutesRemaining AS CASE WHEN GETDATE() < TimeUntilClose THEN DATEDIFF(second, GETDATE(), TimeUntilClose) / 60 % 60 WHEN GETDATE() > TimeUntilClose THEN 0 END";
     String SQL9 = "ALTER TABLE Questions ADD SecondsRemaining AS CASE WHEN GETDATE() < TimeUntilClose THEN DATEDIFF(second, GETDATE(), TimeUntilClose) % 60 WHEN GETDATE() > TimeUntilClose THEN 0 END";
+    String SQL10 = "ALTER TABLE Questions ADD Expired AS CASE WHEN GETDATE() > TimeUntilClose THEN 't' WHEN GETDATE() < TimeUntilClose THEN 'f' END";
 
-   
 
     try(
         Connection con2 = DriverManager.getConnection(url, uid, pw);   
@@ -159,7 +159,8 @@ catch (Exception e)
         Statement stmt2 = con2.createStatement();
         Statement stmt3 = con2.createStatement();
         Statement stmt4 = con2.createStatement();
-        Statement stmt5 = con2.createStatement(); ){
+        Statement stmt5 = con2.createStatement();
+        Statement stmt6 = con2.createStatement(); ){
     
 
         long millis=System.currentTimeMillis();  
@@ -171,7 +172,7 @@ catch (Exception e)
         stmt3.executeUpdate(SQL7);
         stmt4.executeUpdate(SQL8);
         stmt5.executeUpdate(SQL9);
- 
+        stmt6.executeUpdate(SQL10);
         
     }
 

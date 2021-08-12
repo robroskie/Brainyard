@@ -92,9 +92,8 @@
     
 
     // Parse values
-
     String description = request.getParameter("description");
-    int userid = session.getAttribute(("selectedQid"));
+    int userid = (int)session.getAttribute("userId");
 
     try 
     {	// Load driver class
@@ -104,25 +103,21 @@
         System.err.println("ClassNotFoundException: " + e);	
     }
 
-    String SQL = "INSERT Answers(userId, PTime, Category, QId, Description) VALUES (?,?,?,?,?)";
+    String SQL = "INSERT Answers(userId, PTime, Category, Description) VALUES (?,?,?,?)";
 
 
-    //INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
+  
 
-    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);  PreparedStatement ps2 = con.prepareStatement(SQL2);) {
+    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);) {
         //Get integer value from category string
 
-        
-        long millis=System.currentTimeMillis();  
-        java.sql.Date date=new java.sql.Date(millis); 
 
-        ps.setInt(1, userid);;
-        ps.setString(2, description);
+        ps.setInt(1, userid);
+        ps.setDate(2, GETDATE());
+        ps.setInt(3, 69);
+        ps.setString(4, description);
         
-        //This value needs to be category mapped from the string value to corresponding int value	
-        ps.setInt(3, 6);
-        ps.setDate(4, date);	
-        ps.setDate(5, date);	
+   
         int updateQuery = ps.executeUpdate();	
 
         if(updateQuery != 0)

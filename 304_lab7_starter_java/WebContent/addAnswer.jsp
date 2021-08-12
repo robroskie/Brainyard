@@ -86,7 +86,7 @@
 
     <div class="container">
         <p1>Add An Answer!</p1>
-        <form action="addQuestionHandler.jsp" method="post">
+        <form action="addAnswerHandler.jsp" method="post">
 
                 <label for="description">Description</label>
                 <input type="text" name="description" required> 
