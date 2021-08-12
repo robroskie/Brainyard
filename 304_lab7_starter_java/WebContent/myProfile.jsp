@@ -139,7 +139,7 @@
     <div class="container mt-5 d-flex justify-content-center">
         <div class="card p-3">
             <div class="d-flex align-items-center">
-                <div class="image"> <img src="<%=(String)request.getParameter("profilePic")%> class="rounded" width="155"> </div>
+                <div class="image"> <img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" class="rounded" width="155"> </div>
                 <div class="ml-3 w-100">
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("userId")%></h4> <span>User ID</span>
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("University")%></h4> <span>School</span>
