@@ -126,12 +126,29 @@
     catch (SQLException ex) { 
         	out.println(ex); 
     }
-    }
-    else{
-        out.println("Error, you are not logged in");
-    }
-%>
 
+    String SQL3="SELECT UserName, (COUNT(DISTINCT Qid)*UStatus.BitX) AS BitAmo, (COUNT(DISTINCT Qid)*UStatus.EthX) AS EthAmo, (COUNT(DISTINCT Qid)*UStatus.DogX) AS DogeAmo FROM BUser,UStatus,CorAnswers WHERE BUser.UserStatus=UStatus.StatId AND BUser.UserId=CorAnswers.userId AND BUser.UserName=? GROUP BY UserName,UStatus.BitX, UStatus.EthX, UStatus.DogX";
+    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL3);) {
+        String usname=(String)session.getAttribute("authenticatedUser");
+        ps.setString(1,usname);
+
+        ResultSet rest=ps.executeQuery();
+        rest.next();
+        String Bitamo=rest.getString(2);
+        String Ethamo=rest.getString(3);
+        String Dogeamo=rest.getString(4);
+
+        session.setAttribute("Bitamo", Bitamo);
+        session.setAttribute("Ethamo", Ethamo);
+        session.setAttribute("Dogeamo", Dogeamo);
+    }
+    catch(SQLException ex){
+        out.println(ex);
+    }
+}
+
+%>
+    
 <body>
     <div class="container mt-5 d-flex justify-content-center">
         <div class="card p-3">
@@ -156,9 +173,9 @@
                 <div class="ml-3 w-100">
                     <h4 class="mb-0 mt-0" id="balheader">Your Balances</h4>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                         <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">1 </span>  </div>
-                        <div class="d-flex flex-column"> <span class="followers coins" id="eth">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">2</span> </div>
-                        <div class="d-flex flex-column"> <span class="rating coins" id="dogecoin">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">3</span> </div>
+                         <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">"<%=String.valueOf(session.getAttribute("Bitamo"))%>" </span>  </div>
+                        <div class="d-flex flex-column"> <span class="followers coins" id="eth">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">"<%=String.valueOf(session.getAttribute("Ethamo"))%>"</span> </div>
+                        <div class="d-flex flex-column"> <span class="rating coins" id="dogecoin">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">"<%=String.valueOf(session.getAttribute("Dogeamo"))%>"</span> </div>
                     </div>
                  
             </div>
