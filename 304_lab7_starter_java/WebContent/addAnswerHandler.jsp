@@ -3,6 +3,8 @@
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
 
 <!doctype html>
 <html lang="en">
@@ -110,14 +112,15 @@
 
     try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);) {
         //Get integer value from category string
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-
+        String dateString = format.format( new Date()   );
+        Date   date       = format.parse ( "2009-12-31" );  
         ps.setInt(1, userid);
-        ps.setDate(2, GETDATE());
+        ps.setDate(2, date);
         ps.setInt(3, 69);
         ps.setString(4, description);
         
-   
         int updateQuery = ps.executeUpdate();	
 
         if(updateQuery != 0)
