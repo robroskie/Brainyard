@@ -105,7 +105,6 @@
     }
 
     String SQL = "INSERT Answers(userId, PTime, Category, QId, Description) VALUES (?,?,?,?,?)";
-    String SQL2 = "SELECT CategoryId FROM Categories WHERE subjTitle=?";
 
 
     //INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
