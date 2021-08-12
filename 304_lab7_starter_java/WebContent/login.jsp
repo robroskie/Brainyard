@@ -9,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Login!!</title>
+    <title>Login Page!</title>
 
     <link rel="stylesheet" href="./standard.css">
     <!-- Optional JavaScript -->
@@ -27,7 +27,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a href="index.jsp" class="navbar-left"><img src="./Resources/BrainYardLogo.png" width="50 px" style="border-radius: 90%;"></a>
 
@@ -53,7 +53,6 @@
                     Queries
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="./testQuery.jsp">Database Connection Test</a> -->
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
@@ -69,9 +68,10 @@
             data-target="#LogButton">"<%=String.valueOf(session.getAttribute("authenticatedUser"))%>"</button>
         
     </div>
-</nav>
+</nav> -->
 
-<div style="margin:0 auto;text-align:center;display:inline">
+<body style="background-color: transparent;">
+<div style="margin:0 auto;text-align:center;display:inline; align-items: center;">
 
 <h3>Please Login to System</h3>
 
@@ -85,15 +85,15 @@ if (session.getAttribute("loginMessage") != null)
 <form name="MyForm" method=post action="validateLogin.jsp">
 <table style="display:inline">
 <tr>
-	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Username:</font></div></td>
+	<td><div align="right" style="padding: 10px;"><font face="Arial, Helvetica, sans-serif" size="2">Username:</font></div></td>
 	<td><input type="text" name="username"  size=10 maxlength=10></td>
 </tr>
 <tr>
-	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Password:</font></div></td>
+	<td><div align="right" style="padding: 10px;"><font face="Arial, Helvetica, sans-serif" size="2">Password:</font></div></td>
 	<td><input type="password" name="password" size=10 maxlength="10"></td>
 </tr>
 </table>
-<br/>
+</br>
 <input class="submit" type="submit" name="Submit2" value="Log In">
 </form>
 

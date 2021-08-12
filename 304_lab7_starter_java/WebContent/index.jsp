@@ -158,7 +158,7 @@
                 <div class="modal-body">
                     <p>This is where our sign in code/status will go.</p>
                     <div class="container-md">
-                        <object type="text/html" data="./Login/login-page.html" width="450px" height="600px"
+                        <object type="text/html" data="./login.jsp" width="450px" height="600px"
                             style="overflow:auto;">
                         </object>
                     </div>
