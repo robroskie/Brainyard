@@ -1,3 +1,6 @@
+<%@ page language="java" import="java.io.*,java.sql.*"%>
+<%@ include file="jdbc.jsp" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -49,7 +52,6 @@
                     Queries
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="./testQuery.jsp">Database Connection Test</a> -->
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
@@ -62,8 +64,15 @@
         </ul>
         <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
         
+        <%!
+            String LoggedUser() {
+                return "Joe Mama";
+            }
+        %>
+
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton">"<%=String.valueOf(session.getAttribute("authenticatedUser"))%>"</button>
+            data-target="#LogButton"><%=String.valueOf(session.getAttribute("authenticatedUser"))%>
+        </button>
         
     </div>
 </nav>
@@ -71,6 +80,8 @@
 
 
 <body> 
+        
+
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
