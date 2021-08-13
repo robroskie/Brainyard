@@ -26,7 +26,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a href="index.jsp" class="navbar-left"><img src="./Resources/BrainYardLogo.png" width="50 px" style="border-radius: 90%;"></a>
 
@@ -67,7 +67,7 @@
             data-target="#LogButton">"<%=String.valueOf(session.getAttribute("authenticatedUser"))%>"</button>
         
     </div>
-</nav> -->
+</nav>
 
 <body style="background-color: transparent;">
 <div style="margin:0 auto;text-align:center;display:inline; align-items: center;">
