@@ -104,7 +104,7 @@
         <option value="null">null</option>
     </select>
       <input type="text" name="Current-Year" placeholder="Year" />
-      <input type="text" name="GPA" placeholder="0.0" />
+      <input type="value" name="GPA" placeholder="0.0" />
       <input type="text" name="Preferred-Email" placeholder="CrazyBrain@how/we/can/reach/you/best.ca" />
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />

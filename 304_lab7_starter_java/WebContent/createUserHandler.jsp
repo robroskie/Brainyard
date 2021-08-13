@@ -1,3 +1,12 @@
+<%@ page import="java.sql.*,java.net.URLEncoder" %>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Date" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -70,19 +79,18 @@
 </nav>
 <!-- Connection Information -->
     <%
-    String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-    String uid = "SA";
-    String pw = "YourStrong@Passw0rd";
+   
     
 
-    // Parse values
+   
     String email = request.getParameter("email");
     String username = request.getParameter("username");
     String password = request.getParameter("pass");
     String university = request.getParameter("University");
     String major = request.getParameter("Major");
     String currYear = request.getParameter("Current-Year");
-    Float GPA = (Float)request.getParameter("GPA");
+    String GPA = request.getParameter("GPA");
+    
     String pemail = request.getParameter("Preferred-Email");
     String bitadr = request.getParameter("BitCoin");
     String etheadr= request.getParameter("Ethereum");
@@ -98,32 +106,39 @@
 
     String SQL = "INSERT BUser(StudentEmail, Faculty, University, UserName, Password, GPA, CurrentYear, PreferredEmail) VALUES (?,?,?,?,?,?,?,?)";
     String SQL2 ="SELECT UserId FROM BUser WHERE UserName=?";
-    String SQL3 = "INSERT PayMethod(UserId, DogeAd, BitAd, EthAd) VALUES (?,?,?,?);
-
+    String SQL3 = "INSERT PayMethod(UserId, DogeAd, BitAd, EthAd) VALUES (?,?,?,?)";
+   
+    String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+    String uid = "SA";
+    String pw = "YourStrong@Passw0rd";
     
-    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL); PreparedStatement ps2 = con.prepareStatement(SQL2); PreparedStatement ps3 = con.prepareStatement(SQL3);) {
-        //Get integer value from category string
-
-        //first we must insert the new user so the data base generates a new user ID for the user to be imputed into paymethod with assosciated addresses
+    try ( Connection con = DriverManager.getConnection(url, uid, pw);PreparedStatement ps = con.prepareStatement(SQL);) {
+        
         ps.setString(1, email);
         ps.setString(2, major);
         ps.setString(3, university);
         ps.setString(4, username);
         ps.setString(5, password);
-        ps.setFloat(6, GPA);
+        ps.setString(6, GPA);
        
         int rowInsert=ps.executeUpdate();
 
-        if(rowInmsert != 0)
-            out.println("Successfully added you as a user! you're Fresh Meat now!"); 
-
-        //Now we must check the UserId so we set the next prepared statement up
-        ps2.setString(1, username);
+            if(rowInsert != 0){
+                 out.println("Successfully added you as a user! you're Fresh Meat now!"); }
         
+     }
+
+    catch (SQLException ex) { 
+                        //out.println(ex); 
+     }
+        
+     try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps2 = con.prepareStatement(SQL2);PreparedStatement ps3 = con.prepareStatement(SQL3);) {
+                  
+        ps2.setString(1, username);
         ResultSet rs=ps2.executeQuery();
         rs.next();
         int userId=rs.getInt(1);
-        //now we must shoot the wallet address into the Paymethod
+        
         ps3.setInt(1, userId);
         ps3.setString(2, dogadr);
         ps3.setString(3, bitadr);
@@ -133,10 +148,8 @@
         if(payInsert != 0)
             out.println("Successfully updated your wallet Addresses!"); 
         
-    }
-
-    catch (SQLException ex) { 
-        	//out.println(ex); 
-    }
+     }catch (SQLException ex) { 
+                //out.println(ex); 
+        }
 
     %>
