@@ -122,20 +122,21 @@
             </div>
         </div>
     </div>
-    <div class="container2 mt-5 d-flex justify-content-center">
-        <div class="card p-3">
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card pr-3 pb-2">
             <div class="d-flex align-items-center">
                 <div class="ml-3 w-100">
                     <h4 class="mb-0 mt-0" id="balheader">Your Balances</h4>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                         <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">"<%=String.valueOf(session.getAttribute("Bitamo"))%>" </span>  </div>
+                        <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">"<%=String.valueOf(session.getAttribute("Bitamo"))%>" </span>  </div>
                         <div class="d-flex flex-column"> <span class="followers coins" id="eth">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">"<%=String.valueOf(session.getAttribute("Ethamo"))%>"</span> </div>
                         <div class="d-flex flex-column"> <span class="rating coins" id="dogecoin">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">"<%=String.valueOf(session.getAttribute("Dogeamo"))%>"</span> </div>
                     </div>
-                    <br>
-                    <form name="MyForm" method=post action="validateLogout.jsp">
-                    <input class="submit" type="submit" name="Submit2" value="Log Out">
-                    </form>
+                    <div class="flex-row pt-2">
+                        <div class="col text-center">
+                            <a href="validateLogout.jsp" class="btn btn-info" role="button">Log Out</a>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
