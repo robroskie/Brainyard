@@ -1,4 +1,6 @@
 
+<%@ include file="LoginFilter.jsp" %>
+
 <!doctype html>
 <html lang="en">
         
@@ -48,26 +50,29 @@
             </li>
 
             <li class="nav-item dropdown">
+                
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Queries
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="./testQuery.jsp">Database Connection Test</a> -->
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
-                    <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
-                    <a class="dropdown-item" href="./login.jsp">Login</a>
+                    <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
+                    <a class="dropdown-item" href="./ThreadedComments.jsp">ThreadedComments</a>
                 </div>
             </li>
-         </ul>
+        </ul>
+
         <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
-        
+
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton">"<%=String.valueOf(session.getAttribute("authenticatedUser"))%>"</button>
+            data-target="#LogButton"> <%= session.getAttribute("loginbutton") %>
+        </button>
         
     </div>
 </nav>

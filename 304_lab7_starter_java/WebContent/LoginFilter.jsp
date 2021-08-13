@@ -8,17 +8,44 @@
 
 	try
 	{
-		authenticatedUser = validateLogin(out,request,session);
+		authenticatedUser = checkLogin(out,request,session);
 	}
 	
 	catch(IOException e)
 	{	System.err.println(e); }
 
-	if(authenticatedUser != null)
-		response.sendRedirect("confirmlogin.jsp");		// Successful login
-		
-	else
+	if(authenticatedUser == "Log In") {
 		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
+	}
+%>
+
+<%!
+	String checkLogin(JspWriter out,HttpServletRequest request, HttpSession session) throws IOException
+	{
+		String retStr = null;
+
+		//String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+        //String uid = "SA";
+        //String pw = "YourStrong@Passw0rd";
+                
+        try 
+        {	
+			if(
+				String.valueOf(session.getAttribute("authenticatedUser")) != "null"
+				) {
+				session.setAttribute("loginstatus", true);	
+				retStr = String.valueOf(session.getAttribute("authenticatedUser"));
+			} else {
+				retStr = "Log In";
+				session.setAttribute("loginstatus", false);
+				session.setAttribute("profilePic", "Avatars/Transparent.png");
+			}
+        }
+        catch (Exception e) {
+             System.err.println("Exception: " +e);	
+        }
+		return retStr;		
+    }
 %>
 
 <%!

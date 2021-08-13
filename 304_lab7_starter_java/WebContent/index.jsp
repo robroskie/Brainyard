@@ -1,7 +1,6 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 <%@ include file="SessionLoggedCheck.jsp" %>
 
-<%= session.getAttribute("loginstatus")	%>
 <!doctype html>
 <html lang="en">
 
@@ -60,8 +59,7 @@
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
-                    <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
-                    <a class="dropdown-item" href="./login.jsp">Login</a>
+                    <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
                     <a class="dropdown-item" href="./ThreadedComments.jsp">ThreadedComments</a>
                 </div>
             </li>
