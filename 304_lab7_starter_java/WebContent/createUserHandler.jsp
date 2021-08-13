@@ -76,9 +76,17 @@
     
 
     // Parse values
-    String category = request.getParameter("category");
-    String description = request.getParameter("description");
-    int userid = Integer.parseInt(request.getParameter("userid"));
+    String email = request.getParameter("email");
+    String username = request.getParameter("username");
+    String password = request.getParameter("pass");
+    String university = request.getParameter("University");
+    String major = request.getParameter("Major");
+    String currYear = request.getParameter("Current-Year");
+    Float GPA = (Float)request.getParameter("GPA");
+    String pemail = request.getParameter("Preferred-Email");
+    String bitadr = request.getParameter("BitCoin");
+    String etheadr= request.getParameter("Ethereum");
+    String dogadr = request.getParameter("Doge");
 
     try 
     {	// Load driver class
@@ -88,34 +96,42 @@
         System.err.println("ClassNotFoundException: " +e);	
     }
 
-    String SQL = "INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (?,?,?,?,?)";
-    String SQL2 = "SELECT CategoryId FROM Categories WHERE subjTitle=?";
+    String SQL = "INSERT BUser(StudentEmail, Faculty, University, UserName, Password, GPA, CurrentYear, PreferredEmail) VALUES (?,?,?,?,?,?,?,?)";
+    String SQL2 ="SELECT UserId FROM BUser WHERE UserName=?";
+    String SQL3 = "INSERT PayMethod(UserId, DogeAd, BitAd, EthAd) VALUES (?,?,?,?);
 
-
-    //INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
-
-    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);  PreparedStatement ps2 = con.prepareStatement(SQL2);) {
+    
+    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL); PreparedStatement ps2 = con.prepareStatement(SQL2); PreparedStatement ps3 = con.prepareStatement(SQL3);) {
         //Get integer value from category string
 
+        //first we must insert the new user so the data base generates a new user ID for the user to be imputed into paymethod with assosciated addresses
+        ps.setString(1, email);
+        ps.setString(2, major);
+        ps.setString(3, university);
+        ps.setString(4, username);
+        ps.setString(5, password);
+        ps.setFloat(6, GPA);
+       
+        int rowInsert=ps.executeUpdate();
+
+        if(rowInmsert != 0)
+            out.println("Successfully added you as a user! you're Fresh Meat now!"); 
+
+        //Now we must check the UserId so we set the next prepared statement up
+        ps2.setString(1, username);
         
-        long millis=System.currentTimeMillis();  
-        java.sql.Date date=new java.sql.Date(millis); 
+        ResultSet rs=ps2.executeQuery();
+        rs.next();
+        int userId=rs.getInt(1);
+        //now we must shoot the wallet address into the Paymethod
+        ps3.setInt(1, userId);
+        ps3.setString(2, dogadr);
+        ps3.setString(3, bitadr);
+        ps3.setString(4, etheadr);
 
-        ps.setInt(1, userid);;
-        ps.setString(2, description);
-        
-        //This value needs to be category mapped from the string value to corresponding int value	
-        ps.setInt(3, 6);
-        ps.setDate(4, date);	
-        ps.setDate(5, date);	
-        int updateQuery = ps.executeUpdate();	
-
-        if(updateQuery != 0)
-            out.println("Successfully updated your question!"); 
-
-
-        ps2.setString(1,category);
-        int rs2 = ps2.executeUpdate();
+        int payInsert=ps3.executeUpdate();
+        if(payInsert != 0)
+            out.println("Successfully updated your wallet Addresses!"); 
         
     }
 

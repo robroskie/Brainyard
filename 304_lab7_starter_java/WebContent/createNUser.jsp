@@ -86,7 +86,7 @@
       <h2 class="fs-title">Personal Details</h2>
       <h3 class="fs-subtitle">We will never sell it</h3>
       <input type="text" name="University" placeholder="University" />
-      <select name="Major" id="Faculty">
+      <select name="Major" id="Major">
         <option value="Anthropology">Anthropology</option>
         <option value="Applied Science">Applied Science</option>
         <option value="Art History">Art History</option>
@@ -103,18 +103,18 @@
         <option value="Management">Management</option>
         <option value="null">null</option>
     </select>
-      <input type="text" name="Current Year" placeholder="Year" />
+      <input type="text" name="Current-Year" placeholder="Year" />
       <input type="text" name="GPA" placeholder="0.0" />
-      <input type="text" name="Preferred Email" placeholder="CrazyBrain@how/we/can/reach/you/best.ca" />
+      <input type="text" name="Preferred-Email" placeholder="CrazyBrain@how/we/can/reach/you/best.ca" />
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
     <fieldset>
       <h2 class="fs-title">Wallet Details</h2>
-      <h3 class="fs-subtitle">We'll keep this hush hush</h3>
-      <input type="text" name="BitCoin Wallet:" placeholder="BitAddress" />
-      <input type="text" name="Ethereum Wallet: " placeholder="EtheAddress" />
-      <input type="text" name="Doge Wallet:" placeholder="DogeAddress" />
+      <h3 class="fs-subtitle">Enter your Coin wallet adress!</h3>
+      <input type="text" name="BitCoin" placeholder="BitAddress" />
+      <input type="text" name="Ethereum" placeholder="EtheAddress" />
+      <input type="text" name="Doge" placeholder="DogeAddress" />
 
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="submit" name="submit" class="submit action-button" value="Submit" />
