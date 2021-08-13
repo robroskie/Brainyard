@@ -5,6 +5,6 @@
 	String authenticatedUser = null;
     
 	session.invalidate();
-	String redirectURL = "./ConfirmLogin.jsp";
+	String redirectURL = "./ConfirmLogout.jsp";
     response.sendRedirect(redirectURL);
 %>
