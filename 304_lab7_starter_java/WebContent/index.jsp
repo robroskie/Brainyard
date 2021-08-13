@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 <%@ include file="jdbc.jsp" %>
-
 <!doctype html>
 <html lang="en">
 
@@ -59,16 +58,11 @@
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                     <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
                     <a class="dropdown-item" href="./login.jsp">Login</a>
+                    <a class="dropdown-item" href="./ThreadedComments.jsp">ThreadedComments</a>
                 </div>
             </li>
         </ul>
         <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
-        
-        <%!
-            String LoggedUser() {
-                return "Joe Mama";
-            }
-        %>
 
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
             data-target="#LogButton"><%=String.valueOf(session.getAttribute("authenticatedUser"))%>
@@ -158,6 +152,7 @@
     
     <!-- Modal -->
     <div id="LogButton" class="modal fade" role="dialog">
+
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -167,15 +162,17 @@
                 </div>
 
                 <div class="modal-body">
-                    <p>This is where our sign in code/status will go.</p>
+                    <!-- <p>This is where our sign in code/status will go.</p> -->
+                    
                     <div class="container-md">
-                        <object type="text/html" data="./login.jsp" width="450px" height="600px"
+                        <object type="text/html" data="./authorizationavi.jsp" width="450px" height="600px"
                             style="overflow:auto;">
                         </object>
                     </div>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button onClick="window.location.reload();" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
 
             </div>

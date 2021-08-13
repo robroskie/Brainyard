@@ -3,7 +3,7 @@
 
 <%
 	String authenticatedUser = null;
-    ;
+    
 	session = request.getSession(true);
 
 	try
@@ -14,7 +14,7 @@
 	{	System.err.println(e); }
 
 	if(authenticatedUser != null)
-		response.sendRedirect("index.jsp");		// Successful login
+		response.sendRedirect("confirmlogin.jsp");		// Successful login
 	else
 		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
 %>
