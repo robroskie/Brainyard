@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 <%@ include file="SessionLoggedCheck.jsp" %>
 
+<%= session.getAttribute("loginstatus")	%>
 <!doctype html>
 <html lang="en">
 
@@ -65,7 +66,7 @@
                 </div>
             </li>
         </ul>
-        
+
         <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
 
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"

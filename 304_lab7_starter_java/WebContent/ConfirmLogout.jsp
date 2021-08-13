@@ -28,6 +28,5 @@
 <body> 
     <div class="container-fluid">
         <p>succesfully logged out.</p>
-        <%= session.setAttribute("loginbutton","Log in"); %> 
     </div>
 </body>

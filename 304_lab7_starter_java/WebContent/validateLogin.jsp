@@ -71,13 +71,10 @@
                 session.setAttribute("userId",userId);
                 session.setAttribute("University", University);
 				session.setAttribute("profilePic", profilePic);
-				session.setAttribute("loginstatus",true);
-				session.setAttribute("loginbutton",username);
 				
+
 		        } else {
 			    session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
-				session.setAttribute("loginbutton","Log In");
-				session.setAttribute("loginstatus",false);
                 }
 		
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
