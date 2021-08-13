@@ -14,16 +14,16 @@
 	catch(IOException e)
 	{	System.err.println(e); }
 
-	if(authenticatedUser != null)
-		response.sendRedirect("confirmlogin.jsp");		// Successful login
+	if(authenticatedUser != null) {
+			session.setAttribute("loginbutton",String.valueOf(session.getAttribute("authenticatedUser")));
+		}	else {
+			session.setAttribute("loginbutton","Log In");
+		}
 		
-	else
-		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
 %>
 
-
 <%!
-	public String validateLogin(JspWriter out,HttpServletRequest request, HttpSession session) throws IOException
+	String validateLogin(JspWriter out,HttpServletRequest request, HttpSession session) throws IOException
 	{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -71,13 +71,10 @@
                 session.setAttribute("userId",userId);
                 session.setAttribute("University", University);
 				session.setAttribute("profilePic", profilePic);
-				session.setAttribute("loginstatus",true);
 				session.setAttribute("loginbutton",username);
-				
+
 		        } else {
-			    session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
-				session.setAttribute("loginbutton","Log In");
-				session.setAttribute("loginstatus",false);
+			    	//session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
                 }
 		
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.

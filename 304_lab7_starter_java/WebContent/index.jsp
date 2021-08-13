@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
-<%@ include file="jdbc.jsp" %>
+<%@ include file="SessionLoggedCheck.jsp" %>
+
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>BrainYard: Main Page</title>
-
+    
     <link rel="stylesheet" href="./standard.css">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -46,10 +47,12 @@
             </li>
 
             <li class="nav-item dropdown">
+                
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Queries
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
@@ -62,10 +65,11 @@
                 </div>
             </li>
         </ul>
+        
         <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
 
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton"><%=String.valueOf(session.getAttribute("authenticatedUser"))%>
+            data-target="#LogButton"> <%= session.getAttribute("loginbutton") %>
         </button>
         
     </div>
