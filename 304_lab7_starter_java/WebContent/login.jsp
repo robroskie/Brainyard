@@ -39,8 +39,8 @@ if (session.getAttribute("loginMessage") != null)
 
 <%
 // Print prior error login message if present
-if (session.getAttribute("sourcePage") != null)
-	out.println("<p>"+session.getAttribute("sourcePage").toString()+"</p>");
+//if (session.getAttribute("sourcePage") != null)
+//	out.println("<p> Attempting to Access: "+session.getAttribute("sourcePage").toString()+"</p>");
 %>
 
 <br>
