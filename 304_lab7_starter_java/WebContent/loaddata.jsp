@@ -54,32 +54,29 @@
             </li>
 
             <li class="nav-item dropdown">
+                
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Queries
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
-                    <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
-                    <a class="dropdown-item" href="./login.jsp">Login</a>
+                    <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
                 </div>
             </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
 
-        <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton">Login
-            to the site</button>
-
+            data-target="#LogButton"> <%= session.getAttribute("loginbutton") %>
+        </button>
+        
     </div>
 </nav>
 
@@ -183,6 +180,34 @@ catch (Exception e)
  %> 
 
 
+<!-- Modal -->
+<div id="LogButton" class="modal fade" role="dialog">
+
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Sign into BrainYard</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- <p>This is where our sign in code/status will go.</p> -->
+                
+                <div class="container-md">
+                    <object type="text/html" data="./authorizationavi.jsp" width="450px" height="500px"
+                        style="overflow:auto;">
+                    </object>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button onClick="window.location.reload();" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html> 
