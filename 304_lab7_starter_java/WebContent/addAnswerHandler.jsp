@@ -2,8 +2,13 @@
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.Date" %>
+
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.sql.Timestamp" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
 
 
 <!doctype html>
@@ -105,42 +110,40 @@
         System.err.println("ClassNotFoundException: " + e);	
     }
 
-    String SQL = "INSERT Answers(userId, PTime, Category, Description) VALUES (?,?,?,?)";
+    String SQL = "INSERT Answers(userId, PTime, QId, Description) VALUES (?,?,?,?)";
 
 
   
 
     try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);) {
-        //Get integer value from category string
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
-        String dateString = format.format( new Date()   );
-        Date   date       = format.parse ( "2009-12-31" );  
+    
+        LocalDateTime date = LocalDateTime.now();
+        Timestamp timestamp = Timestamp.valueOf(date);
         ps.setInt(1, userid);
-        ps.setDate(2, date);
-        ps.setInt(3, 69);
+        ps.setTimestamp(2, timestamp);
+        ps.setInt(3, (int) session.getAttribute("selectedQid"));
         ps.setString(4, description);
         
         int updateQuery = ps.executeUpdate();	
 
-        if(updateQuery != 0)
-            out.println("Successfully updated your question!"); 
+        if(updateQuery != 0){
+            out.println("Successfully added your answer!"); 
+            response.setHeader("Refresh", "2; URL=listAllQuestions.jsp");
+        }
 
 
-        ps2.setString(1,category);
-        int rs2 = ps2.executeUpdate();
+      
+   
         
     }
 
     catch (SQLException ex) { 
-        	//out.println(ex); 
+        	out.println(ex); 
     }
 
     %>
 
-        <!-- Print added question -->
-        <p>Added question from category of:<strong> <%=category%> </strong></p>
-        <p>With question description:<i> <%=description%> </i>.</p>
+
 
     </body>
 </html>

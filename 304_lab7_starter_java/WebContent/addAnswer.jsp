@@ -3,6 +3,7 @@
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.Date" %>
+<%@ include file="LoginFilter.jsp" %>
 
 <!doctype html>
 <html lang="en">
@@ -79,18 +80,20 @@
 
 
 <% 
-    int tempQid = Integer.parseInt(request.getParameter("selectedQid"));
+    int tempQid = Integer.parseInt(request.getParameter("QId"));
     session.setAttribute("selectedQid", tempQid); 
 %>
 
 <body>
 
+
+
     <div class="container">
-        <p1>Add An Answer!</p1>
+        <p1>Type your answer below!</p1>
         <form action="addAnswerHandler.jsp" method="post">
 
-                <label for="description">Description</label>
-                <input type="text" name="description" required> 
+                <label for="description"></label>
+                <input class="addAnsInput" type="text" name="description" required> 
                 <input type="submit" value="submit">
 
         </form>
