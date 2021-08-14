@@ -1,9 +1,9 @@
-
+<%@ page import="java.sql.*" %>
 <%@ include file="LoginFilter.jsp" %>
 
 <!doctype html>
 <html lang="en">
-        
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -63,7 +63,7 @@
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                     <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
-                    <a class="dropdown-item" href="./ThreadedComments.jsp">ThreadedComments</a>
+            
                 </div>
             </li>
         </ul>
@@ -76,7 +76,6 @@
         
     </div>
 </nav>
-    
 <body>
     <div class="container">
         <p1>Add A Question!</p1>
