@@ -92,7 +92,7 @@
 
 
 <div class="container pt-3">
-    <h3><a href="https://www.google.com">Questions that have been posted</a></h3>
+    <h3 style="text-align: center;">Questions that have been posted</h3>
 <% 
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
@@ -133,6 +133,35 @@ catch (SQLException ex)
 </div>
 
 <script src="listallQuestionsScript.js"></script>
+    
+    <!-- Modal -->
+    <div id="LogButton" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign into BrainYard</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- <p>This is where our sign in code/status will go.</p> -->
+                    
+                    <div class="container-md">
+                        <object type="text/html" data="./authorizationavi.jsp" width="450px" height="500px"
+                            style="overflow:auto;">
+                        </object>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button onClick="window.location.reload();" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
