@@ -252,7 +252,7 @@ INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('BTC',41023.46
 INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('ETH',2816.46,'Ethereum','2021-08-05 16:08:05');
 INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('DOGE',000.20,'Dogecoin','2021-08-05 16:09:55');
 
-INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'What adaptations make fungi such effective decomposers?', 4, '2011-01-12 12:12:12', '2021-08-08 12:12:12');
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'What adaptations make fungi such effective decomposers?', 4, '2011-01-12 12:12:12', '2011-02-12 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (9, 'What does it mean for a molecule to have chirality?', 5, '2012-04-21 12:12:12', '2012-05-21 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'Who invented the first microscope?', 12, '2015-07-08 12:12:12', '2015-08-08 12:12:12');

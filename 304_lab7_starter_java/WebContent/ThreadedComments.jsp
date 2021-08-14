@@ -98,6 +98,9 @@
     String TimeRemaining;
     String sql="SELECT QId, UserId, Description, Category, TimeUntilClose, postTime, CONCAT(DaysRemaining,   ' Day(s), ', HoursRemaining, ' Hour(s), ', MinutesRemaining, ' Minute(s), ', SecondsRemaining, ' Second(s)'), Expired FROM Questions WHERE QId = ? ORDER BY TimeUntilClose ASC";
     
+    String Sql2="SELECT UserName FROM BUser WHERE UserId=?";
+    String UN;
+
     try 
     {	// Load driver class
         Class.forName("com.mysql.jdbc.Driver");
@@ -106,7 +109,7 @@
         System.err.println("ClassNotFoundException: " +e);	
     }
     try ( Connection con = DriverManager.getConnection(url, uid, pw);
-        PreparedStatement ps=con.prepareStatement(sql);) 
+        PreparedStatement ps=con.prepareStatement(sql);PreparedStatement ps2=con.prepareStatement(Sql2);) 
     {		
         
         ps.setInt(1,QId);
@@ -121,13 +124,19 @@
         TimePosted = String.valueOf(rst.getTimestamp(6));
         TimeRemaining = String.valueOf(rst.getString(7));
 
+        ps2.setString(1,UserId);
+        ResultSet rst1=ps2.executeQuery();
+        rst1.next();
+        UN=String.valueOf(rst1.getString(1));
+
+
         out.println("<li class='timeline-comment'>");
         out.println("    <div class='timeline-comment-wrapper'>");
         out.println("        <div class='card'>");
         out.println("            <div class='card-header d-flex align-items-center'>");
         out.println("                <a href='#' class='d-flex align-items-center'>");
         out.println("                    <img class='rounded-circle' src='Avatars/" + UserId + ".png' alt='avatar' />");
-        out.println("                    <h5>" + UserId + "</h5>");
+        out.println("                    <h5>" + UN + "</h5>");
         out.println("                </a>");
         out.println("                <div class='comment-date' data-toggle='tooltip' title=" + TimePosted + " data-placement='top'  data-original-title=" + TimePosted + ">" + TimePosted + " </div>");
         out.println("                <small class='text-muted ml-2'> Category: " + Category + "</small>");
