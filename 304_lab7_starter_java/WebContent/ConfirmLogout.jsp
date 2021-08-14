@@ -28,5 +28,7 @@
 <body> 
     <div class="container-fluid">
         <p>succesfully logged out.</p>
+        
     </div>
+    
 </body>
