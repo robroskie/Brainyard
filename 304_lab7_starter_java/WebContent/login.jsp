@@ -58,13 +58,15 @@ if (session.getAttribute("sourcePage") != null)
 <br>
 <input class="submit" type="submit" name="Submit2" value="Log In" style="border-radius: 5px; background-color: teal; font-size: 14px; color: white;">
 </form>
+
 <br>
 <br>
 <br>
+
 <div class="flex-row pt-2">
     <div class="col text-center">
         <p> Don't have an account? Create one here!</p>
-        <a href="./createNUser.jsp" class="btn btn-info" role="button">New Account</a>
+        <a href="./createNUser.jsp" class="btn btn-info btn-sm" role="button">New Account</a>
     </div>
 </div>
 </div>
