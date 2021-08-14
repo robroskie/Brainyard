@@ -9,6 +9,8 @@
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 
+
+
 <!doctype html>
 <html lang="en">
 
@@ -124,8 +126,10 @@
         
         int updateQuery = ps.executeUpdate();	
 
-        if(updateQuery != 0)
+        if(updateQuery != 0){
             out.println("Successfully added your answer!"); 
+            response.setHeader("Refresh", "2; URL=listAllQuestions.jsp");
+        }
 
 
       
