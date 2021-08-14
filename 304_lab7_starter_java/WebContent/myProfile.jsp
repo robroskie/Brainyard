@@ -162,7 +162,7 @@
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
                         <div class="d-flex flex-column"> <span class="articles">Questions  </span> <span class="number1"> <%= session.getAttribute("numQuestions")%> </span> </div>
                         <div class="d-flex flex-column"> <span class="followers">Answers  </span> <span class="number2"><%= session.getAttribute("numAns")%></span> </div>
-                        <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3"><%= session.getAttribute("userAvg")%><</span> </div>
+                        <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3"><%= session.getAttribute("userAvg")%></span> </div>
                     </div>
                     <div class="button mt-2 d-flex flex-row align-items-center"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Ask a question</button></form>  </div>
                     <div class="button mt-2 d-flex flex-row align-items-center"> <form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Add<h2>$$$</h2>Wallet</button></form>  </div>
