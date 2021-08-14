@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 <%@ include file="SessionLoggedCheck.jsp" %>
 
+
 <!doctype html>
 <html lang="en">
 
