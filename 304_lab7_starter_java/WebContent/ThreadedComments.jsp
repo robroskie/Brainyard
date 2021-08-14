@@ -201,7 +201,7 @@
             //out.println("                <button type='button' class='btn btn-secondary btn-sm'>Reply</button>");
             out.println("                <small class='text-muted ml-2'> Average Rating: " + AverageRating + "</small>"); 
 
-            out.println("<div class='slidecontainer'> <small> Score this question: </small> <input type='range' min='1' max='5' step='1' value='50' class='slider' id='myRange'></div>");
+            out.println("<div class='slidecontainer' style='padding-left: 500px;'>    <small>    Score this question: </small> <input type='range' min='1' max='5' step='1' value='50' class='slider' id='myRange'></div>");
             
             out.println("            </div>");
             out.println("        </div>");
