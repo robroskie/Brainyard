@@ -65,7 +65,7 @@
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                     <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
-                    <a class="dropdown-item" href="./ThreadedComments.jsp">ThreadedComments</a>
+                   
                 </div>
             </li>
         </ul>
@@ -157,7 +157,7 @@
     String UserName;
     
 
-    sql="SELECT Answers.AnsId AS AnswerID, BUser.UserId, UserName, Description, AVG(Score) AS Rating, Answers.PTime AS TimePosted FROM BUser, Answers, Ratings WHERE BUser.UserId=Answers.userId AND Answers.AnsId=Ratings.AnsId AND QId=? GROUP BY Answers.AnsId, BUser.UserId, UserName, Answers.PTime, Description ORDER BY Rating DESC";
+    sql="SELECT Answers.AnsId AS AnswerID, BUser.UserId, UserName, Description, AVG(Score) AS Rating, Answers.PTime AS TimePosted FROM BUser, Answers, Ratings WHERE BUser.UserId=Answers.userId AND Answers.AnsId=Ratings.AnsId AND QId=? GROUP BY Answers.AnsId, BUser.UserId, UserName, Description, Answers.PTime ORDER BY Rating DESC";
 
     try 
     {	// Load driver class
