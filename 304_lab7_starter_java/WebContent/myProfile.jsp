@@ -167,6 +167,7 @@
                         <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
                     </div>
                     <div class="button mt-2 d-flex flex-row align-items-center"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span>&#191;</span>Ask a question?</button></form>  </div>
+                    <div class="button mt-2 d-flex flex-row align-items-center"> <form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span>&#191;</span>ADD $$$2 Wallet?</button></form>  </div>
                 </div>
             </div>
         </div>
