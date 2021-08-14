@@ -55,10 +55,18 @@ if (session.getAttribute("sourcePage") != null)
 	<td><input type="password" name="password" size=10 maxlength="10"></td>
 </tr>
 </table>
-</br>
+<br>
 <input class="submit" type="submit" name="Submit2" value="Log In" style="border-radius: 5px; background-color: teal; font-size: 14px; color: white;">
 </form>
-
+<br>
+<br>
+<br>
+<div class="flex-row pt-2">
+    <div class="col text-center">
+        <p> Don't have an account? Create one here!</p>
+        <a href="./createNUser.jsp" class="btn btn-info" role="button">New Account</a>
+    </div>
+</div>
 </div>
 
 </body>

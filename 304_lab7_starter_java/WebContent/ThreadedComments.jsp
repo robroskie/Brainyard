@@ -126,7 +126,7 @@
         out.println("        <div class='card'>");
         out.println("            <div class='card-header d-flex align-items-center'>");
         out.println("                <a href='#' class='d-flex align-items-center'>");
-        out.println("                    <img class='rounded-circle' src='Avatars/1.png' alt='avatar' />");
+        out.println("                    <img class='rounded-circle' src='Avatars/" + UserId + ".png' alt='avatar' />");
         out.println("                    <h5>" + UserId + "</h5>");
         out.println("                </a>");
         out.println("                <div class='comment-date' data-toggle='tooltip' title=" + TimePosted + " data-placement='top'  data-original-title=" + TimePosted + ">" + TimePosted + " </div>");
