@@ -15,8 +15,13 @@
 	{	System.err.println(e); }
 
 	if(authenticatedUser != null)
-		response.sendRedirect("confirmlogin.jsp");		// Successful login
-		
+		{ 
+			if (session.getAttribute("sourcePage") != null) {
+				response.sendRedirect(session.getAttribute("sourcePage").toString());		// Successful login
+			} else {
+				response.sendRedirect("./ConfirmLogin.jsp");		// Successful login
+			}
+		}
 	else
 		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
 %>
