@@ -79,11 +79,14 @@
 
 
 <% 
-    int tempQid = Integer.parseInt(request.getParameter("selectedQid"));
+    int tempQid = Integer.parseInt(request.getParameter("QId"));
     session.setAttribute("selectedQid", tempQid); 
+    out.println(tempQid);
 %>
 
 <body>
+
+
 
     <div class="container">
         <p1>Add An Answer!</p1>
