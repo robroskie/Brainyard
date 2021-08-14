@@ -168,7 +168,7 @@
                     </div>
                     </div>
                     <div class="button mt-2 btn-sm" style="text-align: center;"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Ask a question</button></form>  </div>
-                    <div class="button mt-2 btn-sm" style="text-align: center;"><form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"  style="text-align: center;"><span></span>Add<h2>$$$</h2>Wallet</button></form> </div>
+                    <div class="button mt-2 btn-sm" style="text-align: center;"><form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"  style="text-align: center;">Add <h1>$$$</h1>Wallet</button></form> </div>
                 </div>
             </div>
         </div>
@@ -176,7 +176,7 @@
     <div class="container2 mt-5 d-flex justify-content-center">
         <div class="card p-3">
             <div class="d-flex align-items-center">
-                <div class="ml-3 w-100">
+                <div class="w-100">
                     <h4 class="mb-0 mt-0" id="balheader">Your Balances</h4>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
                          <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">"<%=String.valueOf(session.getAttribute("Bitamo"))%>" </span>  </div>
