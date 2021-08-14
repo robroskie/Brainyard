@@ -89,13 +89,14 @@
     String pw = "YourStrong@Passw0rd";
 
 
-    String QId;
+    int QId =  Integer.parseInt(request.getParameter("QId"));;
     String UserId;
     String Description;
     String Category;
     String ClosingDate;
     String TimePosted;
     String TimeRemaining;
+    String sql="SELECT QId, UserId, Description, Category, TimeUntilClose, postTime, CONCAT(DaysRemaining,   ' Day(s), ', HoursRemaining, ' Hour(s), ', MinutesRemaining, ' Minute(s), ', SecondsRemaining, ' Second(s)'), Expired FROM Questions WHERE QId = ? ORDER BY TimeUntilClose ASC";
     
     try 
     {	// Load driver class
@@ -105,15 +106,14 @@
         System.err.println("ClassNotFoundException: " +e);	
     }
     try ( Connection con = DriverManager.getConnection(url, uid, pw);
-        Statement stmt = con.createStatement();) 
+        PreparedStatement ps=con.prepareStatement(sql);) 
     {		
-	
-        // ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC");		
         
-        ResultSet rst = stmt.executeQuery("SELECT QId, UserId, Description, Category, TimeUntilClose, postTime, CONCAT(DaysRemaining,   ' Day(s), ', HoursRemaining, ' Hour(s), ', MinutesRemaining, ' Minute(s), ', SecondsRemaining, ' Second(s)'), Expired FROM Questions WHERE QId = 2 ORDER BY TimeUntilClose ASC");	
+        ps.setInt(1,QId);
+        ResultSet rst=ps.executeQuery();
     
         rst.next();
-        QId = String.valueOf(rst.getInt(1));
+        QId = rst.getInt(1);
         UserId = String.valueOf(rst.getInt(2));
         Description = String.valueOf(rst.getString(3));
         Category = String.valueOf(rst.getInt(4));
@@ -151,58 +151,62 @@
 
 
 
+    <%
+    String AnswerID;
+    String QuestionID;
+    //String Description;
+    String AverageRating;
 
-        <li class='timeline-comment'>
-            <div class="timeline-comment-wrapper">
-                <div class="card">
-                    <div class="card-header d-flex align-items-center">
-                        <a href="#" class="d-flex align-items-center">
-                            <img class="rounded-circle" src="Avatars/2.png" alt="avatar" />
-                            <h5>zshare</h5>
-                        </a>
-                        <div class="comment-date" data-toggle="tooltip" title="Feb 5, 2018 8:21 pm" data-placement="top"
-                            data-original-title="Feb 5, 2018 8:21 pm">Sep 19, 2018</div>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos sapiente, nam
-                            ipsam veritatis reiciendis dolore soluta magni sit pariatur veniam laborum perferendis,
-                            molestias amet excepturi voluptatem iure porro reprehenderit doloribus.</p>
-                    </div>
-                    <div class="card-footer bg-white p-2">
-                        <button type="button" class="btn btn-secondary btn-sm">Reply</button>
-                        <small class="text-muted ml-2">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
+    sql="SELECT Answers.AnsId AS AnswerID, QID AS QuestionID, Description, AVG(Score) AS Rating FROM Answers,Ratings WHERE Answers.AnsId=Ratings.AnsId AND QID=? GROUP BY Answers.Ansid, QId, Description ORDER BY Rating DESC";
 
-            <ul class="timeline-comments">
-                <li class="timeline-comment">
-                    <div class="timeline-comment-wrapper">
-                        <div class="card">
-                            <div class="card-header d-flex align-items-center">
-                                <div class="ribbon"><span>admin</span></div>
-                                <a href="#" class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="Avatars/3.png" alt="avatar" />
-                                    <h5>zshare</h5>
-                                </a>
-                                <div class="comment-date" data-toggle="tooltip" title="Feb 5, 2018 8:21 pm"
-                                    data-placement="top" data-original-title="Feb 5, 2018 8:21 pm">Sep 19, 2018</div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
-                                    sapiente, nam ipsam veritatis reiciendis dolore soluta magni sit pariatur veniam
-                                    laborum perferendis, molestias amet excepturi voluptatem iure porro reprehenderit
-                                    doloribus.</p>
-                            </div>
-                            <div class="card-footer bg-white p-2">
-                                <button type="button" class="btn btn-secondary btn-sm">Reply</button>
-                                <small class="text-muted ml-2">Last updated 3 mins ago</small>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </li>
+    try 
+    {	// Load driver class
+        Class.forName("com.mysql.jdbc.Driver");
+    }
+    catch (java.lang.ClassNotFoundException e) {
+        System.err.println("ClassNotFoundException: " +e);	
+    }
+    try ( Connection con = DriverManager.getConnection(url, uid, pw);
+        PreparedStatement ps=con.prepareStatement(sql);) 
+    {		
+	
+        ps.setInt(1,QId);
+        
+        ResultSet rst=ps.executeQuery();
+    
+        while (rst.next()) {
+            AnswerID = String.valueOf(rst.getInt(1));
+            QuestionID = String.valueOf(rst.getInt(2));
+            Description = String.valueOf(rst.getString(3));
+            AverageRating = String.valueOf(rst.getInt(4));
+            
+            out.println("<li class='timeline-comment'>");
+            out.println("    <div class='timeline-comment-wrapper'>");
+            out.println("        <div class='card'>");
+            out.println("            <div class='card-header d-flex align-items-center'>");
+            out.println("                <a href='#' class='d-flex align-items-center'>");
+            out.println("                    <img class='rounded-circle' src='Avatars/1.png' alt='avatar' />");
+            out.println("                    <h5>AnswerUser</h5>");
+            out.println("                </a>");
+            //out.println("                <div class='comment-date' data-toggle='tooltip' title=" + TimePosted + " data-placement='top'  data-original-title=" + TimePosted + ">" + TimePosted + " </div>");
+            out.println("            </div>");
+            out.println("            <div class='card-body'>");
+            out.println("                <p class='card-text'>");
+            out.println(                    Description);
+            out.println("                </p>");
+            out.println("            </div>");
+            out.println("            <div class='card-footer bg-white p-2'>");
+            out.println("                <button type='button' class='btn btn-secondary btn-sm'>Reply</button>");
+            out.println("            </div>");
+            out.println("        </div>");
+            out.println("    </div>");
+            out.println("</li>");
+        }
+        
+    } catch (SQLException ex) { 	
+        out.println(ex); 
+    }
+    %>
     </ul>
 </div>
 
