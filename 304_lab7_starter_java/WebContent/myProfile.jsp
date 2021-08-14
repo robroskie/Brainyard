@@ -158,7 +158,7 @@
         <div class="card p-3">
             <div class="d-flex align-items-center">
                 <div class="image"> <img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" class="rounded" width="155"> </div>
-                <div class="ml-3 w-100">
+                <div class="ml-3 w-100" >
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("userId")%></h4> <span>User ID</span>
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("University")%></h4> <span>School</span>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
@@ -167,7 +167,7 @@
                         <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
                     </div>
                     <div class="button mt-2 d-flex flex-row align-items-center"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Ask a question</button></form>  </div>
-                    <div class="button mt-2 d-flex flex-row align-items-center"> <form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Add<h2>$$$</h2>Wallet</button></form>  </div>
+                    <div class="button mt-2 d-flex flex-row align-items-center" > <form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Add<h2>$$$</h2>Wallet</button></form>  </div>
                 </div>
             </div>
         </div>
