@@ -1,5 +1,3 @@
-
-
 let allButtons = document.querySelectorAll("#button"); 
 
 
@@ -11,4 +9,3 @@ allButtons.forEach(btn => {
     else
         btn.disabled = false;
 });
-
