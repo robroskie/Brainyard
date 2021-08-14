@@ -32,10 +32,7 @@
     // HttpSession session = request.getSession(); 
     // session.setAttribute("user", user);
     if(session.getAttribute("authenticatedUser") != null){
-       
-    
-    
-
+        
     //  <!-- Connection Information -->
     String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
     String uid = "SA";
@@ -82,7 +79,7 @@
         	out.println(ex); 
     }
 
-    String SQL3="SELECT UserName, (COUNT(DISTINCT Qid)*UStatus.BitX) AS BitAmo, (COUNT(DISTINCT Qid)*UStatus.EthX) AS EthAmo, (COUNT(DISTINCT Qid)*UStatus.DogX) AS DogeAmo FROM BUser,UStatus,CorAnswers WHERE BUser.UserStatus=UStatus.StatId AND BUser.UserId=CorAnswers.userId AND BUser.UserName=? GROUP BY UserName,UStatus.BitX, UStatus.EthX, UStatus.DogX";
+    String SQL3="SELECT UserName, (COUNT(DISTINCT Qid)*UStatus.BitX) AS BitAmo, (COUNT(DISTINCT Qid)*UStatus.EthX) AS EthAmo, (COUNT(DISTINCT Qid)*UStatus.DogX) AS DogeAmo, ROUND(AVG(Avgscore),2) AS userAvg FROM BUser,UStatus,CorAnswers WHERE BUser.UserStatus=UStatus.StatId AND BUser.UserId=CorAnswers.userId AND BUser.UserName=? GROUP BY UserName,UStatus.BitX, UStatus.EthX, UStatus.DogX";
     try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL3);) {
         String usname=(String)session.getAttribute("authenticatedUser");
         ps.setString(1,usname);
@@ -92,10 +89,12 @@
         String Bitamo=rest.getString(2);
         String Ethamo=rest.getString(3);
         String Dogeamo=rest.getString(4);
+        Float userAvg=rest.getFloat(5);
 
         session.setAttribute("Bitamo", Bitamo);
         session.setAttribute("Ethamo", Ethamo);
         session.setAttribute("Dogeamo", Dogeamo);
+        session.setAttribute("userAvg",userAvg);
     }
     catch(SQLException ex){
         out.println(ex);
@@ -105,30 +104,34 @@
 %>
     
 <body>
-    <div class="container-fluid mt-5 d-flex justify-content-center">
-        <div class="card p-3"  >
+    <div class="container pt-2 d-flex justify-content-center">
+        <div class="card p-3">
             <div class="d-flex align-items-center">
-                <div class="image"> <img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" class="rounded" width="155"> </div>
+                <div class="image"> <img style="width: 150px; border-radius: 50%;" src="<%=String.valueOf(session.getAttribute("profilePic"))%>"> </div>
                 <div class="ml-3 w-100">
-                    <h4 class="mb-0 mt-0"><%= session.getAttribute("userId")%></h4> <span>User ID</span>
+                    <div class="flex-row pt-2">
+                    <h4 class="mb-0 mt-0"><%= session.getAttribute("userId")%></h4> 
+                    <span>User ID</span>
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("University")%></h4> <span>School</span>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                        <div class="d-flex flex-column"> <span class="articles">Questions</span> <span class="number1"> <%= session.getAttribute("numQuestions")%> </span> </div>
-                        <div class="d-flex flex-column"> <span class="followers">Answers</span> <span class="number2"><%= session.getAttribute("numAns") %></span> </div>
-                        <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
+                        <div class="d-flex flex-column"> <span class="articles">Questions  </span> <span class="number1"> <%= session.getAttribute("numQuestions")%> </span> </div>
+                        <div class="d-flex flex-column"> <span class="followers">Answers  </span> <span class="number2"><%= session.getAttribute("numAns")%></span> </div>
+                        <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3"><%= session.getAttribute("userAvg")%></span> </div>
                     </div>
-                    <div class="button mt-2 d-flex flex-row align-items-center"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span>&#191;</span>Ask a question?</button></form>  </div>
+                    </div>
+                    <div class="button mt-2 btn-sm" style="text-align: center;"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Ask a question</button></form>  </div>
+                    <div class="button mt-2 btn-sm" style="text-align: center; box-sizing: content-box; "><form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"  style="text-align: center;">Add <h1>$$$</h1>Wallet</button></form> </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container mt-5 d-flex justify-content-center">
-        <div class="card pr-3 pb-2">
+    <div class="container2 mt-2 d-flex justify-content-center">
+        <div class="card p-3">
             <div class="d-flex align-items-center">
-                <div class="ml-3 w-100">
+                <div class="w-100">
                     <h4 class="mb-0 mt-0" id="balheader">Your Balances</h4>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                        <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">"<%=String.valueOf(session.getAttribute("Bitamo"))%>" </span>  </div>
+                         <div class="d-flex flex-column">  <span class="articles coins" id="bitcoin">Bitcoin <img src="Resources/bitcoin.jpg" id="bitcoinimg" align="right" width="25" height="25"></span><html>  <span class="number1">"<%=String.valueOf(session.getAttribute("Bitamo"))%>" </span>  </div>
                         <div class="d-flex flex-column"> <span class="followers coins" id="eth">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">"<%=String.valueOf(session.getAttribute("Ethamo"))%>"</span> </div>
                         <div class="d-flex flex-column"> <span class="rating coins" id="dogecoin">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">"<%=String.valueOf(session.getAttribute("Dogeamo"))%>"</span> </div>
                     </div>
@@ -137,6 +140,7 @@
                             <a href="validateLogout.jsp" class="btn btn-info" role="button">Log Out</a>
                         </div>
                     </div>
+                 
             </div>
         </div>
     </div>
