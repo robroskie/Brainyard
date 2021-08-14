@@ -50,7 +50,7 @@ if (session.getAttribute("loginMessage") != null)
 </tr>
 </table>
 </br>
-<input class="submit" type="submit" name="Submit2" value="Log In">
+<input class="submit" type="submit" name="Submit2" value="Log In" style="border-radius: 5px; background-color: teal; font-size: 14px; color: white;">
 </form>
 
 </div>
