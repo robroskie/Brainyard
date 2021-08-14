@@ -183,7 +183,6 @@ INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (14,'Manage
 
 
 INSERT Answers(userId, PTime, Category, QId, Description) VALUES (2, '2011-01-14 12:12', 4, 1, 'The large surface area of a mycelium makes them such effective decomposers');
-
 INSERT Answers(userId, PTime, Category, QId, Description) VALUES (1, '2011-01-20 12:12', 4, 1, 'They grow towards dead tissues');
 INSERT Answers(userId, PTime, Category, QId, Description) VALUES (3, '2011-01-21 12:12', 4, 1, 'They secrete a strong acidic substance that rapidly breaks down proteins');
 INSERT Answers(userId, PTime, Category, QId, Description) VALUES (8, '2012-04-12 12:12', 4, 2, 'Using a gRNA protein sequence that includes the desired cut peptide sequence');
@@ -253,6 +252,7 @@ INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('BTC',41023.46
 INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('ETH',2816.46,'Ethereum','2021-08-05 16:08:05');
 INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('DOGE',000.20,'Dogecoin','2021-08-05 16:09:55');
 
+INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'What adaptations make fungi such effective decomposers?', 4, '2011-01-12 12:12:12', '2021-08-08 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (9, 'What does it mean for a molecule to have chirality?', 5, '2012-04-21 12:12:12', '2012-05-21 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'Who invented the first microscope?', 12, '2015-07-08 12:12:12', '2015-08-08 12:12:12');
@@ -278,7 +278,7 @@ INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'What is the chemical formula for photosynthesis', 5, '2020-06-30 12:12:12', '2020-07-30 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (2, 'When was the earliest known use of toilet paper and how do we come to know the use of it today?', 1, '2020-07-05 12:12:12', '2020-08-05 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (4, 'How does Auxin play a role in plant growth and development?', 4, '2020-08-06 12:12:12', '2020-08-06 12:12:12');
-INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'What adaptations make fungi such effective decomposers?', 4, '2011-01-12 12:12:12', '2021-08-08 12:12:12');
+
 
 INSERT INTO Questions (UserId,Description,Category,TimeUntilClose,postTime) VALUES (8,'quis urna. Nunc quis arcu',11,'2021-01-15 19:08:05','2021-01-17 20:22:10');
 INSERT INTO Questions (UserId,Description,Category,TimeUntilClose,postTime) VALUES (10,'pharetra. Quisque ac libero nec ligula',5,'2021-11-05 21:50:43','2022-05-11 17:50:17');
