@@ -181,10 +181,45 @@
                         <div class="d-flex flex-column"> <span class="followers coins" id="eth">Etherum <img src="Resources/eth.png" align="right" width="22" height="22"></span> <span class="number2">"<%=String.valueOf(session.getAttribute("Ethamo"))%>"</span> </div>
                         <div class="d-flex flex-column"> <span class="rating coins" id="dogecoin">Dogecoin <img src="Resources/doge.png" align="right" width="22" height="22"> </span> <span class="number3">"<%=String.valueOf(session.getAttribute("Dogeamo"))%>"</span> </div>
                     </div>
+                    <div class="flex-row pt-2">
+                        <div class="col text-center">
+                            <a href="validateLogout.jsp" class="btn btn-info" role="button">Log Out</a>
+                        </div>
+                    </div>
                  
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="LogButton" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign into BrainYard</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- <p>This is where our sign in code/status will go.</p> -->
+                    
+                    <div class="container-md">
+                        <object type="text/html" data="./authorizationavi.jsp" width="450px" height="500px"
+                            style="overflow:auto;">
+                        </object>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button onClick="window.location.reload();" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 
