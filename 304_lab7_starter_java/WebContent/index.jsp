@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 <%@ include file="SessionLoggedCheck.jsp" %>
-
+<%@ include file="loaddata.jsp" %>
 
 <!doctype html>
 <html lang="en">
@@ -43,9 +43,9 @@
                 <a class="nav-link" href="./index.jsp">Home <span class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="./loaddata.jsp">Load Data</a>
-            </li>
+            </li> -->
 
             <li class="nav-item dropdown">
                 

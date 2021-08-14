@@ -78,13 +78,14 @@
 				
 
 		        } else {
-			    session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
+			    	session.setAttribute("loginMessage","Could not connect to the system using that username/password.");
                 }
 		
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
 					
 		} 
 		catch (SQLException ex) {
+			session.setAttribute("loginMessage","SQL Error, try loading the Database.");
 			out.println(ex);
 		}
 
