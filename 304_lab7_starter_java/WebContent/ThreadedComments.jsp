@@ -154,8 +154,13 @@
     String QuestionID;
     //String Description;
     String AverageRating;
+    String UserName;
+    
 
-    sql="SELECT Answers.AnsId AS AnswerID, QID AS QuestionID, Description, AVG(Score) AS Rating FROM Answers,Ratings WHERE Answers.AnsId=Ratings.AnsId AND QID=? GROUP BY Answers.Ansid, QId, Description ORDER BY Rating DESC";
+    sql="SELECT Answers.AnsId AS AnswerID, BUser.UserId, UserName, Description, AVG(Score) AS Rating, Answers.PTime AS TimePosted
+    FROM BUser, Answers, Ratings
+    WHERE BUser.UserId=Answers.userId AND Answers.AnsId=Ratings.AnsId AND QId=?
+    GROUP BY Answers.AnsId, UserId, UserName, Description ORDER BY Rating DESC";
 
     try 
     {	// Load driver class
@@ -174,28 +179,31 @@
     
         while (rst.next()) {
             AnswerID = String.valueOf(rst.getInt(1));
-            QuestionID = String.valueOf(rst.getInt(2));
-            Description = String.valueOf(rst.getString(3));
-            AverageRating = String.valueOf(rst.getInt(4));
+            UserId=String.valueOf(rst.getInt(2));
+            UserName=String.valueOf(rst.getString(3));
+            Description = String.valueOf(rst.getString(4));
+            AverageRating = String.valueOf(rst.getInt(5));
+            TimePosted=String.valueOf(rst.getString(6));
             
             out.println("<li class='timeline-comment'>");
             out.println("    <div class='timeline-comment-wrapper'>");
             out.println("        <div class='card'>");
             out.println("            <div class='card-header d-flex align-items-center'>");
             out.println("                <a href='#' class='d-flex align-items-center'>");
-            out.println("                    <img class='rounded-circle' src='Avatars/1.png' alt='avatar' />");
-            out.println("                    <h5>AnswerUser</h5>");
+            out.println("                    <img class='rounded-circle' src='Avatars/" + UserId + ".png' alt='avatar' />");
+            out.println("                    <h5>"+ UserName +"</h5>");
             out.println("                </a>");
-            //out.println("                <div class='comment-date' data-toggle='tooltip' title=" + TimePosted + " data-placement='top'  data-original-title=" + TimePosted + ">" + TimePosted + " </div>");
+            out.println("                <div class='comment-date' data-toggle='tooltip' title=" + TimePosted + " data-placement='top'  data-original-title=" + TimePosted + ">" + TimePosted + " </div>");
             out.println("            </div>");
             out.println("            <div class='card-body'>");
             out.println("                <p class='card-text'>");
             out.println(                    Description);
             out.println("                </p>");
             out.println("            </div>");
-            //out.println("            <div class='card-footer bg-white p-2'>");
+            out.println("            <div class='card-footer bg-white p-2'>");
             //out.println("                <button type='button' class='btn btn-secondary btn-sm'>Reply</button>");
-            //out.println("            </div>");
+            out.println("                <small class='text-muted ml-2'> Average Rating: " + AverageRating + "</small>");
+            out.println("            </div>");
             out.println("        </div>");
             out.println("    </div>");
             out.println("</li>");
