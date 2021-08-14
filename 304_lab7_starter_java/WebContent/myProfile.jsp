@@ -127,7 +127,7 @@
         	out.println(ex); 
     }
 
-    String SQL3="SELECT UserName, (COUNT(DISTINCT Qid)*UStatus.BitX) AS BitAmo, (COUNT(DISTINCT Qid)*UStatus.EthX) AS EthAmo, (COUNT(DISTINCT Qid)*UStatus.DogX) AS DogeAmo FROM BUser,UStatus,CorAnswers WHERE BUser.UserStatus=UStatus.StatId AND BUser.UserId=CorAnswers.userId AND BUser.UserName=? GROUP BY UserName,UStatus.BitX, UStatus.EthX, UStatus.DogX";
+    String SQL3="SELECT UserName, (COUNT(DISTINCT Qid)*UStatus.BitX) AS BitAmo, (COUNT(DISTINCT Qid)*UStatus.EthX) AS EthAmo, (COUNT(DISTINCT Qid)*UStatus.DogX) AS DogeAmo, AVG(Avgscore) AS userAvg FROM BUser,UStatus,CorAnswers WHERE BUser.UserStatus=UStatus.StatId AND BUser.UserId=CorAnswers.userId AND BUser.UserName=? GROUP BY UserName,UStatus.BitX, UStatus.EthX, UStatus.DogX";
     try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL3);) {
         String usname=(String)session.getAttribute("authenticatedUser");
         ps.setString(1,usname);
@@ -137,10 +137,12 @@
         String Bitamo=rest.getString(2);
         String Ethamo=rest.getString(3);
         String Dogeamo=rest.getString(4);
+        Float userAvg=rest.getFloat(5);
 
         session.setAttribute("Bitamo", Bitamo);
         session.setAttribute("Ethamo", Ethamo);
         session.setAttribute("Dogeamo", Dogeamo);
+        session.setAttribute("userAvg",userAvg);
     }
     catch(SQLException ex){
         out.println(ex);
@@ -158,9 +160,9 @@
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("userId")%></h4> <span>User ID</span>
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("University")%></h4> <span>School</span>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                        <div class="d-flex flex-column"> <span class="articles">Questions</span> <span class="number1"> <%= session.getAttribute("numQuestions")%> </span> </div>
-                        <div class="d-flex flex-column"> <span class="followers">Answers</span> <span class="number2"><%= session.getAttribute("numAns") %></span> </div>
-                        <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
+                        <div class="d-flex flex-column"> <span class="articles">Questions  </span> <span class="number1"> <%= session.getAttribute("numQuestions")%> </span> </div>
+                        <div class="d-flex flex-column"> <span class="followers">Answers  </span> <span class="number2"><%= session.getAttribute("numAns")%></span> </div>
+                        <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3"><%= session.getAttribute("userAvg")%><</span> </div>
                     </div>
                     <div class="button mt-2 d-flex flex-row align-items-center"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Ask a question</button></form>  </div>
                     <div class="button mt-2 d-flex flex-row align-items-center"> <form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Add<h2>$$$</h2>Wallet</button></form>  </div>
