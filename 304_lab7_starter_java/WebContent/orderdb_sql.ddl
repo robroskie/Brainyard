@@ -40,11 +40,10 @@ CREATE TABLE Categories(
 );
 
 CREATE TABLE Answers(
-    
     AnsId INTEGER NOT NULL IDENTITY,
     userId INTEGER,
     PTime DATETIME,
-    Category INTEGER,
+    Category INTEGER DEFAULT 0,
     QId INTEGER,
     Description NVARCHAR(2500),
     PRIMARY KEY (AnsId),

@@ -118,9 +118,9 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
     out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>Closing Date</th><th>Time Posted</th><th>Time Remaining</th><th>Expired</th></tr></thead><tbody>");
 
     while (rst.next()) {
-        //int tempQid=rst.getInt(1);
+        int tempQid = rst.getInt(1);
     
-        out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td><td>"+rst.getString(7)+"<form action=\"./addAnswer.jsp\" method=\"post\"><td><button id=\"button\" class="+rst.getString(8)+" type=\"submit\" name=\"selectedQid\" value=\""+rst.getInt(1)+"\"><small>Answer me!</small></td></form> </tr>");
+        out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td><td>"+rst.getString(7)+"<form action=\"./addAnswer.jsp\" method=\"post\"><td><button id=\"button\" class="+rst.getString(8)+" type=\"submit\" name=\"QId\" value=\""+rst.getInt(1)+"\"><small>Answer me!</small></td></form> </tr>");
 
     }
     
