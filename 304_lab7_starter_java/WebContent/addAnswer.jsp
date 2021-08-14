@@ -3,6 +3,7 @@
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.Date" %>
+<%@ include file="LoginFilter.jsp" %>
 
 <!doctype html>
 <html lang="en">

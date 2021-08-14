@@ -157,7 +157,7 @@ INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, 
 INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('jacobharding@sfu.com', 'Chemisty', 3, 'Simon-Fraser-University', 'JakeRakes', 'rakesincash', 4.0, 9, '2', 'jake.harding@yahoo.ca', null, 'Avatars/9.png');
 INSERT BUser(StudentEmail, Faculty, UserStatus, University, UserName, Password, GPA, UserId, CurrentYear, PreferredEmail, CorAnsTot, profilepic) VALUES ('junekang@tru.ca', 'Data-Science', 5, 'Trinity-Western-University', 'KINGKang', 'Jun-21', 3.2, 10, '3', 'jkang@hotmail.com', null, 'Avatars/10.png');
 
-
+INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (0,'null','null',0);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (1,'Anthropology','Arts and Science',2);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (2,'Applied Science','Applied Sciences',5);
 INSERT Categories(CategoryID, subjTitle, Faculty, Difficulty) VALUES (3,'Art History','Creative and Critical Studies',3);
