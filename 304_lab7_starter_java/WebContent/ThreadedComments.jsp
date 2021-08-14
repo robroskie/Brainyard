@@ -89,7 +89,7 @@
     String pw = "YourStrong@Passw0rd";
 
 
-    int QId =  Integer.parseInt(request.getParameter("QId"));;
+    int QId =  Integer.parseInt(request.getParameter("QId"));
     String UserId;
     String Description;
     String Category;
