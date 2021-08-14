@@ -1,11 +1,5 @@
-<%@ page import="java.sql.*,java.net.URLEncoder" %>
-<%@ page import="java.text.NumberFormat" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <%@ page import="java.sql.*" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.Date" %>
+<%@ include file="LoginFilter.jsp" %>
 
 <!doctype html>
 <html lang="en">
@@ -17,7 +11,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Login Page!</title>
+    <title>BrainYard: Main Page</title>
 
     <link rel="stylesheet" href="./standard.css">
     <!-- Optional JavaScript -->
@@ -35,7 +29,7 @@
         crossorigin="anonymous"></script>
 </head>
 
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a href="index.jsp" class="navbar-left"><img src="./Resources/BrainYardLogo.png" width="50 px" style="border-radius: 90%;"></a>
 
@@ -56,24 +50,29 @@
             </li>
 
             <li class="nav-item dropdown">
+                
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Queries
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./listAllQuestions.jsp">Browse Questions</a>
                     <a class="dropdown-item" href="./listAllQuestionsByCategory.jsp">Browse Questions by Category</a>
                     <a class="dropdown-item" href="./addQuestion.jsp">Submit A Question</a>
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
-                    <a class="dropdown-item" href="./myProfile.jsp">myBrain</a>
+                    <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
+            
                 </div>
             </li>
         </ul>
+
         <a href="index.jsp" class="navbar-right"><img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" width="50 px" style="border-radius: 90%;"></a>
-        
+
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
-            data-target="#LogButton">"<%=String.valueOf(session.getAttribute("authenticatedUser"))%>"</button>
+            data-target="#LogButton"> <%= session.getAttribute("loginbutton") %>
+        </button>
         
     </div>
 </nav>
