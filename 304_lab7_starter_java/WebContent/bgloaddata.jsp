@@ -95,11 +95,8 @@ String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
 
-// Check if the data has already been loaded.
-if(String.valueOf(session.getAttribute("dataloaded")) != "true") {
-    
-
 out.print("<h1>Connecting to database.</h1><br><br>");
+
 Connection con = DriverManager.getConnection(url, uid, pw);
         
 String fileName = "/usr/local/tomcat/webapps/shop/orderdb_sql.ddl";
@@ -121,7 +118,6 @@ try
         try
         {
             stmt.execute(command);
-            session.setAttribute("dataloaded", true);
         }
         catch (Exception e)
         {	// Keep running on exception.  This is mostly for DROP TABLE if table does not exist.
@@ -129,6 +125,7 @@ try
         }
     }	 
     scanner.close();
+    
     out.print("<br><br><h1>Database loaded.</h1>");
     con.close();
 }
@@ -167,6 +164,7 @@ catch (Exception e)
         java.sql.Date date=new java.sql.Date(millis); 
 
         stmt.executeUpdate(SQL5);
+
         stmt2.executeUpdate(SQL6);
         stmt3.executeUpdate(SQL7);
         stmt4.executeUpdate(SQL8);
@@ -179,9 +177,6 @@ catch (Exception e)
         	out.println(ex); 
     }
 
-    } else {
-        out.print("<h1>Data already loaded.</h1><br><br>");
-    }
  %> 
 
 
