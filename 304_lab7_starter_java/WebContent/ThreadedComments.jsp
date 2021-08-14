@@ -143,14 +143,12 @@
         out.println("            </div>");
         out.println("        </div>");
         out.println("    </div>");
-        out.println("</li>");
     } catch (SQLException ex) { 	
         out.println(ex); 
     }
     %>
 
-
-
+    <ul class='timeline-comments'>  
     <%
     String AnswerID;
     String QuestionID;
@@ -195,9 +193,9 @@
             out.println(                    Description);
             out.println("                </p>");
             out.println("            </div>");
-            out.println("            <div class='card-footer bg-white p-2'>");
-            out.println("                <button type='button' class='btn btn-secondary btn-sm'>Reply</button>");
-            out.println("            </div>");
+            //out.println("            <div class='card-footer bg-white p-2'>");
+            //out.println("                <button type='button' class='btn btn-secondary btn-sm'>Reply</button>");
+            //out.println("            </div>");
             out.println("        </div>");
             out.println("    </div>");
             out.println("</li>");
@@ -207,7 +205,8 @@
         out.println(ex); 
     }
     %>
-    </ul>
+</li>
+</ul>
 </div>
 
     <!-- Optional JavaScript -->
