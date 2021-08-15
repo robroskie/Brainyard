@@ -193,7 +193,7 @@
 </div>
 
 <%
-    out.println(String.valueOf(session.getAttribute("admin")));
+    //out.println(String.valueOf(session.getAttribute("admin")));
     if(String.valueOf(session.getAttribute("admin")).equals("true")) {
     out.println("<div class='container pt-2 mb-2 d-flex justify-content-center' style='text-align: center; height: 150px;'>");
         out.println("<div class='card'>");
