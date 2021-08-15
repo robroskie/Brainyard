@@ -105,7 +105,7 @@
     
 <body>
     <div class="container pt-2 d-flex justify-content-center">
-        <div class="card p-3">
+        <div class="card p-3" >
             <div class="d-flex align-items-center">
                 <div class="image"> <img style="width: 150px; border-radius: 50%;" src="<%=String.valueOf(session.getAttribute("profilePic"))%>"> </div>
                 <div class="ml-3 w-100">
