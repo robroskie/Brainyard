@@ -77,9 +77,9 @@ CREATE TABLE Transactions (
 );
 
 CREATE TABLE Currency (
-    IndexName VARCHAR(4) PRIMARY KEY NOT NULL,
-    MarketPrice DECIMAL(10,2),
-    coinName CHAR(15),
+    bitprice DECIMAL(10,2),
+    etheprice DECIMAL(10,2),
+    dogeprice DECIMAL(10,2),
     CurTime DATETIME
 );
 
@@ -249,9 +249,8 @@ INSERT Answers(userId, PTime, Category, QId, Description) VALUES (8, '2020-07-25
 
 
 
-INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('BTC',41023.46,'Bitcoin','2021-08-05 16:07:45');
-INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('ETH',2816.46,'Ethereum','2021-08-05 16:08:05');
-INSERT Currency(IndexName, MarketPrice, coinName, CurTime) VALUES('DOGE',000.20,'Dogecoin','2021-08-05 16:09:55');
+INSERT Currency(bitprice, etheprice, dogeprice, CurTime) VALUES(41023.46, 2816.46, 000.20, '2021-08-05 16:07:45');
+
 
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (8, 'What adaptations make fungi such effective decomposers?', 4, '2011-01-12 12:12:12', '2021-08-08 12:12:12');
 INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2021-04-11 12:12:12', '2021-05-11 12:12:12');
