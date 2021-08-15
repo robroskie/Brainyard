@@ -166,7 +166,7 @@
                     </div>
                     </div>
                     <div class="button mt-2 btn-sm" style="text-align: center;"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Ask a question</button></form>  </div>
-                    <div class="button mt-2 btn-sm" style="text-align: center; box-sizing: content-box; "><form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"  style="text-align: center;">Add <h1>$$$</h1>Wallet</button></form> </div>
+                    <div class="button btn-sm" style="text-align: center; box-sizing: content-box; "><form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"  style="text-align: center;">Add <h1>$$$</h1>Wallet</button></form> </div>
                 </div>
             </div>
         </div>
@@ -193,18 +193,17 @@
 </div>
 
 <%
-    out.println(String.valueOf(session.getAttribute("admin")));
+    //out.println(String.valueOf(session.getAttribute("admin")));
     if(String.valueOf(session.getAttribute("admin")).equals("true")) {
-    out.println("<div class='container pt-2 d-flex justify-content-center' style='text-align: center;'>");
+    out.println("<div class='container pt-2 mb-2 d-flex justify-content-center' style='text-align: center;'>");
         out.println("<div class='card'>");
             out.println("<h4 class='mb-0 mt-0' id='balheader'>Admin Portal</h4>");
-
             out.println("<div class='row'>");
                 out.println("<div class='col'>");
-                    out.println("Admin Portal!");
+                    out.println("Show Users!");
                 out.println("</div>");
                 out.println("<div class='col'>");
-                    out.println("Admin Portal!");
+                    out.println("Show Total Users & Operation Fees!");
                 out.println("</div>");
                 out.println("<div class='col'>");
                     out.println("Admin Portal!");
@@ -215,16 +214,16 @@
             out.println("</div>");
             out.println("<div class='row'>");
                 out.println("<div class='col'>");
-                    out.println("Admin Portal!");
+                    out.println("<a href='https://google.com' class='btn btn-primary' style='border-radius: 30px; height: 30px; width: 30px; background: url(Avatars/1.png); background-position:center; background-size: contain;'>+</a>");
                 out.println("</div>");
                 out.println("<div class='col'>");
-                    out.println("Admin Portal!");
+                    out.println("<a href='https://google.com' class='btn btn-primary' style='border-radius: 30px; height: 30px; width: 30px; background: url(Avatars/1.png); background-position:center; background-size: contain;'>+</a>");
                 out.println("</div>");
                 out.println("<div class='col'>");
-                    out.println("Admin Portal!");
+                    out.println("<a href='https://google.com' class='btn btn-primary' style='border-radius: 30px; height: 30px; width: 30px; background: url(Avatars/1.png); background-position:center; background-size: contain;'>+</a>");
                 out.println("</div>");
                 out.println("<div class='col'>");
-                    out.println("Admin Portal!");
+                    out.println("<a href='https://google.com' class='btn btn-primary' style='border-radius: 30px; height: 30px; width: 30px; background: url(Avatars/1.png); background-position:center; background-size: contain;'>+</a>");
                 out.println("</div>");
             out.println("</div>");
         out.println("</div>");
