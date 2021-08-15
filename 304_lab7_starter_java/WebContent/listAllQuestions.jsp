@@ -70,7 +70,6 @@
                         <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                         <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                         <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
-                        <a class="dropdown-item" href="./ThreadedComments.jsp">ThreadedComments</a>
                     </div>
                 </li>
             </ul>

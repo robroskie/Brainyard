@@ -7,6 +7,7 @@
 <html lang="en">
 
 <head>
+    <script src="ThreadedCommentsScript.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -162,8 +163,8 @@
     String UserName;
     
 
-    sql="SELECT Answers.AnsId AS AnswerID, BUser.UserId, UserName, Description, AVG(Score) AS Rating, Answers.PTime AS TimePosted FROM BUser, Answers, Ratings WHERE BUser.UserId=Answers.userId AND Answers.AnsId=Ratings.AnsId AND QId=? GROUP BY Answers.AnsId, BUser.UserId, UserName, Description, Answers.PTime ORDER BY Rating DESC";
-
+    sql="SELECT Answers.AnsId AS AnswerID, BUser.UserId, UserName, Description, AVG(Score) AS Rating, Answers.PTime AS TimePosted, RatingId FROM BUser, Answers, Ratings WHERE BUser.UserId=Answers.userId AND Answers.AnsId=Ratings.AnsId AND QId=? GROUP BY Answers.AnsId, BUser.UserId, UserName, Description, Answers.PTime, RatingId ORDER BY Rating DESC";
+    
     try 
     {	// Load driver class
         Class.forName("com.mysql.jdbc.Driver");
@@ -178,7 +179,7 @@
         ps.setInt(1,QId);
         
         ResultSet rst=ps.executeQuery();
-    
+        
         while (rst.next()) {
             AnswerID = String.valueOf(rst.getInt(1));
             UserId=String.valueOf(rst.getInt(2));
@@ -205,8 +206,10 @@
             out.println("            <div class='card-footer bg-white p-2'>");
             //out.println("                <button type='button' class='btn btn-secondary btn-sm'>Reply</button>");
             out.println("                <small class='text-muted ml-2'> Average Rating: " + AverageRating + "</small>"); 
-
-            out.println("<div class='slidecontainer' style='padding-left: 500px;'>    <small>    Score this question: </small> <input type='range' min='1' max='5' step='1' value='50' class='slider' id='myRange'></div>");
+            
+            out.println("                 <br><small style='padding-left: 20px;' > My rating </small>"); 
+           
+            out.println("<FORM style='padding-left: 20px;'  action='ThreadedCommentsHandler.jsp' method='post' id='form' class='' value=''> <P> <input type='range' name='ratingValue' min='1' max='5' value='1' class='slider' id='myRange'> <INPUT type='submit' name='Send'> </P> </FORM>");
             
             out.println("            </div>");
             out.println("        </div>");

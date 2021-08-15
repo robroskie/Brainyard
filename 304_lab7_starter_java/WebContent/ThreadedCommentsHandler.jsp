@@ -2,7 +2,14 @@
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.Date" %>
+
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.sql.Timestamp" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -46,8 +53,6 @@
                 <a class="nav-link" href="./index.jsp">Home <span class="sr-only">(current)</span></a>
             </li>
 
-  
-
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -90,58 +95,59 @@
     
 
     // Parse values
+    int userid = (int) session.getAttribute("userId");
+
+    //int ratingValue = (int)session.getAttribute("ratingValue");
+
     String category = request.getParameter("category");
-    String description = request.getParameter("description");
-    int userid = Integer.parseInt(request.getParameter("userid"));
+
+
 
     try 
     {	// Load driver class
         Class.forName("com.mysql.jdbc.Driver");
     }
     catch (java.lang.ClassNotFoundException e) {
-        System.err.println("ClassNotFoundException: " +e);	
+        System.err.println("ClassNotFoundException: " + e);	
     }
 
-    String SQL = "INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (?,?,?,?,?)";
-    String SQL2 = "SELECT CategoryId FROM Categories WHERE subjTitle=?";
+    String SQL = "INSERT Ratings(userId, AnsId, Score, PTime) VALUES (?,?,?,?)";
 
+    String SQL1 = "SELECT EXISTS(SELECT * FROM yourTableName WHERE yourCondition)";
+  
 
-    //INSERT Questions(UserId, Description, Category, TimeUntilClose, postTime) VALUES (1, 'How does a Cas9 protein recognize its complementing genetic target sequence?', 4, '2012-04-11 12:12:12', '2012-05-11 12:12:12');
-
-    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);  PreparedStatement ps2 = con.prepareStatement(SQL2);) {
-        //Get integer value from category string
-
-        
-        long millis=System.currentTimeMillis();  
-        java.sql.Date date=new java.sql.Date(millis); 
+    try ( Connection con = DriverManager.getConnection(url, uid, pw); PreparedStatement ps = con.prepareStatement(SQL);) {
+    
+        LocalDateTime date = LocalDateTime.now();
+        Timestamp timestamp = Timestamp.valueOf(date);
 
         ps.setInt(1, userid);
-   
-        
-        //This value needs to be category mapped from the string value to corresponding int value	
-        ps.setInt(3, 6);
-        ps.setDate(4, date);	
-        ps.setDate(5, date);	
+    
+        ps.setInt(2, 10);
+        ps.setInt(3, 5);
+  
+        ps.setTimestamp(4, timestamp);
+
         int updateQuery = ps.executeUpdate();	
 
-        if(updateQuery != 0)
-            out.println("Successfully updated your question!"); 
+        if(updateQuery != 0){
+            out.println("Successfully added your answer!"); 
+            response.setHeader("Refresh", "2; URL=listAllQuestions.jsp");
+        }
 
 
-        ps2.setString(1,category);
-        int rs2 = ps2.executeUpdate();
+      
+   
         
     }
 
     catch (SQLException ex) { 
-        	//out.println(ex); 
+        	out.println(ex); 
     }
 
     %>
 
-        <!-- Print added question -->
-        <p>Added question from category of:<strong> <%=category%> </strong></p>
-        <p>With question description:<i> <%=description%> </i>.</p>
+
 
     </body>
 </html>
