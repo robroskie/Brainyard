@@ -117,6 +117,8 @@
         }
         
         out.println("</tbody></table>");
+        
+
     }
     catch (SQLException ex) 
     { 	out.println(ex); 
