@@ -59,7 +59,6 @@
                     <a class="dropdown-item" href="./correctAnswers.jsp">Correct Answers</a>
                     <a class="dropdown-item" href="./answerHandler.jsp">List Your Answers</a>
                     <a class="dropdown-item" href="./myProfile.jsp">My Profile</a>
-            
                 </div>
             </li>
         </ul>
@@ -69,7 +68,6 @@
         <button type="button" class="btn btn-info btn-md little-margin-left" data-toggle="modal"
             data-target="#LogButton"> <%= session.getAttribute("loginbutton") %>
         </button>
-        
     </div>
 </nav>
 
@@ -152,10 +150,10 @@
 %>
     
 <body>
-    <div class="container mt-5 d-flex justify-content-center">
+    <div class="container pt-2 d-flex justify-content-center">
         <div class="card p-3">
             <div class="d-flex align-items-center">
-                <div class="image"> <img src="<%=String.valueOf(session.getAttribute("profilePic"))%>" class="rounded" width="155"> </div>
+                <div class="image"> <img style="width: 150px; border-radius: 50%;" src="<%=String.valueOf(session.getAttribute("profilePic"))%>"> </div>
                 <div class="ml-3 w-100">
                     <div class="flex-row pt-2">
                     <h4 class="mb-0 mt-0"><%= session.getAttribute("userId")%></h4> 
@@ -168,12 +166,12 @@
                     </div>
                     </div>
                     <div class="button mt-2 btn-sm" style="text-align: center;"> <form action="addQuestion.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"><span></span>Ask a question</button></form>  </div>
-                    <div class="button mt-2 btn-sm" style="text-align: center;"><form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"  style="text-align: center;">Add <h1>$$$</h1>Wallet</button></form> </div>
+                    <div class="button mt-2 btn-sm" style="text-align: center; box-sizing: content-box; "><form action="checkOUT.jsp" method="post">  <button class="btn btn-sm btn-primary w-100 ml-2"  style="text-align: center;">Add <h1>$$$</h1>Wallet</button></form> </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container2 mt-5 d-flex justify-content-center">
+    <div class="container2 mt-2 d-flex justify-content-center">
         <div class="card p-3">
             <div class="d-flex align-items-center">
                 <div class="w-100">
@@ -192,6 +190,47 @@
             </div>
         </div>
     </div>
+</div>
+
+<%
+    out.println(String.valueOf(session.getAttribute("admin")));
+    if(String.valueOf(session.getAttribute("admin")).equals("true")) {
+    out.println("<div class='container pt-2 d-flex justify-content-center' style='text-align: center;'>");
+        out.println("<div class='card'>");
+            out.println("<h4 class='mb-0 mt-0' id='balheader'>Admin Portal</h4>");
+
+            out.println("<div class='row'>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+            out.println("</div>");
+            out.println("<div class='row'>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+                out.println("<div class='col'>");
+                    out.println("Admin Portal!");
+                out.println("</div>");
+            out.println("</div>");
+        out.println("</div>");
+    out.println("</div>");
+    }
+%>
 
     <!-- Modal -->
     <div id="LogButton" class="modal fade" role="dialog">
@@ -221,7 +260,9 @@
             </div>
         </div>
     </div>
+    
 
+    <% if(session.getAttribute("admin") == "false") {out.println("my name is jeff");} else {} %>
 </body>
 </html>
 

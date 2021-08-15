@@ -83,82 +83,45 @@
             
         </div>
     </nav>
-
-
-
-
-<div class="container pt-3">
-    <h3 style="text-align: center;">Questions that have been posted</h3>
-<% 
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-
-
-String s="Hi";
-
-
-try 
-{	// Load driver class
-	Class.forName("com.mysql.jdbc.Driver");
-}
-catch (java.lang.ClassNotFoundException e) {
-	System.err.println("ClassNotFoundException: " +e);	
-}
-try ( Connection con = DriverManager.getConnection(url, uid, pw);
-      Statement stmt = con.createStatement();) 
-{		
-	// ResultSet rst = stmt.executeQuery("SELECT * FROM Questions ORDER BY TimeUntilClose ASC");		
-    ResultSet rst = stmt.executeQuery("SELECT QId, UserId, Description, Category, TimeUntilClose, postTime, CONCAT(DaysRemaining,   ' Day(s),   <br>    ', HoursRemaining, ' Hour(s) <br>', MinutesRemaining, ' Minute(s) <br> ', SecondsRemaining, ' Second(s)'), Expired FROM Questions ORDER BY TimeUntilClose ASC");	
+    <% 
+    String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+    String uid = "SA";
+    String pw = "YourStrong@Passw0rd";
     
-    out.println("<table class='table'><thead><tr><th>QId</th><th>UserId</th><th>Description</th><th>Category</th><th>Closing Date</th><th>Time Posted</th><th>Time Remaining</th><th> </th></tr></thead><tbody>");
-
-    while (rst.next()) {
-        int tempQid = rst.getInt(1);
     
-        out.println("<tr><td>"+rst.getInt(1)+"</td>"+"<td>"+rst.getInt(2)+"</td>"+"<td>"+rst.getString(3)+"</td>"+"<td>"+rst.getInt(4)+"</td><td>"+rst.getTimestamp(5)+"</td><td>"+rst.getTimestamp(6)+"</td><td>"+rst.getString(7)+"<form action=\"./addAnswer.jsp\" method=\"post\"><td><button id=\"button\" class="+rst.getString(8)+" type=\"submit\" name=\"QId\" value=\""+rst.getInt(1)+"\"><small>Answer me!</small></td></form> " + "<form action=\"./ThreadedComments.jsp\" method=\"post\"><td><button id=\"button2\" class="+rst.getString(8)+" type=\"submit\" name=\"QId\" value=\""+rst.getInt(1)+"\"><small>See Answers</small></td>  </form>   </tr>");
+    
+    
+    
+    try 
+    {	// Load driver class
+        Class.forName("com.mysql.jdbc.Driver");
+    }
+    catch (java.lang.ClassNotFoundException e) {
+        System.err.println("ClassNotFoundException: " +e);	
+    }
+    try ( Connection con = DriverManager.getConnection(url, uid, pw);
+          Statement stmt = con.createStatement();) 
+    {		
+        String SQL3="SELECT UserName, (COUNT(DISTINCT Qid)*UStatus.BitX*Currency.bitprice) AS BitAmo, (COUNT(DISTINCT Qid)*UStatus.EthX*Currency.etheprice) AS EthAmo, (COUNT(DISTINCT Qid)*UStatus.DogX*Currency.dogeprice) AS DogeAmo, ROUND(AVG(Avgscore),2) AS userAvg FROM BUser,UStatus,CorAnswers,Currency WHERE BUser.UserStatus=UStatus.StatId AND BUser.UserId=CorAnswers.userId GROUP BY UserName, Currency.dogeprice, Currency.bitprice,Currency.etheprice,UStatus.BitX, UStatus.EthX, UStatus.DogX";
+
+        ResultSet rst = stmt.executeQuery(SQL3);		
+       
+        
+        out.println("<table class='table'><thead><tr><th>User Name</th><th>BitCoin (CDN)total</th><th>Etherum (CDN)total</th><th>Doge (CDN)total</th><th>Average Rating</th></th></tr></thead><tbody>");
+    
+        while (rst.next()) {
+            
+        
+            out.println("<tr><td>"+rst.getString(1)+"</td>"+"<td>"+rst.getFloat(2)+"</td>"+"<td>"+rst.getFloat(3)+"</td>"+"<td>"+rst.getFloat(4)+"</td>"+"<td>"+rst.getFloat(5)+"</td><td>");
+    
+        }
+        
+        out.println("</tbody></table>");
+        
 
     }
-    
-    out.println("</tbody></table>");
-}
-catch (SQLException ex) 
-{ 	out.println(ex); 
-}
-%>
-</div>
-
-<script src="listallQuestionsScript.js"></script>
-    
-    <!-- Modal -->
-    <div id="LogButton" class="modal fade" role="dialog">
-
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Sign into BrainYard</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <div class="modal-body">
-                    <!-- <p>This is where our sign in code/status will go.</p> -->
-                    
-                    <div class="container-md">
-                        <object type="text/html" data="./authorizationavi.jsp" width="450px" height="600px"
-                            style="overflow:auto;">
-                        </object>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button onClick="window.location.reload();" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
+    catch (SQLException ex) 
+    { 	out.println(ex); 
+    }
+    %>
     </div>
-</body>
-</html>
-
-
