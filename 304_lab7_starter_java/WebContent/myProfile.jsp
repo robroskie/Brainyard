@@ -193,17 +193,17 @@
 </div>
 
 <%
-    //out.println(String.valueOf(session.getAttribute("admin")));
+    out.println(String.valueOf(session.getAttribute("admin")));
     if(String.valueOf(session.getAttribute("admin")).equals("true")) {
-    out.println("<div class='container pt-2 mb-2 d-flex justify-content-center' style='text-align: center;'>");
+    out.println("<div class='container pt-2 mb-2 d-flex justify-content-center' style='text-align: center; height: 200px;'>");
         out.println("<div class='card'>");
             out.println("<h4 class='mb-0 mt-0' id='balheader'>Admin Portal</h4>");
             out.println("<div class='row'>");
                 out.println("<div class='col'>");
-                    out.println("Show Users!");
+                    out.println("Users");
                 out.println("</div>");
                 out.println("<div class='col'>");
-                    out.println("Show Total Users & Operation Fees!");
+                    out.println("Total Users/Fees");
                 out.println("</div>");
                 out.println("<div class='col'>");
                     out.println("Admin Portal!");
